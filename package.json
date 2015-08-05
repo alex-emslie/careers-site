@@ -18,6 +18,7 @@
     "gulp-svgstore": "^5.0.4",
     "gulp-util": "^3.0.6",
     "node-bourbon": "^4.2.3",
-    "node-neat": "^1.7.2"
+    "node-neat": "^1.7.2",
+    "marketing-site-assets": "^1.0.0"
   }
 }

@@ -6,6 +6,11 @@ var gulp = require('gulp'),
 	svgstore = require('gulp-svgstore'),
 	svgmin = require('gulp-svgmin'),
 	concat = require('gulp-concat'),
+	argv = require('yargs').argv,
+	git = require('gulp-git'),
+	runSequence = require('run-sequence'),
+	devRemoteName = "dev",
+	prodRemoteName = "production"
 	paths = {
 		coffee: ['./src/coffee/**/*.coffee', './node_modules/marketing-site-assets/coffee/**/*.coffee'],
 		vendor: ['./src/vendor/**/*.js', './node_modules/marketing-site-assets/vendor/**/*.js'],
@@ -55,3 +60,27 @@ gulp.task('watch', function(){
 	gulp.watch(paths.imgs, ['imagemin']);
 	gulp.watch(paths.vendor, ['vendor']);
 })
+
+gulp.task('default', ['watch'])
+
+gulp.task('build', ['sass', 'coffee', 'imagemin', 'svgstore', 'vendor']);
+
+gulp.task('push_prod', function(){
+	git.push(prodRemoteName, 'master', function(err){
+		if (err) throw err;
+	});
+});
+
+gulp.task('push_dev', function(){
+	git.push(devRemoteName, 'master', {args: ' -f'}, function(err){
+		if (err) throw err;
+	});
+});
+
+gulp.task('deploy', function(){
+	if(argv.production){
+		runSequence('build', 'push_prod');
+	} else {
+		runSequence('build', 'push_dev');
+	}
+});

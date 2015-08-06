@@ -9,19 +9,19 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "chalk": "^1.1.0",
     "gulp": "^3.9.0",
     "gulp-coffee": "^2.3.1",
     "gulp-concat": "^2.6.0",
     "gulp-git": "^1.2.4",
     "gulp-imagemin": "^2.3.0",
+    "gulp-plumber": "^1.0.1",
     "gulp-sass": "^2.0.4",
     "gulp-svgmin": "^1.2.0",
     "gulp-svgstore": "^5.0.4",
     "gulp-util": "^3.0.6",
-    "gulp-watch": "^4.3.4",
+    "gulp-watch": "4.2.5",
     "marketing-site-assets": "^1.0.0",
-    "node-bourbon": "^4.2.3",
-    "node-neat": "^1.7.2",
     "run-sequence": "^1.1.2",
     "yargs": "^3.17.1"
   }

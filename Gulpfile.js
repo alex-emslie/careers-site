@@ -8,19 +8,26 @@ var gulp = require('gulp'),
 	concat = require('gulp-concat'),
 	argv = require('yargs').argv,
 	git = require('gulp-git'),
+	watch = require('gulp-watch'),
 	runSequence = require('run-sequence'),
-	devRemoteName = "dev",
-	prodRemoteName = "production"
+	plumber = require('gulp-plumber'),
+	chalk = require('chalk')
+	devRemoteName = 'dev',
+	prodRemoteName = 'production'
 	paths = {
 		coffee: ['./src/coffee/**/*.coffee', './node_modules/marketing-site-assets/coffee/**/*.coffee'],
 		vendor: ['./src/vendor/**/*.js', './node_modules/marketing-site-assets/vendor/**/*.js'],
 		svgs:   ['./src/svgs/**/*.svg', './node_modules/marketing-site-assets/svgs/**/*.svg'],
 		imgs:   ['./src/imgs/**/*', './node_modules/marketing-site-assets/imgs/**/*'],
 		sass:   ['./src/sass/**/*.sass']
+	},
+	onError = function(err){
+		console.log(chalk.red(err.message));
 	}
 
 gulp.task('sass', function(){
 	return gulp.src(paths.sass)
+		.pipe(plumber({errorHandler: onError}))
 		.pipe(sass({
 			includePaths: require('marketing-site-assets').includePaths
 			}).on('error', sass.logError))
@@ -54,12 +61,22 @@ gulp.task('vendor', function(){
 });
 
 gulp.task('watch', function(){
-	gulp.watch(paths.sass, ['sass']);
-	gulp.watch(paths.coffee, ['coffee', 'vendor']);
-	gulp.watch(paths.svgs, ['svgstore']);
-	gulp.watch(paths.imgs, ['imagemin']);
-	gulp.watch(paths.vendor, ['vendor']);
-})
+	watch(paths.sass, function(event){
+		gulp.start('sass');
+	});
+	watch(paths.coffee, function(event){
+		gulp.start('coffee');
+	});
+	watch(paths.svgs, function(event){
+		gulp.start('svgstore');
+	});
+	watch(paths.imgs, function(event){
+		gulp.start('imagemin');
+	});
+	watch(paths.vendor, function(event){
+		gulp.start('vendor');
+	});
+});
 
 gulp.task('default', ['watch'])
 

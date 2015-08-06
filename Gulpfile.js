@@ -5,15 +5,14 @@ var gulp = require('gulp'),
 	imagemin = require('gulp-imagemin'),
 	svgstore = require('gulp-svgstore'),
 	svgmin = require('gulp-svgmin'),
-	concat = require('gulp-concat');
-
-var paths = {
-	coffee: ['./src/coffee/**/*.coffee', './node_modules/marketing-site-assets/coffee/**/*.coffee'],
-	vendor: ['./src/vendor/**/*.js', './node_modules/marketing-site-assets/vendor/**/*.js'],
-	svgs:   ['./src/svgs/**/*.svg', './node_modules/marketing-site-assets/svgs/**/*.svg'],
-	imgs:   ['./src/imgs/**/*', './node_modules/marketing-site-assets/imgs/**/*'],
-	sass:   ['./src/sass/**/*.sass']
-}
+	concat = require('gulp-concat'),
+	paths = {
+		coffee: ['./src/coffee/**/*.coffee', './node_modules/marketing-site-assets/coffee/**/*.coffee'],
+		vendor: ['./src/vendor/**/*.js', './node_modules/marketing-site-assets/vendor/**/*.js'],
+		svgs:   ['./src/svgs/**/*.svg', './node_modules/marketing-site-assets/svgs/**/*.svg'],
+		imgs:   ['./src/imgs/**/*', './node_modules/marketing-site-assets/imgs/**/*'],
+		sass:   ['./src/sass/**/*.sass']
+	}
 
 gulp.task('sass', function(){
 	return gulp.src(paths.sass)
@@ -48,3 +47,11 @@ gulp.task('vendor', function(){
 		.pipe(concat('vendor.js'))
 		.pipe(gulp.dest('./public/js'));
 });
+
+gulp.task('watch', function(){
+	gulp.watch(paths.sass, ['sass']);
+	gulp.watch(paths.coffee, ['coffee', 'vendor']);
+	gulp.watch(paths.svgs, ['svgstore']);
+	gulp.watch(paths.imgs, ['imagemin']);
+	gulp.watch(paths.vendor, ['vendor']);
+})

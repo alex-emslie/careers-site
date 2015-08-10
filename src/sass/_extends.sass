@@ -1,0 +1,98 @@
+///// HELPERS /////
+
+%allcaps
+  text-transform: uppercase
+
+%smallpoint
+  font-size: em($small-point-size)
+  line-height: $small-point-line/$small-point-size
+
+%smallestpoint
+  font-size: em($smallest-point-size)
+
+%interactable-color
+  color: $green
+  &:hover
+    color: $blue
+  &:active
+    color: $light-gray
+
+%color-transition
+  @include transition(color 0.2s ease-in-out)
+
+%nav-links
+  a
+    @extend %color-transition
+    display: block
+    font-size: em(16)
+    color: $light-gray
+    text-decoration: none
+    &:hover
+      color: $white
+    &.active
+      color: $light-blue
+///// HEADINGS /////
+
+%headings-shared
+  font-weight: normal
+  margin: 0
+
+%thin-headline
+  font-family: $thin-font
+
+%bold-headline
+  font-family: $bold-font
+
+%headings-1
+  @extend %headings-shared
+  @extend %thin-headline
+  font-size: em($heading_1)
+  line-height: $heading_1_line/$heading_1
+  margin-bottom: em(34, $heading_1)
+  letter-spacing: -1px
+
+
+%headings-2
+  @extend %headings-shared
+  @extend %thin-headline
+  font-size: em($heading_2)
+  line-height: $heading_2_line/$heading_2
+  margin-bottom: em(20, $heading_2)
+  @include media(min-width $mobile)
+    margin-bottom: em(34, $heading_2)
+
+
+%headings-3
+  @extend %headings-shared
+  @extend %bold-headline
+  font-size: em($heading_3)
+  line-height: $heading_3_line/$heading_3
+  margin-bottom: em(5, $heading_3)
+
+%headings-4
+  @extend %headings-shared
+  @extend %bold-headline
+  font-size: em($heading_4)
+  line-height: $heading_4_line/$heading_4
+  margin-bottom: em(5, $heading_4)
+
+%headings-5
+  @extend %headings-shared
+  font-size: em($heading_5)
+  line-height: $heading_5_line/$heading_5
+
+%headings-6
+  @extend %headings-shared
+  font-size: em($heading_6)
+
+%label
+  @extend %allcaps
+  color: $light-gray
+
+///// PARAGRAPHS /////
+
+%paragraphs
+  margin: 0 0 em(5, $primary-font-size) 0
+  line-height: $primary-line-height/$primary-font-size
+  &.small
+    @extend %smallpoint

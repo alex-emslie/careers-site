@@ -1,0 +1,78 @@
+@import "typography/mixins"
+@import "typography/extends"
+
+// Font rules
+// -----------------------------------------------------------------------
+
+@include font-face("aauxnext-light", "/fonts/positype_-_aauxnext-light-webfont")
+@include font-face("aauxnext-bold", "/fonts/positype_-_aauxnext-bold-webfont")
+@include font-face("aauxnext-thin", "/fonts/positype_-_aauxnext-thin-webfont")
+@include font-face("aauxnext-regular", "/fonts/positype_-_aauxnext-regular-webfont")
+
+html
+  font: em($primary-font-size, 16) $primary-font-family
+  line-height: $primary-line-height/$primary-font-size
+  -webkit-font-smoothing: antialiased
+  font-smoothing: antialiased
+  color: $primary-text
+  -moz-hyphens: none
+  -ms-hyphens: none
+  -webkit-hyphens: none
+  hyphens: none
+  word-break: break-word
+
+
+// Heading CSS rules
+// -----------------------------------------------------------------------
+
+
+h1, .h1
+  @extend %headings-1
+
+h2, .h2
+  @extend %headings-2
+
+h3, .h3
+  @extend %headings-3
+
+h4, .h4
+  @extend %headings-4
+
+h5, .h5
+  @extend %headings-5
+
+h6, .h6
+  @extend %headings-6
+
+// Block Elements
+// -----------------------------------------------------------------------
+
+p
+  @extend %paragraphs
+
+.label
+  @extend %label
+  text-align: center
+
+span.bold
+  font-weight: bold
+
+// Links
+// -----------------------------------------------------------------------
+
+a
+  @extend %interactable-color
+  text-decoration: none
+  // &:link {
+  //  color: $href-color;
+  //  text-decoration: none;
+  // }
+  // &:hover, &:active {
+  //  text-decoration: underline;
+  // }
+  // &:visited {
+  //  color: $href-color;
+  // }
+
+svg:not(:root)
+  overflow: hidden

@@ -2,32 +2,56 @@
 @import "config"
 @import "neat"
 
+@import "extends"
+@import "mixins"
+
 body
 	overflow-x: hidden
+	background-color: #f5f7f7
 
 .off-canvas
 	overflow: hidden
 	position: absolute
-	background: red
+	background: #1f2326
 	width: 300px
 	margin: 0 -300px 0 0
 	right: 0
 	height: 100vh
 	padding: 0
-	@include transition(margin-right 0.25s ease-in-out)
+	z-index: 100
+	@include transition(margin-right 0.15s ease-in-out)
 	&.active
 		margin: 0
-
-#container
-	width: 100%
+	li
+		color: $white
+		cursor: pointer
+		text-transform: uppercase
+		list-style: none
+		&.close
+			font-size: 28px
+			padding: 20px 20px 0
+.overlay
+	background: #000
+	opacity: 0
+	position: absolute
+	top: 0
+	bottom: 0
+	right: 0
+	left: 0
+	z-index: 50
+	visibility: hidden
+	@include transition(all 0.15s ease-in-out)
+	&.active
+		opacity: 0.8
+		visibility: visible
 
 nav
 	background: rgba(31,35,38,0.8)
 	height: 70px
-	transition: all 0.15s ease-in-out
 	width: 100%
 	position: fixed
 	top: 0
+	z-index: 1000
 	ul
 		margin: 0
 		li
@@ -35,12 +59,23 @@ nav
 			color: $white
 		&.anchor
 			float: left
+			padding: 12px
+			.logo
+				top: 9px
+				position: relative
+				padding-right: 10px
+				svg
+					height: 30px
+					fill: $white
+					width: 120px
 			.title
-				padding: 27px 15px 19px
+				border-left: 1px solid $white
+				padding-left: 12px
+				height: 18px
 		&.main-nav
 			float: right
 			display: none
-			@include media(min-width $mobile)
+			@include media(min-width $tablet)
 				display: block
 			li
 				padding: 27px 15px 19px
@@ -48,6 +83,52 @@ nav
 			float: right
 			margin: 0
 			li
-				padding: 19px 24px 8px 0
+				margin: 19px 24px 8px 0
 				font-size: 28px
+				cursor: pointer
+
+.hero
+	background: url(../imgs/careers-hero.jpg)
+	background-size: cover
+	height: 550px
+	position: relative
+	@include media(min-width $mobile)
+		height: 800px
+	.copy
+		position: absolute
+		bottom: 30px
+		color: $white
+		@include media(min-width $mobile)
+			@include span-columns(6)
+			bottom: 80px
+		h1
+			@include media(min-width $mobile)
+				font-size: 68px
+			@include media(min-width $tablet)
+				font-size: 72px
+
+.columns
+	.one-quarter
+		@include background-theme("dark", true, $angle: 45deg)
+		position: relative
+		.tile
+		img
+			padding: 25%
+		.title
+			position: absolute
+			bottom: 50px
+			width: 100%
+		h3
+			text-align: center
+	&.teams
+		.one-quarter
+			.tile			
+				@include display(flex)
+				@include justify-content(center)
+				@include align-items(center)
+				height: 100%
+				width: 100%
+
+
+
 

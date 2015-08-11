@@ -20,38 +20,51 @@
 </head>
 
 <body>
-	<ul class="off-canvas">
+	<div class="off-canvas">
 		<li class="close">X</li>
-		<li>appdirect.com</li>
-		<li>Benefts</li>
-		<li>Developers</li>
-		<li>Resources</li>
-		<li>Video Center</li>
-		<li>Blog</li>
-		<li>About Us</li>
-	</ul>
+		<ul class="top-level">
+			<li>appdirect.com</li>
+			<li>Benefts</li>
+			<li>Developers</li>
+			<li>Resources</li>
+			<li>Video Center</li>
+			<li>Blog</li>
+			<li>About Us</li>
+		</ul>
+	</div>
+	<div class="overlay"></div>
 	<div id="container">
 		<nav>
-			<ul class="anchor">
-				<li class="logo"></li>
-				<li class="title">Careers</li>
-			</ul>
-			<ul class="nav-toggle">
-				<li class="burger">☰</li>
-			</ul>
-			<ul class="main-nav">
-				<li>What We Do</li>
-				<li>Core Values</li>
-				<li>Teams</li>
-				<li>Perks</li>
-				<li>Locations</li>
-				<li>Job Openings</li>
-			</ul>
-
+			<div class="container">
+				<ul class="anchor">
+					 <li class="logo">
+	          <a href="/">
+	            <svg class="shape">
+	              <use xlink:href="#shape-ad-logo"></use>
+	            </svg>
+	          </a>
+	        </li>
+					<li class="title">Careers</li>
+				</ul>
+				<ul class="nav-toggle">
+					<li class="burger">☰</li>
+				</ul>
+				<ul class="main-nav">
+					<li>What We Do</li>
+					<li>Core Values</li>
+					<li>Teams</li>
+					<li>Perks</li>
+					<li>Locations</li>
+					<li>Job Openings</li>
+				</ul>
+			</div>
 		</nav>
 
-		<main class="container" role="main">
-
+		<main role="main">
+			{% block content %}
+				<p>If you see me, you haven’t set your <code>{% verbatim %}{% block content %}…{% endblock %}{% endverbatim %}</code> yet.</p>
+				<p>See Twig’s <a href="http://twig.sensiolabs.org/doc/templates.html#template-inheritance">Template Inheritance</a> documentation for an explanation.</p>
+			{% endblock %}
 		</main>
 
 		<footer id="footer">

@@ -1,13 +1,23 @@
+main
+  position: relative
+  z-index: 1
+  background-color: #f5f7f7
+
 .container
   @include outer-container(1600px)
   @include clearfix()
   padding: 0 30px
   @include media(min-width $tablet)
     padding: 0 80px
-section
-  padding: 30px 0 0
-  @include media(min-width $tablet)
-    padding: 80px 0 0
+.container-small
+  position: relative;
+  max-width: 980px;
+  margin-left: auto;
+  margin-right: auto;
+// section
+//   padding: 30px 0 0
+//   @include media(min-width $tablet)
+//     padding: 80px 0 0
 
 .hide-mobile
   display: none
@@ -25,6 +35,7 @@ section
       height: 600px
     img
       padding: 0 50px
+      height: 100%
     .copy                  
       position: relative
       padding-top: 30px
@@ -43,4 +54,17 @@ section
     @include media(min-width $mobile)
       @include span-columns(4)
 
+footer
+  position: relative
+  z-index: 2
+  h4
+    color: $white
+  .tri-column
+    @include clearfix()
+    .column
+      @include span-columns(12)
+      @include media(min-width $tablet)
+        @include span-columns(4)
 
+.fixed-footer-bg
+  z-index: 0 !important

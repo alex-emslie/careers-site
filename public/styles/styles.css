@@ -391,6 +391,11 @@ button.light, .button.light {
   text-decoration: none;
   border-radius: 0; }
 
+main {
+  position: relative;
+  z-index: 1;
+  background-color: #f5f7f7; }
+
 .container {
   max-width: 1600px;
   margin-left: auto;
@@ -408,11 +413,11 @@ button.light, .button.light {
     .container {
       padding: 0 80px; } }
 
-section {
-  padding: 30px 0 0; }
-  @media screen and (min-width: 1024px) {
-    section {
-      padding: 80px 0 0; } }
+.container-small {
+  position: relative;
+  max-width: 980px;
+  margin-left: auto;
+  margin-right: auto; }
 
 .hide-mobile {
   display: none; }
@@ -444,7 +449,8 @@ section {
       .columns .one-half:last-child {
         margin-right: 0; } }
   .columns .one-half img {
-    padding: 0 50px; }
+    padding: 0 50px;
+    height: 100%; }
   .columns .one-half .copy {
     position: relative;
     padding-top: 30px; }
@@ -488,6 +494,176 @@ section {
       .columns .one-third:last-child {
         margin-right: 0; } }
 
+footer {
+  position: relative;
+  z-index: 2; }
+  footer h4 {
+    color: #fff; }
+  footer .tri-column::after {
+    clear: both;
+    content: "";
+    display: table; }
+  footer .tri-column .column {
+    float: left;
+    display: block;
+    margin-right: 0%;
+    width: 100%; }
+    footer .tri-column .column:last-child {
+      margin-right: 0; }
+    @media screen and (min-width: 1024px) {
+      footer .tri-column .column {
+        float: left;
+        display: block;
+        margin-right: 0%;
+        width: 33.33333%; }
+        footer .tri-column .column:last-child {
+          margin-right: 0; } }
+
+.fixed-footer-bg {
+  z-index: 0 !important; }
+
+footer {
+  padding: 43px;
+  background-image: none;
+  height: auto; }
+  footer::after {
+    clear: both;
+    content: "";
+    display: table; }
+  @media screen and (min-width: 750px) {
+    footer {
+      padding: 150px; } }
+  @media screen and (min-width: 1024px) {
+    footer {
+      padding: 40px; } }
+  footer .container-small {
+    margin-top: 0; }
+    @media screen and (min-width: 1024px) {
+      footer .container-small {
+        padding-top: 150px;
+        padding-bottom: 90px; } }
+  @media screen and (min-width: 1024px) {
+    footer {
+      padding: 0;
+      background-color: transparent; } }
+  footer .tri-column {
+    background-image: none;
+    background: transparent; }
+    footer .tri-column .column {
+      padding: 30px 0 0; }
+      @media screen and (min-width: 750px) {
+        footer .tri-column .column {
+          padding: 30px 0; } }
+      footer .tri-column .column p.small {
+        margin: 0;
+        top: 0; }
+      footer .tri-column .column p {
+        top: -5px;
+        position: relative; }
+      footer .tri-column .column a {
+        position: relative;
+        top: -5px; }
+    @media screen and (min-width: 1024px) {
+      footer .tri-column {
+        background-color: transparent; }
+        footer .tri-column .column {
+          padding: 56px 0; } }
+  footer .ad-logo {
+    float: left;
+    display: block;
+    margin-right: 0%;
+    width: 100%; }
+    footer .ad-logo:last-child {
+      margin-right: 0; }
+    @media screen and (min-width: 1024px) {
+      footer .ad-logo {
+        float: left;
+        display: block;
+        margin-right: 0%;
+        width: 16.66667%; }
+        footer .ad-logo:last-child {
+          margin-right: 0; } }
+    footer .ad-logo svg {
+      fill: #DFE0E0;
+      width: 7.3125em;
+      height: 3.125em; }
+  footer .content {
+    float: left;
+    display: block;
+    margin-right: 0%;
+    width: 66.66667%; }
+    footer .content:last-child {
+      margin-right: 0; }
+    footer .content ul {
+      float: left;
+      display: block;
+      margin-right: 0%;
+      width: 25%;
+      padding: 0;
+      list-style: none;
+      color: #DFE0E0;
+      margin-top: 10px; }
+      footer .content ul:last-child {
+        margin-right: 0; }
+    footer .content .row {
+      display: block;
+      border-bottom: 1px solid rgba(173, 174, 175, 0.2);
+      padding: 0 0 2.5em; }
+      footer .content .row::after {
+        clear: both;
+        content: "";
+        display: table; }
+      footer .content .row:last-child {
+        border-bottom: 0; }
+      @media screen and (max-width: 1024px) {
+        footer .content .row.footer-link {
+          display: none; } }
+      @media screen and (max-width: 1024px) {
+        footer .content .row.locations {
+          display: none; } }
+      @media screen and (max-width: 1024px) {
+        footer .content .row.contact {
+          float: left;
+          display: block;
+          margin-right: 0%;
+          width: 100%; }
+          footer .content .row.contact:last-child {
+            margin-right: 0; } }
+  footer .footer-link a {
+    text-decoration: none; }
+  footer .footer-link .social {
+    position: relative;
+    float: right;
+    top: 10px; }
+    footer .footer-link .social a {
+      margin-left: 25px;
+      cursor: pointer; }
+      footer .footer-link .social a svg {
+        fill: #fff;
+        width: 16px;
+        height: 16px;
+        cursor: pointer;
+        opacity: 1;
+        -webkit-transition: opacity 0.2s ease;
+        -moz-transition: opacity 0.2s ease;
+        transition: opacity 0.2s ease; }
+      footer .footer-link .social a:hover svg {
+        opacity: .7; }
+  footer a {
+    color: #fff;
+    font-size: 14px; }
+
+.fixed-footer-bg {
+  background-position: 50% 50%;
+  background-size: cover;
+  opacity: .99;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  background-image: url(http://info.appdirect.com/assets_new/imgs/footer.jpg); }
+
 body {
   overflow-x: hidden;
   background-color: #f5f7f7; }
@@ -501,7 +677,7 @@ body {
   right: 0;
   height: 100vh;
   padding: 0;
-  z-index: 100;
+  z-index: 1002;
   -webkit-transition: margin-right 0.15s ease-in-out;
   -moz-transition: margin-right 0.15s ease-in-out;
   transition: margin-right 0.15s ease-in-out; }
@@ -524,7 +700,7 @@ body {
   bottom: 0;
   right: 0;
   left: 0;
-  z-index: 50;
+  z-index: 1001;
   visibility: hidden;
   -webkit-transition: all 0.15s ease-in-out;
   -moz-transition: all 0.15s ease-in-out;

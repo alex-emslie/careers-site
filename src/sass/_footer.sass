@@ -1,0 +1,101 @@
+footer
+  @include clearfix()
+  padding: $mobile-padding
+  @include media(min-width $mobile)
+    padding: 150px
+  @include media(min-width $tablet)
+    padding: 40px
+  background-image: none
+  height: auto
+  .container-small
+    margin-top: 0
+    @include media(min-width $tablet)
+      padding-top: 150px
+      padding-bottom: 90px
+  @include media(min-width $tablet)
+    padding: 0
+    background-color: transparent
+  .tri-column
+    background-image: none
+    background: transparent
+    .column
+      padding: 30px 0 0
+      @include media(min-width $mobile)
+        padding: 30px 0
+      p.small
+        margin: 0
+        top: 0
+      p
+        top: -5px
+        position: relative
+      a
+        position: relative
+        top: -5px
+    @include media(min-width $tablet)
+      background-color: transparent
+      .column
+        padding: 56px 0
+  .ad-logo
+    @include span-columns(12)
+    @include media(min-width $tablet)
+      @include span-columns(2)
+    svg
+      fill: $gray
+      width: em(117)
+      height: em(50)
+  .content
+    @include span-columns(8)
+    ul
+      @include span-columns(3)
+      padding: 0
+      list-style: none
+      color: $gray
+      margin-top: 10px
+    .row
+      @include row()
+      border-bottom: 1px solid rgba(173, 174, 175, 0.2)
+      padding: 0 0 em(40)
+      &:last-child
+        border-bottom: 0
+      &.footer-link
+        @include media(max-width $tablet)
+          display: none
+      &.locations
+        @include media(max-width $tablet)
+          display: none
+      &.contact
+        @include media(max-width $tablet)
+          @include span-columns(12)
+  .footer-link
+    a
+      text-decoration: none
+    .social
+      position: relative
+      float: right
+      top: 10px
+      a
+        margin-left: 25px
+        cursor: pointer
+        svg
+          fill: $white
+          width: 16px
+          height: 16px
+          cursor: pointer
+          opacity: 1
+          @include transition(opacity .2s ease)
+        &:hover svg
+          opacity: .7
+  a
+    color: #fff
+    font-size: $small-point-size + px
+
+.fixed-footer-bg
+  background-position: 50% 50%
+  background-size: cover
+  opacity: .99
+  position: fixed
+  bottom: 0
+  width: 100%
+  height: 100%
+  z-index: -2
+  background-image: url(http://info.appdirect.com/assets_new/imgs/footer.jpg)

@@ -301,12 +301,20 @@ body {
     margin: 0; }
   .off-canvas li {
     color: #fff;
+    font-weight: bold;
+    font-size: 18px;
+    letter-spacing: 1px;
     cursor: pointer;
     text-transform: uppercase;
-    list-style: none; }
+    list-style: none;
+    border-bottom: 1px solid #4e5254;
+    padding: 8px 0 4px; }
     .off-canvas li.close {
       font-size: 28px;
-      padding: 20px 20px 0; }
+      padding: 20px 20px 0;
+      border-bottom: none; }
+  .off-canvas ul.top-level {
+    padding: 0 40px 40px; }
 
 .overlay {
   background: #000;
@@ -475,8 +483,12 @@ nav {
     .table #jobs tr {
       border-bottom: 1px solid #dfe0e0; }
     .table #jobs td {
-      font-size: 30px;
-      padding: 12px 0 3px; }
+      font-size: 16px;
+      padding: 10px 0 2px; }
+      @media screen and (min-width: 1024px) {
+        .table #jobs td {
+          font-size: 30px;
+          padding: 12px 0 3px; } }
       .table #jobs td:first-child {
         width: 60%; }
       .table #jobs td:nth-child(2) {
@@ -491,12 +503,19 @@ nav {
         margin-bottom: 20px; }
         .table #jobs th .styled-select select {
           display: block;
-          height: 60px;
+          height: 30px;
           left: 0;
-          width: 230px;
+          width: 130px;
           background-color: transparent;
           border-radius: 0;
-          padding: 15px 15px 10px;
+          padding: 7px 7px 5px;
+          font-size: 12px;
           color: #3f4041;
           font-weight: bold;
           text-transform: uppercase; }
+          @media screen and (min-width: 1024px) {
+            .table #jobs th .styled-select select {
+              width: 230px;
+              height: 60px;
+              padding: 15px 15px 10px;
+              font-size: inherit; } }

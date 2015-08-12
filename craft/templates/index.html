@@ -115,6 +115,7 @@
 </section>
 <section class="table">
 	<div class="container">
+		{% if entry.jobTable|length %}
 		<table id="jobs">
 	    <tbody>
 	        <tr>
@@ -122,23 +123,16 @@
 	            <th>All Locations</th>
 	            <th>All Teams</th>
 	        </tr>
+	        {% for row in entry.jobTable %}
 	        <tr>
-	            <td>Product Manager</td>
-	            <td>San Francisco</td>
-	            <td>Product</td>
+	            <td><a href="{{ row.postingUrl }}">{{ row.position }}</a></td>
+	            <td>{{ row.location }}</td>
+	            <td>{{ row.team }}</td>
 	        </tr>
-	        <tr>
-	            <td>Backend Developer</td>
-	            <td>Montreal</td>
-	            <td>Engineering</td>
-	        </tr>
-	        <tr>
-	            <td>Frontend Developer</td>
-	            <td>San Francisco</td>
-	            <td>Engineering</td>
-	        </tr>
+	        {% endfor %}
 	    </tbody>
 		</table>
+		{% endif %}
 	</div>
 </section>
 {% endblock %}

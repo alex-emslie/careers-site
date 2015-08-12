@@ -1,6 +1,6 @@
 (function() {
   $(function() {
-    var emptyIframe, loadWistia, matchHeight;
+    var emptyIframe, loadWistia, matchHeight, options;
     $.get("http://info.appdirect.com/assets_new/svg/shapes.svg", function(data) {
       var div;
       div = document.createElement("div");
@@ -9,7 +9,11 @@
       document.body.insertBefore(div, document.body.childNodes[0]);
       return $('body').removeClass('no-svgs').addClass('svgs-loaded');
     });
-    $('#jobs').ddTableFilter();
+    options = {
+      minOptions: 2
+    };
+    $('#jobs').ddTableFilter(options);
+    $("#jobs th select").wrap("<div class='styled-select'</div>");
     $('.burger, .close').click(function() {
       return $('.off-canvas, #container, .overlay, body').toggleClass('active');
     });

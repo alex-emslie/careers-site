@@ -197,7 +197,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
   font-weight: normal;
   margin: 0; }
 
-h1, .h1, h2, .h2 {
+h1, .h1, h2, .h2, .table #jobs {
   font-family: aauxnext-thin, Arial, sans-serif; }
 
 h3, .h3, h4, .h4 {
@@ -860,3 +860,36 @@ nav {
   background: url(../imgs/video-callout.jpg);
   background-size: cover;
   height: 600px; }
+
+.table {
+  padding: 120px 40px 40px; }
+  .table #jobs {
+    width: 100%; }
+    .table #jobs tr {
+      border-bottom: 1px solid #dfe0e0; }
+    .table #jobs td {
+      font-size: 30px;
+      padding: 12px 0 3px; }
+      .table #jobs td:first-child {
+        width: 60%; }
+      .table #jobs td:nth-child(2) {
+        width: 20%; }
+      .table #jobs td:nth-child(3) {
+        width: 20%; }
+    .table #jobs th {
+      position: relative; }
+      .table #jobs th .styled-select {
+        overflow: hidden;
+        position: relative;
+        margin-bottom: 20px; }
+        .table #jobs th .styled-select select {
+          display: block;
+          height: 60px;
+          left: 0;
+          width: 230px;
+          background-color: transparent;
+          border-radius: 0;
+          padding: 15px 15px 10px;
+          color: #3f4041;
+          font-weight: bold;
+          text-transform: uppercase; }

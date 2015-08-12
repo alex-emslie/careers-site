@@ -6,7 +6,12 @@ $ ->
 		document.body.insertBefore(div, document.body.childNodes[0])
 		$('body').removeClass('no-svgs').addClass('svgs-loaded')
 
-	$('#jobs').ddTableFilter()
+	options =
+		minOptions: 2
+
+	$('#jobs').ddTableFilter(options)
+
+	$("#jobs th select").wrap("<div class='styled-select'</div>")
 
 	$('.burger, .close').click ->
 		$('.off-canvas, #container, .overlay, body').toggleClass('active')

@@ -7,7 +7,7 @@ main {
   max-width: 1600px;
   margin-left: auto;
   margin-right: auto;
-  padding: 0 30px; }
+  padding: 0; }
   .container::after {
     clear: both;
     content: "";
@@ -18,7 +18,7 @@ main {
     display: table; }
   @media screen and (min-width: 1024px) {
     .container {
-      padding: 0 80px; } }
+      padding: 0; } }
 
 .container-small {
   position: relative;
@@ -56,16 +56,21 @@ main {
       .columns .one-half:last-child {
         margin-right: 0; } }
   .columns .one-half img {
-    padding: 0 50px;
+    padding: 0;
     height: 100%; }
+    @media screen and (min-width: 1024px) {
+      .columns .one-half img {
+        padding: 0 50px; } }
   .columns .one-half .copy {
     position: relative;
-    padding-top: 30px; }
+    padding: 30px;
+    margin-left: 0%; }
     @media screen and (min-width: 1024px) {
       .columns .one-half .copy {
         position: absolute;
-        padding-top: 80px;
-        bottom: 80px; } }
+        padding: 80px 80px 0 0;
+        bottom: 80px;
+        margin-left: 8.33333%; } }
     .columns .one-half .copy h1 {
       margin-top: 50px; }
 
@@ -274,15 +279,19 @@ footer {
 body {
   overflow-x: hidden;
   background-color: #f5f7f7; }
+  body.active {
+    overflow: hidden; }
 
 .off-canvas {
   overflow: hidden;
-  position: absolute;
+  position: fixed;
   background: #1f2326;
   width: 300px;
   margin: 0 -300px 0 0;
   right: 0;
-  height: 100vh;
+  height: 100%;
+  top: 0;
+  bottom: 0;
   padding: 0;
   z-index: 1002;
   -webkit-transition: margin-right 0.15s ease-in-out;
@@ -302,7 +311,7 @@ body {
 .overlay {
   background: #000;
   opacity: 0;
-  position: absolute;
+  position: fixed;
   top: 0;
   bottom: 0;
   right: 0;
@@ -367,25 +376,24 @@ nav {
   @media screen and (min-width: 750px) {
     .hero {
       height: 800px; } }
-  .hero .copy {
-    position: absolute;
-    bottom: 30px;
-    color: #fff; }
-    @media screen and (min-width: 750px) {
-      .hero .copy {
-        float: left;
-        display: block;
-        margin-right: 0%;
-        width: 50%;
-        bottom: 80px; }
-        .hero .copy:last-child {
-          margin-right: 0; } }
-    @media screen and (min-width: 750px) {
-      .hero .copy h1 {
-        font-size: 68px; } }
-    @media screen and (min-width: 1024px) {
-      .hero .copy h1 {
-        font-size: 72px; } }
+  .hero .one-half {
+    height: 100%; }
+    .hero .one-half .copy {
+      position: absolute;
+      bottom: 30px;
+      color: #fff;
+      padding: 30px; }
+      @media screen and (min-width: 750px) {
+        .hero .one-half .copy {
+          bottom: 80px;
+          padding: 0;
+          margin-left: 8.33333%; } }
+      @media screen and (min-width: 750px) {
+        .hero .one-half .copy h1 {
+          font-size: 68px; } }
+      @media screen and (min-width: 1024px) {
+        .hero .one-half .copy h1 {
+          font-size: 72px; } }
 
 .columns .one-quarter {
   color: #DFE0E0;
@@ -393,16 +401,22 @@ nav {
   background-image: -webkit-linear-gradient(-315deg, #15181a 50%, #1a1d1e 50%, #1a1d1e 100%);
   background-image: linear-gradient(45deg,#15181a 50%, #1a1d1e 50%, #1a1d1e 100%, , , , , , , );
   position: relative; }
-  .columns .one-quarter img {
-    padding: 25%; }
-  .columns .one-quarter .title {
-    position: absolute;
-    bottom: 50px;
-    width: 100%; }
-  .columns .one-quarter h3 {
-    text-align: center; }
 
-.columns.teams .one-quarter .tile {
+.columns h3 {
+  text-align: center; }
+
+.columns .one-third {
+  color: #DFE0E0;
+  background-color: #15181a;
+  background-image: -webkit-linear-gradient(-315deg, #15181a 50%, #1a1d1e 50%, #1a1d1e 100%);
+  background-image: linear-gradient(45deg,#15181a 50%, #1a1d1e 50%, #1a1d1e 100%, , , , , , , );
+  position: relative;
+  height: 400px; }
+  @media screen and (min-width: 750px) {
+    .columns .one-third {
+      height: 600px; } }
+
+.columns .tile {
   display: -webkit-box;
   display: -moz-box;
   display: box;
@@ -430,3 +444,26 @@ nav {
   -ms-flex-align: center;
   height: 100%;
   width: 100%; }
+
+.columns .title {
+  position: absolute;
+  bottom: 30px;
+  width: 100%; }
+  @media screen and (min-width: 750px) {
+    .columns .title {
+      bottom: 50px; } }
+
+.columns.video .button {
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+  padding: 1em 3.75em 1em; }
+  @media screen and (min-width: 1024px) {
+    .columns.video .button {
+      bottom: 70px;
+      left: 70px; } }
+
+.columns.video .cover {
+  background: url(../imgs/video-callout.jpg);
+  background-size: cover;
+  height: 600px; }

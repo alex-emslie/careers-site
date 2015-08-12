@@ -7,7 +7,7 @@ $ ->
 		$('body').removeClass('no-svgs').addClass('svgs-loaded')
 
 	$('.burger, .close').click ->
-		$('.off-canvas, #container, .overlay').toggleClass('active')
+		$('.off-canvas, #container, .overlay, body').toggleClass('active')
 
 	matchHeight = ->
 		teamIcon = $('.columns.teams .one-quarter')

@@ -10,7 +10,7 @@
       return $('body').removeClass('no-svgs').addClass('svgs-loaded');
     });
     $('.burger, .close').click(function() {
-      return $('.off-canvas, #container, .overlay').toggleClass('active');
+      return $('.off-canvas, #container, .overlay, body').toggleClass('active');
     });
     matchHeight = function() {
       var iconWidth, teamIcon;

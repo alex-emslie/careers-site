@@ -1,3 +1,131 @@
+(function($) {
+
+$.fn.ddTableFilter = function(options) {
+  options = $.extend(true, $.fn.ddTableFilter.defaultOptions, options);
+
+  return this.each(function() {
+    if($(this).hasClass('ddtf-processed')) {
+      refreshFilters(this);
+      return;
+    }
+    var table = $(this);
+    var start = new Date();
+    
+    $('th:visible', table).each(function(index) {
+      if($(this).hasClass('skip-filter')) return;
+      var selectbox = $('<select>');
+      var values = [];
+      var opts = new Array();
+      selectbox.append('<option value="--all--">' + $(this).text() + '</option>');
+      
+      var col = $('tr:not(.skip-filter) td:nth-child(' + (index + 1) + ')', table).each(function(index) {
+        var cellVal = options.valueCallback.apply(this);
+        if(cellVal.length == 0) {
+          cellVal = '--empty--';
+        }
+        $(this).attr('ddtf-value', cellVal);
+        
+        if($.inArray(cellVal, values) === -1) {
+          var cellText = options.textCallback.apply(this);
+          if(cellText.length == 0) {cellText = options.emptyText;}
+          values.push(cellVal);
+          opts.push({val:cellVal, text:cellText});
+        }
+      });
+      if(opts.length < options.minOptions){
+        return;
+      } 
+      if(options.sortOpt) {
+        opts.sort(options.sortOptCallback);
+      }
+      $.each(opts, function() {
+        $(selectbox).append('<option value="' + this.val + '">' + this.text + '</option>')
+      });
+
+      $(this).wrapInner('<div style="display:none">');
+      $(this).append(selectbox);
+      
+      selectbox.bind('change', {column:col}, function(event) {
+        var changeStart = new Date();
+        var value = $(this).val();
+        
+        event.data.column.each(function() {
+          if($(this).attr('ddtf-value') === value || value == '--all--') {
+            $(this).removeClass('ddtf-filtered');
+          }
+          else {
+            $(this).addClass('ddtf-filtered');
+          }
+        });
+        var changeStop = new Date();
+        if(options.debug) {
+          console.log('Search: ' + (changeStop.getTime() - changeStart.getTime()) + 'ms');
+        }
+        refreshFilters(table);
+        var changeStop = new Date();
+        
+      });
+      table.addClass('ddtf-processed');
+      if($.isFunction(options.afterBuild)) {
+        options.afterBuild.apply(table);
+      }
+    });
+    
+    
+    function refreshFilters(table) {
+      var refreshStart = new Date();
+      $('tr', table).each(function() {
+        var row = $(this);
+        if($('td.ddtf-filtered', row).length > 0) {
+          options.transition.hide.apply(row, options.transition.options);
+        }
+        else {
+          options.transition.show.apply(row, options.transition.options);
+        }
+      });
+
+      if($.isFunction(options.afterFilter)) {
+        options.afterFilter.apply(table);
+      }
+      
+      if(options.debug) {
+        var refreshEnd = new Date();
+        console.log('Refresh: ' + (refreshEnd.getTime() - refreshStart.getTime()) + 'ms');
+      }
+    }
+    
+    if(options.debug) {
+      var stop = new Date();
+      console.log('Build: ' + (stop.getTime() - start.getTime()) + 'ms');
+    }
+  });
+  
+}
+
+$.fn.ddTableFilter.defaultOptions = {
+  valueCallback:function() {
+    return escape($.trim($(this).text()));
+  },
+  textCallback:function() {
+    return $.trim($(this).text());
+  },
+  sortOptCallback: function(a, b) {
+    return a.text.toLowerCase() > b.text.toLowerCase(); 
+  },
+  afterFilter: null,
+  afterBuild: null,
+  transition: {
+    hide:$.fn.hide,
+    show:$.fn.show,
+    options: []
+  },
+  emptyText:'--Empty--',
+  sortOpt:true,
+  debug:false,
+  minOptions:2
+}
+ 
+})(jQuery);
 /*! @source http://purl.eligrey.com/github/classList.js/blob/master/classList.js */
 if("document" in self){if(!("classList" in document.createElement("_"))){(function(j){"use strict";if(!("Element" in j)){return}var a="classList",f="prototype",m=j.Element[f],b=Object,k=String[f].trim||function(){return this.replace(/^\s+|\s+$/g,"")},c=Array[f].indexOf||function(q){var p=0,o=this.length;for(;p<o;p++){if(p in this&&this[p]===q){return p}}return -1},n=function(o,p){this.name=o;this.code=DOMException[o];this.message=p},g=function(p,o){if(o===""){throw new n("SYNTAX_ERR","An invalid or illegal string was specified")}if(/\s/.test(o)){throw new n("INVALID_CHARACTER_ERR","String contains an invalid character")}return c.call(p,o)},d=function(s){var r=k.call(s.getAttribute("class")||""),q=r?r.split(/\s+/):[],p=0,o=q.length;for(;p<o;p++){this.push(q[p])}this._updateClassName=function(){s.setAttribute("class",this.toString())}},e=d[f]=[],i=function(){return new d(this)};n[f]=Error[f];e.item=function(o){return this[o]||null};e.contains=function(o){o+="";return g(this,o)!==-1};e.add=function(){var s=arguments,r=0,p=s.length,q,o=false;do{q=s[r]+"";if(g(this,q)===-1){this.push(q);o=true}}while(++r<p);if(o){this._updateClassName()}};e.remove=function(){var t=arguments,s=0,p=t.length,r,o=false,q;do{r=t[s]+"";q=g(this,r);while(q!==-1){this.splice(q,1);o=true;q=g(this,r)}}while(++s<p);if(o){this._updateClassName()}};e.toggle=function(p,q){p+="";var o=this.contains(p),r=o?q!==true&&"remove":q!==false&&"add";if(r){this[r](p)}if(q===true||q===false){return q}else{return !o}};e.toString=function(){return this.join(" ")};if(b.defineProperty){var l={get:i,enumerable:true,configurable:true};try{b.defineProperty(m,a,l)}catch(h){if(h.number===-2146823252){l.enumerable=false;b.defineProperty(m,a,l)}}}else{if(b[f].__defineGetter__){m.__defineGetter__(a,i)}}}(self))}else{(function(){var b=document.createElement("_");b.classList.add("c1","c2");if(!b.classList.contains("c2")){var c=function(e){var d=DOMTokenList.prototype[e];DOMTokenList.prototype[e]=function(h){var g,f=arguments.length;for(g=0;g<f;g++){h=arguments[g];d.call(this,h)}}};c("add");c("remove")}b.classList.toggle("c3",false);if(b.classList.contains("c3")){var a=DOMTokenList.prototype.toggle;DOMTokenList.prototype.toggle=function(d,e){if(1 in arguments&&!this.contains(d)===!e){return e}else{return a.call(this,d)}}}b=null}())}};
 

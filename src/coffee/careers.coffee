@@ -6,6 +6,8 @@ $ ->
 		document.body.insertBefore(div, document.body.childNodes[0])
 		$('body').removeClass('no-svgs').addClass('svgs-loaded')
 
+	$('#jobs').ddTableFilter()
+
 	$('.burger, .close').click ->
 		$('.off-canvas, #container, .overlay, body').toggleClass('active')
 

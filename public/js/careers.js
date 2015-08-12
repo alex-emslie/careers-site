@@ -9,6 +9,7 @@
       document.body.insertBefore(div, document.body.childNodes[0]);
       return $('body').removeClass('no-svgs').addClass('svgs-loaded');
     });
+    $('#jobs').ddTableFilter();
     $('.burger, .close').click(function() {
       return $('.off-canvas, #container, .overlay, body').toggleClass('active');
     });

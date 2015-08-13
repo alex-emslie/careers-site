@@ -13,6 +13,7 @@
 @import "layout/mixins"
 @import "modules/tri-column/tri-column"
 @import "modules/footer/footer"
+@import "modules/modal/modal"
 @import "extends"
 @import "mixins"
 
@@ -22,6 +23,9 @@ body
 	background-color: #f5f7f7
 	&.active
 		overflow: hidden
+		margin-right: 15px
+		nav
+			padding-right: 15px
 
 .off-canvas
 	overflow: hidden
@@ -48,7 +52,7 @@ body
 		list-style: none
 		border-bottom: 1px solid #4e5254
 		padding: 8px 0 4px
-		&.close
+		&.sidebar-close
 			font-size: 28px
 			padding: 20px 20px 0
 			border-bottom: none
@@ -138,20 +142,23 @@ nav
 
 .columns
 	.one-quarter
-		@include background-theme("dark", true, $angle: 45deg)
 		position: relative
 	h3
 		text-align: center
 	.one-third
-		@include background-theme("dark", true, $angle: 45deg)
 		position: relative
 		height: 400px
 		@include media(min-width $mobile)
 			height: 600px
+	&.teams
+		.one-half
+			img
+			 height: 50%
 	.tile			
 		@include display(flex)
 		@include justify-content(center)
 		@include align-items(center)
+		@include background-theme("dark", true, $angle: 45deg)
 		height: 100%
 		width: 100%
 	.title
@@ -160,7 +167,7 @@ nav
 		width: 100%
 		@include media(min-width $mobile)
 			bottom: 50px
-	&.video
+	&.quote
 		.button
 			position: absolute
 			bottom: 30px
@@ -224,3 +231,8 @@ footer
 .fixed-footer-bg
   z-index: 0 !important
   display: block
+.modal-backdrop.in
+	display: none
+.modal-open
+	nav
+		position: static

@@ -24,8 +24,8 @@
 		<div class="one-half">
 			<div class="copy">
 				<h1>Create your career, shape the industry, and drove the future of IT.</h1>
-				<a href="#" class="button light">See Job Openings</a>
-				<a href="#" class="button light">Watch Video</a>
+				<a href="#" class="button light" >See Job Openings</a>
+				<a href="#" class="button light video-launch" title="mkzzdkt5rd">Watch Video</a>
 			</div>
 		</div>
 	</section>
@@ -75,7 +75,51 @@
 			</div>
 		</div>
 	</section>
-	<section class="columns video">
+	<section class="columns teams">
+		<div class="one-half">
+			<div class="tile">
+				<img src="../imgs/engineering.png">
+			</div>
+			<div class="title">
+				<h3>Engineering</h3>
+			</div>
+		</div>
+		<div class="one-half">
+			<div class="one-half">
+				<div class="tile">
+					<img src="../imgs/corporate.png">
+				</div>
+				<div class="title">
+					<h3>Corporate</h3>
+				</div>
+			</div>
+			<div class="one-half">
+				<div class="tile">
+					<img src="../imgs/product.png">
+				</div>
+				<div class="title">
+					<h3>Product</h3>
+				</div>
+			</div>
+			<div class="one-half">
+				<div class="tile">
+					<img src="../imgs/corporate.png">
+				</div>
+				<div class="title">
+					<h3>Corporate</h3>
+				</div>
+			</div>
+			<div class="one-half">
+				<div class="tile">
+					<img src="../imgs/product.png">
+				</div>
+				<div class="title">
+					<h3>Product</h3>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="columns quote">
 			<div class="one-half">
 				<div class="copy">
 					<h1>“I get to work with very talented people on a clean and solid codebase, developing a product that is revolutionizing the industry.”</h1>
@@ -88,51 +132,68 @@
 			</div>
 	</section>
 	<section class="columns locations">
-	<div class="one-third">
-		<div class="tile">
-			<img src="../imgs/locations-sf.png">
+		<div class="one-third">
+			<div class="tile">
+				<img src="../imgs/locations-sf.png">
+			</div>
+			<div class="title">
+				<h3>Engineering</h3>
+			</div>
 		</div>
-		<div class="title">
-			<h3>Engineering</h3>
+		<div class="one-third">
+			<div class="tile">
+				<img src="../imgs/locations-sf.png">
+			</div>
+			<div class="title">
+				<h3>Engineering</h3>
+			</div>
+		</div>
+		<div class="one-third">
+			<div class="tile">
+				<img src="../imgs/locations-sf.png">
+			</div>
+			<div class="title">
+				<h3>Engineering</h3>
+			</div>
+		</div>
+	</section>
+	<section class="table">
+		<div class="container">
+			{% if entry.jobTable|length %}
+			<table id="jobs">
+		    <tbody>
+		        <tr>
+		            <th>All Positions</th>
+		            <th>All Locations</th>
+		            <th>All Teams</th>
+		        </tr>
+		        {% for row in entry.jobTable %}
+		        <tr>
+		            <td><a href="{{ row.postingUrl }}">{{ row.position }}</a></td>
+		            <td>{{ row.location }}</td>
+		            <td>{{ row.team }}</td>
+		        </tr>
+		        {% endfor %}
+		    </tbody>
+			</table>
+			{% endif %}
+		</div>
+	</section>
+
+	<div class="video-modal modal fade" data-keyboard="true" tabindex="-1">
+	  <div class="modal-dialog" role="document">
+		  <div class="modal-content">
+		    <div class="video">
+		      <span class="close" data-dismiss="modal">
+		        <svg>
+		          <use xlink:href="#shape-video_close"></use>
+		        </svg>
+		      </span>
+		      <div class="item"> <!-- SWISSCOM -->
+		        <div class="iframe-container"></div>
+		      </div>
+		    </div>
+		  </div>
 		</div>
 	</div>
-	<div class="one-third">
-		<div class="tile">
-			<img src="../imgs/locations-sf.png">
-		</div>
-		<div class="title">
-			<h3>Engineering</h3>
-		</div>
-	</div>
-	<div class="one-third">
-		<div class="tile">
-			<img src="../imgs/locations-sf.png">
-		</div>
-		<div class="title">
-			<h3>Engineering</h3>
-		</div>
-	</div>
-</section>
-<section class="table">
-	<div class="container">
-		{% if entry.jobTable|length %}
-		<table id="jobs">
-	    <tbody>
-	        <tr>
-	            <th>All Positions</th>
-	            <th>All Locations</th>
-	            <th>All Teams</th>
-	        </tr>
-	        {% for row in entry.jobTable %}
-	        <tr>
-	            <td><a href="{{ row.postingUrl }}">{{ row.position }}</a></td>
-	            <td>{{ row.location }}</td>
-	            <td>{{ row.team }}</td>
-	        </tr>
-	        {% endfor %}
-	    </tbody>
-		</table>
-		{% endif %}
-	</div>
-</section>
 {% endblock %}

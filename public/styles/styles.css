@@ -619,6 +619,161 @@ footer {
   z-index: -2;
   background-image: url(../imgs/footer.jpg); }
 
+.modal-open {
+  overflow: hidden; }
+
+.modal {
+  display: none;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1050;
+  -webkit-overflow-scrolling: touch;
+  outline: 0; }
+
+.modal.fade .modal-dialog {
+  -webkit-transform: translate(0, -25%);
+  -ms-transform: translate(0, -25%);
+  -o-transform: translate(0, -25%);
+  transform: translate(0, -25%);
+  -webkit-transition: -webkit-transform 0.3s ease-out;
+  -o-transition: -o-transform 0.3s ease-out;
+  transition: transform 0.3s ease-out; }
+
+.modal.in .modal-dialog {
+  -webkit-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  -o-transform: translate(0, 0);
+  transform: translate(0, 0); }
+
+.modal-open .modal {
+  overflow-x: hidden;
+  overflow-y: auto; }
+
+.modal-dialog {
+  position: relative;
+  width: auto;
+  margin: 10px; }
+
+.modal-content {
+  position: relative;
+  background-color: #ffffff;
+  border: 1px solid #999999;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  outline: 0; }
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1040;
+  background-color: #000000; }
+
+.modal-backdrop.fade {
+  opacity: 0;
+  filter: alpha(opacity=0); }
+
+.modal-backdrop.in {
+  opacity: 0.8;
+  filter: alpha(opacity=50); }
+
+.modal-header {
+  padding: 15px;
+  border-bottom: 1px solid #e5e5e5;
+  min-height: 16.42857143px; }
+
+.modal-header .close {
+  margin-top: -2px; }
+
+.modal-title {
+  margin: 0;
+  line-height: 1.42857143; }
+
+.modal-body {
+  position: relative;
+  padding: 15px; }
+
+.modal-footer {
+  padding: 15px;
+  text-align: right;
+  border-top: 1px solid #e5e5e5; }
+
+.modal-footer .btn + .btn {
+  margin-left: 5px;
+  margin-bottom: 0; }
+
+.modal-footer .btn-group .btn + .btn {
+  margin-left: -1px; }
+
+.modal-footer .btn-block + .btn-block {
+  margin-left: 0; }
+
+.modal-scrollbar-measure {
+  position: absolute;
+  top: -9999px;
+  width: 50px;
+  height: 50px;
+  overflow: scroll; }
+
+.in .video {
+  z-index: 100000; }
+
+.in .video-pagination {
+  z-index: 100000; }
+
+.in .controls {
+  z-index: 100000; }
+
+.modal-content {
+  margin-top: 0; }
+
+.modal-dialog {
+  margin: 0; }
+
+.video {
+  position: absolute;
+  left: 0;
+  height: 100%;
+  width: 100%; }
+  .video .iframe-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0; }
+    .video .iframe-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh; }
+  .video .iframe-placeholder {
+    width: 100%;
+    opacity: 1;
+    -webkit-transition: opacity 0.4s ease-in-out;
+    -moz-transition: opacity 0.4s ease-in-out;
+    transition: opacity 0.4s ease-in-out; }
+  .video .close {
+    position: absolute;
+    z-index: 100;
+    fill: white;
+    top: 20px;
+    right: 20px;
+    cursor: pointer; }
+    .video .close:hover {
+      opacity: 0.7; }
+    .video .close svg {
+      width: 40px;
+      height: 40px; }
+
 main {
   position: relative;
   z-index: 1;
@@ -682,6 +837,24 @@ main {
     @media screen and (min-width: 1024px) {
       .columns .one-half img {
         padding: 0 50px; } }
+  .columns .one-half .one-half {
+    float: left;
+    display: block;
+    margin-right: 0%;
+    width: 100%;
+    height: 300px; }
+    .columns .one-half .one-half:last-child {
+      margin-right: 0; }
+    @media screen and (min-width: 750px) {
+      .columns .one-half .one-half {
+        float: left;
+        display: block;
+        margin-right: 0%;
+        width: 50%; }
+        .columns .one-half .one-half:last-child {
+          margin-right: 0; } }
+    .columns .one-half .one-half img {
+      height: 50%; }
   .columns .one-half .copy {
     position: relative;
     padding: 30px;
@@ -731,7 +904,10 @@ body {
   overflow-x: hidden;
   background-color: #f5f7f7; }
   body.active {
-    overflow: hidden; }
+    overflow: hidden;
+    margin-right: 15px; }
+    body.active nav {
+      padding-right: 15px; }
 
 .off-canvas {
   overflow: hidden;
@@ -760,7 +936,7 @@ body {
     list-style: none;
     border-bottom: 1px solid #4e5254;
     padding: 8px 0 4px; }
-    .off-canvas li.close {
+    .off-canvas li.sidebar-close {
       font-size: 28px;
       padding: 20px 20px 0;
       border-bottom: none; }
@@ -855,25 +1031,20 @@ nav {
           font-size: 72px; } }
 
 .columns .one-quarter {
-  color: #DFE0E0;
-  background-color: #15181a;
-  background-image: -webkit-linear-gradient(-315deg, #15181a 50%, #1a1d1e 50%, #1a1d1e 100%);
-  background-image: linear-gradient(45deg,#15181a 50%, #1a1d1e 50%, #1a1d1e 100%, , , , , , , );
   position: relative; }
 
 .columns h3 {
   text-align: center; }
 
 .columns .one-third {
-  color: #DFE0E0;
-  background-color: #15181a;
-  background-image: -webkit-linear-gradient(-315deg, #15181a 50%, #1a1d1e 50%, #1a1d1e 100%);
-  background-image: linear-gradient(45deg,#15181a 50%, #1a1d1e 50%, #1a1d1e 100%, , , , , , , );
   position: relative;
   height: 400px; }
   @media screen and (min-width: 750px) {
     .columns .one-third {
       height: 600px; } }
+
+.columns.teams .one-half img {
+  height: 50%; }
 
 .columns .tile {
   display: -webkit-box;
@@ -901,6 +1072,10 @@ nav {
   -o-align-items: center;
   align-items: center;
   -ms-flex-align: center;
+  color: #DFE0E0;
+  background-color: #15181a;
+  background-image: -webkit-linear-gradient(-315deg, #15181a 50%, #1a1d1e 50%, #1a1d1e 100%);
+  background-image: linear-gradient(45deg,#15181a 50%, #1a1d1e 50%, #1a1d1e 100%, , , , , , , );
   height: 100%;
   width: 100%; }
 
@@ -912,17 +1087,17 @@ nav {
     .columns .title {
       bottom: 50px; } }
 
-.columns.video .button {
+.columns.quote .button {
   position: absolute;
   bottom: 30px;
   left: 30px;
   padding: 1em 3.75em 1em; }
   @media screen and (min-width: 1024px) {
-    .columns.video .button {
+    .columns.quote .button {
       bottom: 70px;
       left: 70px; } }
 
-.columns.video .cover {
+.columns.quote .cover {
   background: url(../imgs/video-callout.jpg);
   background-size: cover;
   height: 600px; }
@@ -978,3 +1153,9 @@ footer {
 .fixed-footer-bg {
   z-index: 0 !important;
   display: block; }
+
+.modal-backdrop.in {
+  display: none; }
+
+.modal-open nav {
+  position: static; }

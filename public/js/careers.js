@@ -14,7 +14,7 @@
     };
     $('#jobs').ddTableFilter(options);
     $("#jobs th select").wrap("<div class='styled-select'</div>");
-    $('.burger, .close').click(function() {
+    $('.burger, .sidebar-close').click(function() {
       return $('.off-canvas, #container, .overlay, body').toggleClass('active');
     });
     matchHeight = function() {
@@ -38,7 +38,7 @@
     emptyIframe = function() {
       return $('.iframe-container').empty();
     };
-    return $('span.close').click(function() {
+    return $('.close').click(function() {
       return emptyIframe();
     });
   });

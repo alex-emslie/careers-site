@@ -13,7 +13,7 @@ $ ->
 
 	$("#jobs th select").wrap("<div class='styled-select'</div>")
 
-	$('.burger, .close').click ->
+	$('.burger, .sidebar-close').click ->
 		$('.off-canvas, #container, .overlay, body').toggleClass('active')
 
 	matchHeight = ->
@@ -36,5 +36,5 @@ $ ->
   emptyIframe = ->
     $('.iframe-container').empty()
 
-  $('span.close').click ->
+  $('.close').click ->
     emptyIframe()

@@ -38,6 +38,13 @@ main
       height: 100%
       @include media(min-width $tablet)
         padding: 0 50px
+    .one-half
+      @include span-columns(12)
+      height: 300px
+      @include media(min-width $mobile)
+        @include span-columns(6)
+      img
+        height: 50%
     .copy                  
       position: relative
       padding: 30px

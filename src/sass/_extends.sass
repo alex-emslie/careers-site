@@ -57,18 +57,3 @@ main
     @include span-columns(12)
     @include media(min-width $mobile)
       @include span-columns(4)
-
-footer
-  position: relative
-  z-index: 2
-  h4
-    color: $white
-  .tri-column
-    @include clearfix()
-    .column
-      @include span-columns(12)
-      @include media(min-width $tablet)
-        @include span-columns(4)
-
-.fixed-footer-bg
-  z-index: 0 !important

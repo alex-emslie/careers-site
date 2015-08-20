@@ -14,6 +14,8 @@
 @import "modules/tri-column/tri-column"
 @import "modules/footer/footer"
 @import "modules/modal/modal"
+@import "modules/carousel/carousel"
+@import "modules/photo-carousel/photo-carousel"
 @import "extends"
 @import "mixins"
 
@@ -145,15 +147,22 @@ nav
 		position: relative
 	h3
 		text-align: center
+		color: $white
+		top: 20px
+		position: relative
 	.one-third
 		position: relative
 		height: 400px
 		@include media(min-width $mobile)
 			height: 600px
-	&.teams
+	&.large-icon
 		.one-half
-			img
+			svg
 			 height: 50%
+			&.large
+				height: 325px
+				@include media(min-width $mobile)
+					height: 650px
 	.tile			
 		@include display(flex)
 		@include justify-content(center)
@@ -167,7 +176,7 @@ nav
 		width: 100%
 		@include media(min-width $mobile)
 			bottom: 50px
-	&.quote
+	&.half-video
 		.button
 			position: absolute
 			bottom: 30px
@@ -179,10 +188,19 @@ nav
 		.cover
 			background: url(../imgs/video-callout.jpg)
 			background-size: cover
-			height: 600px
+			height: 650px
+		.one-half
+			background-color: #fff
 
-.table
+.jobs-table
 	padding: 120px 40px 40px
+	position: relative
+	h1
+		margin-top: 60px
+	h4
+		&.positions
+			position: absolute
+			margin-top: 18px
 	#jobs
 		width: 100%
 		@extend %thin-headline
@@ -223,6 +241,39 @@ nav
 						height: 60px
 						padding: 15px 15px 10px
 						font-size: inherit
+.half-quad-icon
+	.one-half
+		background-color: $white
+
+.full-video
+	background: url(../imgs/careers-hero.jpg)
+	background-size: cover
+	height: 650px
+	position: relative
+	h1
+		color: $white
+	.copy
+		bottom: 80px
+		padding: 0 70px
+		position: absolute
+		@include span-columns(6)
+	p
+		color: $white
+	&.left
+		.copy
+			@include shift(6)
+	&.right
+		.copy
+			@include shift(0)
+.photo-carousel
+	@include media(min-width $tablet)
+		.photo-description
+			@include span-columns(6)
+		.arrow.right
+			right: 54.2%
+#photo-carousel
+	@include media(min-width $tablet)
+		@include span-columns(6)
 
 footer
   position: relative

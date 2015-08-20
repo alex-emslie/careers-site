@@ -32,18 +32,21 @@ main
     height: auto
     @include media(min-width $mobile)
       @include span-columns(6)
-      height: 600px
-    img
+      height: 650px
+    svg
       padding: 0
       height: 100%
       @include media(min-width $tablet)
         padding: 0 50px
+    img
+      position: absolute
+      bottom: 0
     .one-half
-      @include span-columns(12)
-      height: 300px
+      @include span-columns(6)
+      height: 325px
       @include media(min-width $mobile)
         @include span-columns(6)
-      img
+      svg
         height: 50%
     .copy                  
       position: relative
@@ -64,3 +67,6 @@ main
     @include span-columns(12)
     @include media(min-width $mobile)
       @include span-columns(4)
+  &.three-icon
+    .title
+      bottom: 100px

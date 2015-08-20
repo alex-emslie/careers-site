@@ -1,0 +1,40 @@
+{#
+ # Teams template
+ # ---------------
+ #
+ # When this template gets loaded, it will be because someone has accessed
+ # http://yoursite.com/ (without any URI). Craft checks to see if you have
+ # a Single section set to be the Teams (as you do, by default), and
+ # loads the section’s Template (this file). A special ‘entry’ variable
+ # will already be set for you, assigned to the Teams entry.
+ #
+ #
+ # See this page for more details on how Craft routes requests:
+ # http://buildwithcraft.com/docs/routing
+ #}
+
+{% extends "_layout" %}
+
+{% block content %}
+
+	{% include 'sections/hero.html' %}
+
+	{% include 'sections/half-quad-icon.html' %}
+
+	{% include 'sections/full-video-left.html' %}
+
+	{% include 'sections/half-quad-icon.html' %}
+
+	{% include 'sections/full-video-right.html' %}
+
+	{% include 'sections/half-quad-icon.html' %}
+
+	{% include 'sections/half-icon-right.html' %}
+
+	{% include 'sections/three-icon-row.html' %}
+
+	{% include 'sections/jobs-table.html' %}
+
+	{% include 'sections/video-modal.html' %}
+
+{% endblock %}

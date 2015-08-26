@@ -1,9 +1,13 @@
-	<section class="columns hero">
-		<div class="one-half">
-			<div class="copy">
-				<h1>Create your career, shape the industry, and drive the future of IT.</h1>
-				<a href="#" class="button light" >See Job Openings</a>
-				<a href="#" class="button light video-launch" title="#">Watch Video</a>
-			</div>
+{% for block in entry.hero %}	
+<section class="columns hero">
+	<div class="one-half">
+		<div class="copy">
+			<h1>{{ block.tagline }}</h1>
+			{% set link = block.primaryButton %}
+			<a href="{{ link.url }}" class="button light" >{{ link.linkText }}</a>
+			{% set link = block.secondaryButton %}
+			<a href="{{ link.url }}" class="button light video-launch" title="#">{{ link.linkText }}</a>
 		</div>
-	</section>
+	</div>
+</section>
+{% endfor %}

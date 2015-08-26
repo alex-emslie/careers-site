@@ -33,8 +33,8 @@ body
 	overflow: hidden
 	position: fixed
 	background: #1f2326
-	width: 400px
-	margin: 0 -400px 0 0
+	width: 100%
+	margin: 0 -100% 0 0
 	right: 0
 	height: 100%
 	top: 0
@@ -44,6 +44,9 @@ body
 	@include transition(margin-right 0.15s ease-in-out)
 	&.active
 		margin: 0
+	@include media(min-width $mobile)
+		width: 400px
+		margin: 0 -400px 0 0 
 	li
 		color: $white
 		font-weight: bold
@@ -299,11 +302,17 @@ nav
 		.copy
 			@include shift(0)
 .photo-carousel
+	overflow: auto
 	@include media(min-width $tablet)
 		.photo-description
 			@include span-columns(6)
+			background-color: $white
 		.arrow.right
 			right: 54.2%
+	.arrow
+		display: none
+		@include media(min-width $tablet)
+			display: block
 #photo-carousel
 	@include media(min-width $tablet)
 		@include span-columns(6)

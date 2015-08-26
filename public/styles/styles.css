@@ -1122,8 +1122,8 @@ body {
   overflow: hidden;
   position: fixed;
   background: #1f2326;
-  width: 400px;
-  margin: 0 -400px 0 0;
+  width: 100%;
+  margin: 0 -100% 0 0;
   right: 0;
   height: 100%;
   top: 0;
@@ -1135,6 +1135,10 @@ body {
   transition: margin-right 0.15s ease-in-out; }
   .off-canvas.active {
     margin: 0; }
+  @media screen and (min-width: 750px) {
+    .off-canvas {
+      width: 400px;
+      margin: 0 -400px 0 0; } }
   .off-canvas li {
     color: #fff;
     font-weight: bold;
@@ -1439,16 +1443,24 @@ nav {
   .full-video.right .copy {
     margin-left: 0%; }
 
-@media screen and (min-width: 1024px) {
-  .photo-carousel .photo-description {
-    float: left;
-    display: block;
-    margin-right: 0%;
-    width: 50%; }
-    .photo-carousel .photo-description:last-child {
-      margin-right: 0; }
-  .photo-carousel .arrow.right {
-    right: 54.2%; } }
+.photo-carousel {
+  overflow: auto; }
+  @media screen and (min-width: 1024px) {
+    .photo-carousel .photo-description {
+      float: left;
+      display: block;
+      margin-right: 0%;
+      width: 50%;
+      background-color: #fff; }
+      .photo-carousel .photo-description:last-child {
+        margin-right: 0; }
+    .photo-carousel .arrow.right {
+      right: 54.2%; } }
+  .photo-carousel .arrow {
+    display: none; }
+    @media screen and (min-width: 1024px) {
+      .photo-carousel .arrow {
+        display: block; } }
 
 @media screen and (min-width: 1024px) {
   #photo-carousel {

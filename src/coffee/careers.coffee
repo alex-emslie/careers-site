@@ -1,5 +1,5 @@
 $ ->
-	$.get "http://careers.dev/svgs/svgs.svg", (data) ->
+	$.get "svgs/svgs.svg", (data) ->
 		div = document.createElement("div")
 		div.className = "svgstore"
 		div.innerHTML = new XMLSerializer().serializeToString(data.documentElement)

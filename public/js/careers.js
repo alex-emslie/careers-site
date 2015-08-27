@@ -1,7 +1,7 @@
 (function() {
   $(function() {
     var emptyIframe, loadWistia, matchHeight, options, rowCount;
-    $.get("http://careers.dev/svgs/svgs.svg", function(data) {
+    $.get("svgs/svgs.svg", function(data) {
       var adjustPhotoHeight, customPhotoPagination, div, photoSlide;
       div = document.createElement("div");
       div.className = "svgstore";

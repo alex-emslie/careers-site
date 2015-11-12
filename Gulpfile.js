@@ -29,7 +29,8 @@ gulp.task('sass', function(){
 	return gulp.src(paths.sass)
 		.pipe(plumber({errorHandler: onError}))
 		.pipe(sass({
-			includePaths: require('marketing-site-assets').includePaths
+			includePaths: require('marketing-site-assets').includePaths,
+			outputStyle: 'compressed'
 			}).on('error', sass.logError))
 		.pipe(gulp.dest('./public/styles'))
 });

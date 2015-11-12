@@ -20,14 +20,39 @@
 {% extends "_layout" %}
 
 {% block content %}
-	<h1>{{ entry.title }}</h1>
 
-	{{ entry.body }}
+	{% include 'sections/hero.html' %}
 
-	<h2>Recent News</h2>
-	<ul>
-		{% for entry in craft.entries.section('news').limit(5).find() %}
-			<li><a href="{{ entry.url }}">{{ entry.title }}</a></li>
-		{% endfor %}
-	</ul>
+	{% include 'sections/large-icon-four.html' %}
+
+	{% include 'sections/half-video-right.html' %}
+
+	{% include 'sections/half-icon-right.html' %}
+
+	{% include 'sections/large-icon-four.html' %}
+
+	{% include 'sections/half-video-left.html' %}
+
+	{% include 'sections/half-icon-right.html' %}
+
+	{% include 'sections/quarter-icon-row.html' %}
+
+	{% include 'sections/quarter-icon-row.html' %}
+
+	{% include 'sections/half-video-right.html' %}
+
+	{% include 'sections/half-icon-right.html' %}
+
+	{% include 'sections/quarter-icon-row.html' %}
+
+	{% include 'sections/quarter-icon-row.html' %}
+	
+	{% include 'sections/half-icon-right.html' %}
+
+	{% include 'sections/three-icon-row.html' %}
+
+	{% include 'sections/jobs-table.html' %}
+
+	{% include 'sections/video-modal.html' %}
+
 {% endblock %}

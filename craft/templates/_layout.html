@@ -14,60 +14,146 @@
 <head>
 	<meta charset="utf-8" />
 	<title>{% if title is defined %}{{ title }} - {% endif %}{{ siteName }}</title>
+	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+	<!--[if gt IE 8]><!--><link rel="stylesheet" href="/styles/styles.css" /><!--<![endif]-->
 	<link rel="home" href="{{ siteUrl }}" />
-
-	<style type="text/css">
-		body { margin: 50px; font-family: sans-serif; background: #fff; }
-		#container { margin: 0 auto; width: 700px;
-			-webkit-box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-			        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-		}
-
-		#header, #footer { display: block; color: #fff; background: #da5a47; }
-		#header a, #footer a { color: #fff; }
-		#header { border-radius: 7px 7px 0 0; padding: 25px; }
-		#header:after { content: '.'; display: block; height: 0; clear: both; visibility: hidden; }
-		#header a { text-decoration: none; }
-		#header h1 { float: left; margin: 0; font-weight: normal; font-size: 30px; line-height: 1; }
-		#header nav { display: block; float: right; }
-		#header nav ul { margin: 0; list-style-type: none; }
-		#header nav ul li { float: left; margin-left: 20px; }
-		#header nav ul li a { display: block; margin-top: 4px; line-height: 22px; }
-		#header nav ul li a:hover,
-		#header nav ul li a.active { border-bottom: 2px solid #fff; }
-		#header nav ul li a.active { cursor: default; }
-
-		#content { display: block; padding: 25px; background: #fff; }
-		#content h1 { margin-top: 0; font-size: 35px; font-weight: bold; }
-		#content a { color: #da5a47; text-decoration: none; }
-		#content a:hover { text-decoration: underline; }
-
-		#footer { border-radius: 0 0 7px 7px; padding: 15px; font-size: 12px; text-align: center; }
-	</style>
 </head>
 
 <body>
-	<div id="container">
-		<header id="header">
-			<h1><a href="{{ siteUrl }}">{{ siteName }}</a></h1>
-
-			<nav>
-				<ul>
-					<li><a href="{{ url('news') }}" {% if craft.request.firstSegment == 'news' %}class="active"{% endif %}>News</a></li>
+	<div class="off-canvas">
+		<li class="sidebar-close">
+			<span class="first-child"></span>
+			<span class="last-child"></span>
+		</li>
+		<ul class="top-level">
+			<li>appdirect.com</li>
+			<li>Benefts</li>
+			<li>Developers</li>
+			<li>Resources</li>
+			<li>Video Center</li>
+			<li>Blog</li>
+			<li>About Us</li>
+			<li>Careers
+				<ul class="sub-list"><span class="bold">Teams</span>
+					<li>Customer Ops</li>
+					<li>Corporate</li>
+					<li>Dev Ops</li>
+					<li>Design</li>
+					<li><a href="/teams/engineering">Engineering</a></li>
 				</ul>
-			</nav>
-		</header>
+				<ul class="sub-list"><span class="bold">Locations</span>
+					<li><a href="/locations/san-francisco">San Francisco</a></li>
+					<li><a href="/locations/boulder">Boulder</a></li>
+					<li><a href="/locations/montreal">Montreal</a></li>
+					<li><a href="/locations/munich">Munich</a></li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+	<div class="overlay"></div>
+		<nav>
+			<div class="container">
+				<ul class="anchor">
+					 <li class="logo">
+	          <a href="/">
+	            <svg class="shape">
+	              <use xlink:href="#ad-logo"></use>
+	            </svg>
+	          </a>
+	        </li>
+					<li class="title">Careers</li>
+				</ul>
+				<ul class="nav-toggle">
+					<li class="burger">☰</li>
+				</ul>
+				<ul class="main-nav">
+					<li>What We Do</li>
+					<li>Core Values</li>
+					<li>Teams</li>
+					<li>Perks</li>
+					<li>Locations</li>
+					<li>Job Openings</li>
+				</ul>
+			</div>
+		</nav>
 
-		<main id="content" role="main">
+		<main role="main">
 			{% block content %}
 				<p>If you see me, you haven’t set your <code>{% verbatim %}{% block content %}…{% endblock %}{% endverbatim %}</code> yet.</p>
 				<p>See Twig’s <a href="http://twig.sensiolabs.org/doc/templates.html#template-inheritance">Template Inheritance</a> documentation for an explanation.</p>
 			{% endblock %}
 		</main>
 
-		<footer id="footer">
-			Copyright {{ now.year }} {{ craft.request.serverName | ucfirst }}. All rights reserved  •  Built with <a href="http://buildwithcraft.com">Craft</a>
+		<footer>
+		  <div class="container-small">
+		    <div class="ad-logo">
+		      <a href="http://appdirect.com">
+		        <svg class="shape">
+		          <use xlink:href="#ad-logo"></use>
+		        </svg>
+		      </a>
+		    </div>
+		    <div class="content">
+		      <div class="footer-link row">
+		        <ul>
+		          <li><a href='#'>Product</a></li>
+		          <li><a href='#'>Services</a></li>
+		          <li><a href='#'>Solutions</a></li>
+		          <li><a href='#'>Customers</a></li>
+		          <li><a href='#'>Benefits</a></li>
+		          <li><a href='#'>Developers</a></li>
+		          <li><a href='#'>Plans</a></li>
+		        </ul>
+		        <ul>
+		          <li><a href='#'>API Documentation</a></li>
+		          <li><a href='#'>Video Center</a></li>
+		          <li><a href='#'>Blog</a></li>
+		        </ul>
+		        <ul>
+		          <li><a href='#'>About Us</a></li>
+		          <li><a href='#'>Careers</a></li>
+		          <li><a href='#'>Contact Us</a></li>
+		          <li><a href="https://appdirect.com/login">Login</a></li>
+		        </ul>
+		        <div class="social">
+		          <a href="http://www.facebook.com/AppDirect">
+		            <svg class="shape">
+		              <use xlink:href="#social_facebook"></use>
+		            </svg>
+		          </a>
+		          <a href="http://www.linkedin.com/company/appdirect">
+		            <svg class="shape">
+		              <use xlink:href="#social_linkedin"></use>
+		            </svg>
+		          </a>
+		          <a href="http://twitter.com/appdirect">
+		            <svg class="shape">
+		              <use xlink:href="#social_twitter"></use>
+		            </svg>
+		          </a>
+		        </div>
+		      </div>
+		      <div class="row contact">
+		        <div class="tri-column">
+		          <div class="column">
+		            <h4>Sales Inquiries:</h4>
+		            <a class="white" href="mailto:sales@appdirect.com">sales@appdirect.com</a>
+		          </div>
+		          <div class="column">
+		            <h4>Media Inquiries:</h4>
+		            <a class="white" href="mailto:pr@appdirect.com">pr@appdirect.com</a>
+		          </div>
+		          <div class="column">
+		            <h4>General Inquiries:</h4>
+		            <a class="white" href="mailto:info@appdirect.com">info@appdirect.com</a>
+		          </div>
+		        </div>
+		      </div>
+		    </div>
+		  </div>
 		</footer>
-	</div>
+		<div class="fixed-footer-bg"></div>
+		<script src="/js/vendor.js"></script>
+	<script src="/js/careers.js"></script>
 </body>
 </html>

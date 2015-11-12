@@ -1,0 +1,13 @@
+{% for block in entry.hero %}	
+<section class="columns hero">
+	<div class="one-half">
+		<div class="copy">
+			<h1>{{ block.tagline }}</h1>
+			{% set link = block.primaryButton %}
+			<a href="{{ link.url }}" class="button light" >{{ link.linkText }}</a>
+			{% set link = block.secondaryButton %}
+			<a href="{{ link.url }}" class="button light video-launch" title="#">{{ link.linkText }}</a>
+		</div>
+	</div>
+</section>
+{% endfor %}

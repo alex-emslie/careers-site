@@ -1,0 +1,16 @@
+@mixin ad-gradient($color1, $color2, $angle, $switch)
+  @include linear-gradient($angle, $color1 $switch, $color2 $switch, $color2 100%)
+
+@mixin background-theme($color: "dark", $gradient: false, $angle: -34.5deg, $shift: 50%)
+  @if $color == "dark"
+    color: $gray
+
+    @if $gradient
+      @include ad-gradient(#15181a, #1a1d1e, $angle, $shift)
+    @else
+      background-color: #15181a
+
+  @else
+    color: $black
+    @if $gradient
+      @include ad-gradient(#f1f3f3, #f5f7f7, $angle, $shift)

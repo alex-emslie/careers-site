@@ -1,5 +1,6 @@
 @import "bourbon"
 @import "config"
+@import "config-careers"
 @import "neat"
 
 @import "normalize"
@@ -8,5 +9,323 @@
 @import "iconography"
 @import "buttons"
 @import "ui_patterns"
-@import "layout"
-@import "modules"
+
+@import "layout/mixins"
+@import "modules/tri-column/tri-column"
+@import "modules/footer/footer"
+@import "modules/modal/modal"
+@import "modules/carousel/carousel"
+@import "modules/photo-carousel/photo-carousel"
+@import "extends"
+@import "mixins"
+
+
+body
+	overflow-x: hidden
+	background-color: #f5f7f7
+	&.active
+		overflow: hidden
+		margin-right: 15px
+		nav
+			padding-right: 15px
+
+.off-canvas
+	overflow: hidden
+	position: fixed
+	background: #1f2326
+	width: 100%
+	margin: 0 -100% 0 0
+	right: 0
+	height: 100%
+	top: 0
+	bottom: 0
+	padding: 0
+	z-index: 1002
+	@include transition(margin-right 0.15s ease-in-out)
+	&.active
+		margin: 0
+	@include media(min-width $mobile)
+		width: 400px
+		margin: 0 -400px 0 0 
+	li
+		color: $white
+		font-weight: bold
+		font-size: 18px
+		letter-spacing: 2px
+		cursor: pointer
+		text-transform: uppercase
+		list-style: none
+		border-bottom: 1px solid #4e5254
+		padding: 8px 0 4px
+		&.sidebar-close
+			font-size: 28px
+			margin: 30px 30px 0
+			border-bottom: none
+			height: 20px
+			width: 30px
+			span
+				width: 19px
+				height: 2px
+				background-color: $white
+				position: absolute
+				&.first-child
+					@include transform(rotate(45deg))
+				&.last-child
+					@include transform(rotate(-45deg))
+	ul
+		padding: 0 20px 20px
+		&.top-level
+			padding: 0 80px 80px
+			margin: 0
+		&.sub-list
+			text-transform: none
+			padding: 0 20px 10px
+			li
+				margin: 0 20px 0
+				padding: 0
+				border-bottom: 0
+				text-transform: none
+				list-style: disc
+				font-family: $regular-font
+				letter-spacing: inherit
+				font-weight: normal
+				color: $white
+				letter-spacing: 0px
+			.bold
+				font-family: $bold-font
+				letter-spacing: 0px
+		// &:last-child
+		// 	padding: 0 20px 20px
+
+.overlay
+	background: #000
+	opacity: 0
+	position: fixed
+	top: 0
+	bottom: 0
+	right: 0
+	left: 0
+	z-index: 1001
+	visibility: hidden
+	@include transition(all 0.15s ease-in-out)
+	&.active
+		opacity: 0.8
+		visibility: visible
+
+nav
+	background: rgba(31,35,38,0.8)
+	height: 70px
+	width: 100%
+	position: fixed
+	top: 0
+	z-index: 1000
+	ul
+		margin: 0
+		li
+			display: inline-block
+			color: $white
+		&.anchor
+			float: left
+			padding: 12px
+			.logo
+				top: 9px
+				position: relative
+				padding-right: 10px
+				svg
+					height: 30px
+					fill: $white
+					width: 120px
+			.title
+				border-left: 1px solid $white
+				padding-left: 12px
+				height: 18px
+		&.main-nav
+			float: right
+			display: none
+			@include media(min-width $tablet)
+				display: block
+			li
+				padding: 27px 15px 19px
+		&.nav-toggle
+			float: right
+			margin: 0
+			li
+				margin: 19px 24px 8px 0
+				font-size: 28px
+				cursor: pointer
+
+.hero
+	background: url(../imgs/careers-hero.jpg)
+	background-size: cover
+	height: 550px
+	position: relative
+	@include media(min-width $mobile)
+		height: 800px
+	.one-half
+		height: 100%
+		.copy
+			position: absolute
+			bottom: 30px
+			color: $white
+			padding: 30px
+			@include media(min-width $mobile)
+				bottom: 80px
+				padding: 0
+				@include shift(1)
+			h1
+				@include media(min-width $mobile)
+					font-size: 68px
+				@include media(min-width $tablet)
+					font-size: 72px
+
+.columns
+	.one-quarter
+		position: relative
+	h3
+		text-align: center
+		color: $white
+		top: 20px
+		position: relative
+	.one-third
+		position: relative
+		height: 400px
+		@include media(min-width $mobile)
+			height: 600px
+	&.large-icon
+		.one-half
+			svg
+			 height: 50%
+			&.large
+				height: 325px
+				@include media(min-width $mobile)
+					height: 650px
+	.tile			
+		@include display(flex)
+		@include justify-content(center)
+		@include align-items(center)
+		@include background-theme("dark", true, $angle: 45deg)
+		height: 100%
+		width: 100%
+	.title
+		position: absolute
+		bottom: 30px
+		width: 100%
+		@include media(min-width $mobile)
+			bottom: 50px
+	&.half-video
+		.button
+			position: absolute
+			bottom: 30px
+			left: 30px
+			padding: 1em 3.75em 1em
+			@include media(min-width $tablet)
+				bottom: 70px
+				left: 70px
+		.cover
+			background: url(../imgs/video-callout.jpg)
+			background-size: cover
+			height: 650px
+		.one-half
+			background-color: #fff
+
+.jobs-table
+	padding: 120px 40px 40px
+	position: relative
+	h1
+		margin-top: 60px
+	h4
+		&.positions
+			position: absolute
+			margin-top: 18px
+	#jobs
+		width: 100%
+		@extend %thin-headline
+		tr 
+			border-bottom: 1px solid #dfe0e0
+		td
+			font-size: 16px
+			padding: 10px 0 2px
+			@include media(min-width $tablet)
+				font-size: 30px
+				padding: 12px 0 3px
+			&:first-child
+				width: 60%
+			&:nth-child(2)
+				width: 20%
+			&:nth-child(3)
+				width: 20%
+		th 
+			position: relative
+			.styled-select
+				overflow: hidden
+				position: relative
+				margin-bottom: 20px
+				select
+					display: block
+					height: 30px
+					left: 0
+					width: 130px
+					background-color: transparent
+					border-radius: 0
+					padding: 7px 7px 5px
+					font-size: 12px
+					color: #3f4041
+					font-weight: bold 
+					text-transform: uppercase
+					@include media(min-width $tablet)
+						width: 230px
+						height: 60px
+						padding: 15px 15px 10px
+						font-size: inherit
+.half-quad-icon
+	.one-half
+		background-color: $white
+
+.full-video
+	background: url(../imgs/careers-hero.jpg)
+	background-size: cover
+	height: 650px
+	position: relative
+	h1
+		color: $white
+	.copy
+		bottom: 80px
+		padding: 0 70px
+		position: absolute
+		@include span-columns(6)
+	p
+		color: $white
+	&.left
+		.copy
+			@include shift(6)
+	&.right
+		.copy
+			@include shift(0)
+.photo-carousel
+	overflow: auto
+	@include media(min-width $tablet)
+		.photo-description
+			@include span-columns(6)
+			background-color: $white
+		.arrow.right
+			right: 54.2%
+	.arrow
+		display: none
+		@include media(min-width $tablet)
+			display: block
+#photo-carousel
+	@include media(min-width $tablet)
+		@include span-columns(6)
+
+footer
+  position: relative
+  z-index: 2
+
+.fixed-footer-bg
+  z-index: 0 !important
+  display: block
+.modal-backdrop.in
+	display: none
+.modal-open
+	nav
+		position: static

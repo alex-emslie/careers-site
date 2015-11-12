@@ -1,0 +1,72 @@
+main
+  position: relative
+  z-index: 1
+  background-color: #f5f7f7
+
+.container
+  @include outer-container(1600px)
+  @include clearfix()
+  padding: 0
+  @include media(min-width $tablet)
+    padding: 0
+.container-small
+  position: relative;
+  max-width: 980px;
+  margin-left: auto;
+  margin-right: auto;
+// section
+//   padding: 30px 0 0
+//   @include media(min-width $tablet)
+//     padding: 80px 0 0
+
+.hide-mobile
+  display: none
+  @include media(min-width $mobile)
+    display: block 
+
+.columns
+  @include clearfix()
+  .one-half
+    position: relative
+    @include span-columns(12)
+    height: auto
+    @include media(min-width $mobile)
+      @include span-columns(6)
+      height: 650px
+    svg
+      padding: 0
+      height: 100%
+      @include media(min-width $tablet)
+        padding: 0 50px
+    img
+      position: absolute
+      bottom: 0
+    .one-half
+      @include span-columns(6)
+      height: 325px
+      @include media(min-width $mobile)
+        @include span-columns(6)
+      svg
+        height: 50%
+    .copy                  
+      position: relative
+      padding: 30px
+      @include shift(0)
+      @include media(min-width $tablet)
+        position: absolute
+        padding: 80px 80px 0 0
+        bottom: 80px
+        @include shift(1)
+      h1
+        margin-top: 50px
+  .one-quarter
+    @include span-columns(6)
+    @include media(min-width $mobile)
+      @include span-columns(3)
+  .one-third
+    @include span-columns(12)
+    @include media(min-width $mobile)
+      @include span-columns(4)
+  &.three-icon
+    .title
+      bottom: 100px

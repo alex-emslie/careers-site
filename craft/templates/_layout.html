@@ -52,38 +52,34 @@
 	</div>
 	<div class="overlay"></div>
 		<nav>
-			<div class="container">
-				<ul class="anchor">
-					 <li class="logo">
-	          <a href="/">
-	            <svg class="shape">
-	              <use xlink:href="#ad-logomark"></use>
-	            </svg>
-	          </a>
-	        </li>
-					<li class="title">Careers at AppDirect</li>
-				</ul>
-				<ul class="nav-toggle">
-					<li class="burger">☰</li>
-				</ul>
-				<ul class="main-nav">
-					<li><a href="#">What We Do</a></li>
-					<li><a href="#">Core Values</a></li>
-					<li><a href="#">Teams</a></li>
-					<li><a href="#">Perks</a></li>
-					<li><a href="#">Locations</a></li>
-					<li><a href="#">Job Openings</a></li>
-				</ul>
-			</div>
+			<ul class="anchor">
+				 <li class="logo">
+          <a href="/">
+            <svg class="shape">
+              <use xlink:href="#ad-logomark"></use>
+            </svg>
+          </a>
+        </li>
+				<li class="title">Careers at AppDirect</li>
+			</ul>
+			<ul class="nav-toggle">
+				<li class="burger">☰</li>
+			</ul>
+			<ul class="main-nav">
+				<li><a href="#">What We Do</a></li>
+				<li><a href="#">Core Values</a></li>
+				<li><a href="#">Teams</a></li>
+				<li><a href="#">Perks</a></li>
+				<li><a href="#">Locations</a></li>
+				<li><a href="#">Job Openings</a></li>
+			</ul>
 		</nav>
 
 		<main role="main">
-			<div class="container">
 				{% block content %}
 					<p>If you see me, you haven’t set your <code>{% verbatim %}{% block content %}…{% endblock %}{% endverbatim %}</code> yet.</p>
 					<p>See Twig’s <a href="http://twig.sensiolabs.org/doc/templates.html#template-inheritance">Template Inheritance</a> documentation for an explanation.</p>
 				{% endblock %}
-			</div>
 		</main>
 
 		<footer>

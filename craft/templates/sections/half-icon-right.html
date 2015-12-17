@@ -1,12 +1,27 @@
 	<section class="columns half-icon">
+		{% if matrixBlock.pictureSide == "left" %}
+			<div class="one-half">
+				{% if matrixBlock.illustration.first()|length %}
+					<img class="hide-mobile" src="{{ matrixBlock.illustration.first().url }}">
+				{% endif %}
+			</div>
+		{% endif %}
 		<div class="one-half">
 			<div class="copy">
-				<h4>What We Do</h4>
-				<h1>We’re a commerce platform for finding, buying and selling cloud software.</h1>
-				<p>We offer a cloud service marketplace and management platform that enables companies to distribute web-based services. The global network of AppDirect-powered marketplaces allows businesses to find, buy, and manage the best applications the cloud has to offer.<a href="#">Learn More</a></p>
+				<h4 class="block-label">{{ matrixBlock.label }}</h4>
+				<h1>{{ matrixBlock.headline }}</h1>
+				<p>{{ matrixBlock.description }}</p>
+				{% if matrixBlock.learnmore|length %}
+					{% set link = matrixBlock.learnmore %}
+					<a href="{{ link.url }}">{{ link.linkText }}</a>
+				{% endif %}
 			</div>
 		</div>
-		<div class="one-half">
-			<img class="hide-mobile" src="../imgs/column-cta-1.png">
-		</div>
+		{% if matrixBlock.pictureSide == "right" %}
+			<div class="one-half">
+				{% if matrixBlock.illustration.first()|length %}
+					<img class="hide-mobile" src="{{ matrixBlock.illustration.first().url }}">
+				{% endif %}
+			</div>
+		{% endif %}
 	</section>

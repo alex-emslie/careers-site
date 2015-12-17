@@ -19,11 +19,10 @@
 @import "extends"
 @import "mixins"
 
-
 body
 	overflow-x: hidden
 	background-color: #f5f7f7
-	&.active
+	&.nav-active
 		overflow: hidden
 		margin-right: 15px
 		nav
@@ -42,7 +41,7 @@ body
 	padding: 0
 	z-index: 1002
 	@include transition(margin-right 0.15s ease-in-out)
-	&.active
+	&.nav-active
 		margin: 0
 	@include media(min-width $mobile)
 		width: 400px
@@ -108,7 +107,7 @@ body
 	z-index: 1001
 	visibility: hidden
 	@include transition(all 0.15s ease-in-out)
-	&.active
+	&.nav-active
 		opacity: 0.8
 		visibility: visible
 
@@ -121,24 +120,26 @@ nav
 	z-index: 1000
 	ul
 		margin: 0
-		li
+		li, a
 			display: inline-block
+			color: $light-gray
+		a:hover, a:active, a.active
 			color: $white
 		&.anchor
 			float: left
 			padding: 12px
+			margin-left: 40px
 			.logo
 				top: 9px
 				position: relative
 				padding-right: 10px
 				svg
 					height: 30px
-					fill: $white
-					width: 120px
+					fill: $light-gray
+					width: 30px
 			.title
-				border-left: 1px solid $white
-				padding-left: 12px
 				height: 18px
+				text-transform: uppercase
 		&.main-nav
 			float: right
 			display: none
@@ -155,7 +156,6 @@ nav
 				cursor: pointer
 
 .hero
-	background: url(../imgs/careers-hero.jpg)
 	background-size: cover
 	height: 550px
 	position: relative
@@ -171,13 +171,30 @@ nav
 			@include media(min-width $mobile)
 				bottom: 80px
 				padding: 0
-				@include shift(1)
-			h1
-				@include media(min-width $mobile)
-					font-size: 68px
-				@include media(min-width $tablet)
-					font-size: 72px
+	&.six
+		.one-half
+			@include span-columns(6)
+			@include shift(1) 
+	&.seven
+		.one-half
+			@include span-columns(7)
+			@include shift(1) 
 
+.three-video
+	.one-third
+		&:not(:last-child)
+			border-right: 1px solid $light-gray
+	.video-image
+		position: relative
+		img
+			width: 100%
+		button
+			position: absolute
+			bottom: 40px
+			left: 50%
+			margin-left: -79px
+	.video-quote
+		padding: 65px
 .columns
 	.one-quarter
 		position: relative
@@ -186,11 +203,6 @@ nav
 		color: $white
 		top: 20px
 		position: relative
-	.one-third
-		position: relative
-		height: 400px
-		@include media(min-width $mobile)
-			height: 600px
 	&.large-icon
 		.one-half
 			svg
@@ -229,10 +241,8 @@ nav
 			background-color: #fff
 
 .jobs-table
-	padding: 120px 40px 40px
+	padding: 60px 40px 60px 40px
 	position: relative
-	h1
-		margin-top: 60px
 	h4
 		&.positions
 			position: absolute
@@ -280,6 +290,16 @@ nav
 .half-quad-icon
 	.one-half
 		background-color: $white
+.block-label
+	margin: 0 0 30px 0
+
+.half-icon
+	img
+		width: 100%
+	.copy
+		padding-top: 60px
+		@include span-columns(4 of 6)
+		@include shift(1)
 
 .full-video
 	background: url(../imgs/careers-hero.jpg)
@@ -316,6 +336,34 @@ nav
 #photo-carousel
 	@include media(min-width $tablet)
 		@include span-columns(6)
+
+.seven-five
+	@include media(min-width $mobile)
+		&.picture-is-bigger
+			.seven-five-text
+				@include span-columns(6)
+				.copy
+					@include span-columns(4 of 6)
+					@include shift(1)
+			.seven-five-picture
+				@include span-columns(6)
+		&.text-is-bigger
+			.seven-five-text
+				@include span-columns(7)
+				.copy
+					@include span-columns(5 of 7)
+					@include shift(1)
+			.seven-five-picture
+				@include span-columns(5)
+	.seven-five-picture
+		img
+			width: 100%
+	.copy
+		padding-top: 60px
+	
+	&.dark
+		background: $black
+		color: $white
 
 footer
   position: relative

@@ -62,7 +62,7 @@
     rowCount = $('#jobs tr').length - 1;
     $('span#count').text(rowCount);
     $('.burger, .sidebar-close').click(function() {
-      return $('.off-canvas, #container, .overlay, body').toggleClass('active');
+      return $('.off-canvas, #container, .overlay, body').toggleClass('nav-active');
     });
     matchHeight = function() {
       var iconWidth, teamIcon;

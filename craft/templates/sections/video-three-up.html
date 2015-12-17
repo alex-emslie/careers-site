@@ -1,0 +1,15 @@
+<section class="columns three-video">
+	{% for video in matrixBlock.videos %}
+		<div class="one-third">
+			<div class="video-image">
+				<img src="http://placehold.it/590x590" />
+				<button class="light video-launch" title="{{ video.wistiaId }}">{{ video.buttonText }}</button>
+			</div>
+			<div class="video-quote">
+				<h2>{{ video.quote }}</h2>
+				<p><strong>{{ video.fullName }}</strong>, {{ video.positionTitle }}</p>
+			</div>
+			
+		</div>
+	{% endfor %}
+</section>

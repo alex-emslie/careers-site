@@ -1,0 +1,35 @@
+	<section class="columns seven-five {{ matrixBlock.whichSideIs7Columns }}-is-bigger {{ matrixBlock.textBackground }}">
+		{% if matrixBlock.pictureSide == "left" %}
+			<div class="seven-five-picture left">
+				<img class="hide-mobile" src="{{ matrixBlock.picture.first().url }}">
+			</div>
+			<div class="seven-five-text right">
+				<div class="copy">
+					<h4 class="block-label">{{ matrixBlock.label }}</h4>
+					<h1>{{ matrixBlock.headline }}</h1>
+					<p>{{ matrixBlock.description }}</p>
+					{% if matrixBlock.learnmore|length %}
+						{% set link = matrixBlock.learnmore %}
+						<a href="{{ link.url }}">{{ link.linkText }}</a>
+					{% endif %}
+				</div>
+			</div>
+		{% endif %}
+		
+		{% if matrixBlock.pictureSide == "right" %}
+			<div class="seven-five-text left ">
+				<div class="copy">
+					<h4 class="block-label">{{ matrixBlock.label }}</h4>
+					<h1>{{ matrixBlock.headline }}</h1>
+					<p>{{ matrixBlock.description }}</p>
+					{% if matrixBlock.learnmore|length %}
+						{% set link = matrixBlock.learnmore %}
+						<a href="{{ link.url }}">{{ link.linkText }}</a>
+					{% endif %}
+				</div>
+			</div>
+			<div class="seven-five-picture right">
+				<img class="hide-mobile" src="{{ matrixBlock.picture.first().url }}">
+			</div>
+		{% endif %}
+	</section>

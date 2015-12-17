@@ -58,7 +58,7 @@ $ ->
 
 
 	$('.burger, .sidebar-close').click ->
-		$('.off-canvas, #container, .overlay, body').toggleClass('active')
+		$('.off-canvas, #container, .overlay, body').toggleClass('nav-active')
 
 
 

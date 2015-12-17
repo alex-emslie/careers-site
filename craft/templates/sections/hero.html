@@ -1,13 +1,16 @@
-{% for block in entry.hero %}	
-<section class="columns hero">
+<section class="columns hero {{ matrixBlock.textColumns }}" style="background-image: url({{ matrixBlock.backgroundImage.first().url }}">
 	<div class="one-half">
 		<div class="copy">
-			<h1>{{ block.tagline }}</h1>
-			{% set link = block.primaryButton %}
-			<a href="{{ link.url }}" class="button light" >{{ link.linkText }}</a>
-			{% set link = block.secondaryButton %}
-			<a href="{{ link.url }}" class="button light video-launch" title="#">{{ link.linkText }}</a>
+			{% if matrixBlock.label|length %}
+				<h4 class="block-label">{{ matrixBlock.label }}</h4>
+			{% endif %}
+			<h1>{{ matrixBlock.tagline }}</h1>
+			<h2>{{ matrixBlock.introText }}</h2>
+			{% if matrixBlock.primaryButton|length %}
+				{% set link = matrixBlock.primaryButton %}
+				<a href="{{ link.url }}" class="button light" >{{ link.linkText }}</a>
+			{% endif %}
+			
 		</div>
 	</div>
 </section>
-{% endfor %}

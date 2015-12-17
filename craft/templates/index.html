@@ -20,39 +20,29 @@
 {% extends "_layout" %}
 
 {% block content %}
+	{% for matrixBlock in entry.blocks %}
+		{% set loopIndex = loop.index %}
+		{% switch matrixBlock.type %}
+			{% case "hero" %}
+				{% include 'sections/hero.html' %}
 
-	{% include 'sections/hero.html' %}
+			{% case "halfWidthPicture" %}
+				{% include 'sections/half-icon-right.html' %}
 
-	{% include 'sections/large-icon-four.html' %}
+			{% case "jobsTable" %}
+				{% include 'sections/jobs-table.html' %}
 
-	{% include 'sections/half-video-right.html' %}
+			{% case "values" %}
+				{% include 'sections/large-icon-four' %}
 
-	{% include 'sections/half-icon-right.html' %}
+			{% case "videoThreeUp" %}
+				{% include 'sections/video-three-up' %}
 
-	{% include 'sections/large-icon-four.html' %}
+			{% case "col5colSplit" %}
+				{% include 'sections/seven-five-split' %}
 
-	{% include 'sections/half-video-left.html' %}
+		{% endswitch %}
+	{% endfor %}
 
-	{% include 'sections/half-icon-right.html' %}
-
-	{% include 'sections/quarter-icon-row.html' %}
-
-	{% include 'sections/quarter-icon-row.html' %}
-
-	{% include 'sections/half-video-right.html' %}
-
-	{% include 'sections/half-icon-right.html' %}
-
-	{% include 'sections/quarter-icon-row.html' %}
-
-	{% include 'sections/quarter-icon-row.html' %}
-	
-	{% include 'sections/half-icon-right.html' %}
-
-	{% include 'sections/three-icon-row.html' %}
-
-	{% include 'sections/jobs-table.html' %}
-
-	{% include 'sections/video-modal.html' %}
-
+	{% include 'sections/video-modal' %}
 {% endblock %}

@@ -60,8 +60,11 @@
       return $('.video-launch, button.video-launch').click(function(e) {
         var loadedIframe;
         e.preventDefault();
+        if ($('html').hasClass('ie8')) {
+          return false;
+        }
         wistiaEmbed = $(this).attr('title');
-        loadedIframe = $('.iframe-container').html('<iframe src="//fast.wistia.net/embed/iframe/' + wistiaEmbed + '?videoFoam="true" allowtransparency="true" frameborder="0" scrolling="no" id="wistia_video" class="wistia_embed" name="wistia_embed" allowfullscreen mozallowfullscreen webkitallowfullscreen oallowfullscreen msallowfullscreen width="1920" height="1080"></iframe>');
+        loadedIframe = $('.iframe-container').html('<iframe src="//fast.wistia.net/embed/iframe/' + wistiaEmbed + '?videoFoam=true" allowtransparency="true" frameborder="0" scrolling="no" id="wistia_video" class="wistia_embed" name="wistia_embed" allowfullscreen mozallowfullscreen webkitallowfullscreen oallowfullscreen msallowfullscreen width="1920" height="1080"></iframe>');
         $(loadedIframe).appendTo('.iframe-container');
         return $('.video-modal').modal();
       });

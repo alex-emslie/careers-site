@@ -1,41 +1,19 @@
-	<section class="jobs-table">
-		<div class="container">
-
-			<h4>Open Positions</h4>
-			<h1>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusa ntium.</h1>
-			<h4 class="positions"><span id="count"></span> Open Positions</h4>
-			<table id="jobs">
-		    <tbody>
-		        <tr>
-		            <th style="visibility: hidden;">All Positions</th>
-		            <th>All Locations</th>
-		            <th>All Teams</th>
-		        </tr>
-		        <tr>
-		            <td><a href="#"></a>Backend Developer</td>
-		            <td>Munich</td>
-		            <td>Engineering</td>
-		        </tr>
-		        <tr>
-		            <td><a href="#"></a>Frontend Developer</td>
-		            <td>San Francisco</td>
-		            <td>Engineering</td>
-		        </tr>
-		        <tr>
-		            <td><a href="#"></a>Backend Developer</td>
-		            <td>Munich</td>
-		            <td>Engineering</td>
-		        </tr>
-		        <tr>
-		            <td><a href="#"></a>Frontend Developer</td>
-		            <td>Montreal</td>
-		            <td>Engineering</td>
-		        </tr>		  
-		        <tr>
-		            <td><a href="#"></a>Frontend Developer</td>
-		            <td>Montreal</td>
-		            <td>Engineering</td>
-		        </tr>				              		        
+<section class="jobs-table">
+	<div class="container">
+		<h4 class="block-label">Open Positions</h4>
+		<h1>{{ matrixBlock.jobsHeadline }}</h1>
+		<table id="jobs">
+			<tbody>
+				{% for entry in craft.entries.section('jobs') %}
+					<tr>
+				        <td><a href="{{ entry.jobviteUrl }}">{{ entry.title }}</a></td>
+				        {% set location = entry.location.first() %}
+				        <td>{{ location.title }}</td>
+				        {% set team = entry.team.first() %}
+				        <td>{{ team.title }}</td>
+				    </tr>
+				{% endfor %}
+    
 		    </tbody>
 			</table>
 		</div>

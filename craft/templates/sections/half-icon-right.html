@@ -1,9 +1,13 @@
-	<section class="columns half-icon">
+	<section class="columns half-icon {{ matrixBlock.textBackground }}">
 		{% if matrixBlock.pictureSide == "left" %}
-			<div class="one-half">
-				{% if matrixBlock.illustration.first()|length %}
-					<img class="hide-mobile" src="{{ matrixBlock.illustration.first().url }}">
-				{% endif %}
+		{% if matrixBlock.image.first()|length %}
+			<div class="one-half cover" class="hide-mobile" style="background-image:url('{{ matrixBlock.image.first().url }}')">
+		{% endif %}
+		{% if matrixBlock.illustration.first()|length %}
+			<div class="one-half" class="hide-mobile">
+				<img class="hide-mobile" src="{{ matrixBlock.illustration.first().url }}">
+			</div>
+		{% endif %}
 			</div>
 		{% endif %}
 		<div class="one-half">
@@ -18,10 +22,14 @@
 			</div>
 		</div>
 		{% if matrixBlock.pictureSide == "right" %}
-			<div class="one-half">
-				{% if matrixBlock.illustration.first()|length %}
-					<img class="hide-mobile" src="{{ matrixBlock.illustration.first().url }}">
-				{% endif %}
+		{% if matrixBlock.image.first()|length %}
+			<div class="one-half cover" class="hide-mobile" style="background-image:url('{{ matrixBlock.image.first().url }}')">
+		{% endif %}
+		{% if matrixBlock.illustration.first()|length %}
+			<div class="one-half" class="hide-mobile">
+				<img class="hide-mobile" src="{{ matrixBlock.illustration.first().url }}">
+			</div>
+		{% endif %}
 			</div>
 		{% endif %}
 	</section>

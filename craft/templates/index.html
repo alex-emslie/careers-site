@@ -35,11 +35,17 @@
 			{% case "values" %}
 				{% include 'sections/large-icon-four' %}
 
+      {% case "fullWidthImage" %}
+				{% include 'sections/full-video-left.html' %}
+
 			{% case "videoThreeUp" %}
 				{% include 'sections/video-three-up' %}
 
 			{% case "col5colSplit" %}
 				{% include 'sections/seven-five-split' %}
+
+      {% case "iconThreeUp" %}
+				{% include 'sections/icon-three-up' %}
 
 		{% endswitch %}
 	{% endfor %}

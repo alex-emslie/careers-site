@@ -1,7 +1,35 @@
-	<section class="columns full-video left">
-		<div class="copy">
-			<h1>“I get to work with very talented people on a clean and solid codebase, developing a product that is revolutionizing the industry.”</h1>
-			<p class="bold">Firstname Lastname, Title</p>
-			<a class="button light">Watch Video</a>
-		</div>
-	</section>
+{% if matrixBlock.copySide == "left" %}
+{% if matrixBlock.image.first()|length %}
+<section class="columns full-video cover right {{ matrixBlock.textBackground }}" style="background-image:url('{{ matrixBlock.image.first().url }}')">
+{% endif %}
+
+	<div class="copy">
+		<h4 class="block-label">{{ matrixBlock.label }}</h1>
+		<h1>{{ matrixBlock.headline }}</h1>
+		<p>{{ matrixBlock.description }}</p>
+		{% if matrixBlock.learnmore|length %}
+			{% set link = matrixBlock.learnmore %}
+			<a href="{{ link.url }}">{{ link.linkText }}</a>
+		{% endif %}
+	</div>
+
+</section>
+{% endif %}
+
+{% if matrixBlock.copySide == "right" %}
+{% if matrixBlock.image.first()|length %}
+<section class="columns full-video left {{ matrixBlock.textBackground }}" style="background-image:url('{{ matrixBlock.image.first().url }}')">
+{% endif %}
+
+	<div class="copy">
+		<h4 class="block-label">{{ matrixBlock.label }}</h1>
+		<h1>{{ matrixBlock.headline }}</h1>
+		<p>{{ matrixBlock.description }}</p>
+		{% if matrixBlock.learnmore|length %}
+			{% set link = matrixBlock.learnmore %}
+			<a href="{{ link.url }}">{{ link.linkText }}</a>
+		{% endif %}
+	</div>
+
+</section>
+{% endif %}

@@ -1,4 +1,4 @@
-<section class="columns hero {{ matrixBlock.textColumns }}" style="background-image: url({{ matrixBlock.backgroundImage.first().url }}">
+<section class="columns hero {{ matrixBlock.textColumns }}" style="background-image: url('{{ matrixBlock.backgroundImage.first().url }}')">
 	<div class="one-half">
 		<div class="copy">
 			{% if matrixBlock.label|length %}
@@ -10,7 +10,7 @@
 				{% set link = matrixBlock.primaryButton %}
 				<a href="{{ link.url }}" class="button light" >{{ link.linkText }}</a>
 			{% endif %}
-			
+
 		</div>
 	</div>
 </section>

@@ -1,4 +1,4 @@
-	<section class="columns half-icon {{ matrixBlock.textBackground }}">
+	<section class="columns half-icon {{ matrixBlock.textBackground }}" id="{{ matrixBlock.scrollID }}">
 		{% if matrixBlock.pictureSide == "left" %}
 		{% if matrixBlock.image.first()|length %}
 			<div class="one-half cover" class="hide-mobile" style="background-image:url('{{ matrixBlock.image.first().url }}')">

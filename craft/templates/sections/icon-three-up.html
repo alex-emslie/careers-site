@@ -1,13 +1,23 @@
-<section class="columns three-video">
-	{% for locationIllustrations in matrixBlock.locationIllustrations %}
-		<div class="one-third">
-			<div class="icon-image">
-				{% set image = locationIllustrations.image.first() %}
-					{% if image %}
-						<img src="{{ image.url }}" />
-					{% endif %}
-			</div>
-
+<section class="columns three-video icon">
+	<div class="one-third">
+		<div class="icon-image">
+			{% if matrixBlock.locationIllustrations1.first()|length %}
+					<img src="{{ matrixBlock.locationIllustrations1.first().url }}" />
+			{% endif %}
 		</div>
-	{% endfor %}
+	</div>
+	<div class="one-third">
+		<div class="icon-image">
+			{% if matrixBlock.locationIllustrations2.first()|length %}
+					<img src="{{ matrixBlock.locationIllustrations2.first().url }}" />
+			{% endif %}
+		</div>
+	</div>
+	<div class="one-third">
+		<div class="icon-image">
+			{% if matrixBlock.locationIllustrations3.first()|length %}
+					<img src="{{ matrixBlock.locationIllustrations3.first().url }}" />
+			{% endif %}
+		</div>
+	</div>
 </section>

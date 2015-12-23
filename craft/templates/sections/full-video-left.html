@@ -1,6 +1,6 @@
 {% if matrixBlock.copySide == "left" %}
 {% if matrixBlock.image.first()|length %}
-<section class="columns full-video cover right {{ matrixBlock.textBackground }}" style="background-image:url('{{ matrixBlock.image.first().url }}')">
+<section class="columns full-video cover right {{ matrixBlock.textBackground }}" style="background-image:url('{{ matrixBlock.image.first().url }}')" id="{{ matrixBlock.scrollID }}">
 {% endif %}
 
 	<div class="copy">
@@ -18,7 +18,7 @@
 
 {% if matrixBlock.copySide == "right" %}
 {% if matrixBlock.image.first()|length %}
-<section class="columns full-video left {{ matrixBlock.textBackground }}" style="background-image:url('{{ matrixBlock.image.first().url }}')">
+<section class="columns full-video left {{ matrixBlock.textBackground }}" style="background-image:url('{{ matrixBlock.image.first().url }}')" id="{{ matrixBlock.scrollID }}">
 {% endif %}
 
 	<div class="copy">

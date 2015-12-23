@@ -6,8 +6,8 @@ namespace Craft;
  *
  * @author    Pixel & Tonic, Inc. <support@pixelandtonic.com>
  * @copyright Copyright (c) 2014, Pixel & Tonic, Inc.
- * @license   http://buildwithcraft.com/license Craft License Agreement
- * @see       http://buildwithcraft.com
+ * @license   http://craftcms.com/license Craft License Agreement
+ * @see       http://craftcms.com
  * @package   craft.app.etc.web
  * @since     1.0
  */
@@ -455,7 +455,7 @@ class UrlManager extends \CUrlManager
 	{
 		if (!craft()->request->isAjaxRequest())
 		{
-			$trigger = craft()->config->get('privateTemplateTrigger');
+			$trigger = craft()->request->isCpRequest() ? '_' : craft()->config->get('privateTemplateTrigger');
 			$length = strlen($trigger);
 
 			foreach (craft()->request->getSegments() as $requestPathSeg)

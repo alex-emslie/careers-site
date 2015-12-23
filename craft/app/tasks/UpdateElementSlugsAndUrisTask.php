@@ -6,8 +6,8 @@ namespace Craft;
  *
  * @author    Pixel & Tonic, Inc. <support@pixelandtonic.com>
  * @copyright Copyright (c) 2014, Pixel & Tonic, Inc.
- * @license   http://buildwithcraft.com/license Craft License Agreement
- * @see       http://buildwithcraft.com
+ * @license   http://craftcms.com/license Craft License Agreement
+ * @see       http://craftcms.com
  * @package   craft.app.tasks
  * @since     2.0
  */
@@ -69,6 +69,12 @@ class UpdateElementSlugsAndUrisTask extends BaseTask
 		$elementsService = craft()->elements;
 		$settings = $this->getSettings();
 		$element = $elementsService->getElementById($this->_elementIds[$step], $settings->elementType, $settings->locale);
+
+		// Make sure they haven't deleted this element
+		if (!$element)
+		{
+			return true;
+		}
 
 		$oldSlug = $element->slug;
 		$oldUri = $element->uri;

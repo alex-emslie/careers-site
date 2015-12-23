@@ -19,6 +19,12 @@
 @import "extends"
 @import "mixins"
 
+html:not(.mobile-true) #main img:not(.animate-element, .ls-s-1),
+html:not(.mobile-true) #header img,
+html:not(.mobile-true) #bottom-bar img
+    opacity: 1 !important
+
+
 body
 	overflow-x: hidden
 	background-color: $white

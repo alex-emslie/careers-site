@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 19.2.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 180 180" style="enable-background:new 0 0 180 180;" xml:space="preserve">
+<g>
+	<path style="fill:#FFFFFF;" d="M139.5,67.5h-2c-3.9,0-7-2.9-7-6.5V27.5c0-2.2-1.8-4-4-4h-23c-2.2,0-4,1.8-4,4v18
+		c0,5.5-4.1,10-9.2,10h-0.1c-5.2,0-9.6-4.6-9.6-10v-18c0-2.2-1.8-4-4-4h-23c-2.2,0-4,1.8-4,4V61c0,3.6-3.1,6.5-7,6.5h-2
+		c-2.2,0-4,1.8-4,4v81c0,2.2,1.8,4,4,4h99c2.2,0,4-1.8,4-4v-81C143.5,69.3,141.7,67.5,139.5,67.5z"/>
+	<g>
+		<g>
+			<g>
+				<defs>
+					<path id="XMLID_202_" d="M137.5,150.5v-77c-7.2,0-13-5.3-13-12.5V29.5h-19v17c0,8.3-6.7,15-15,15h0c-8.8,0-16-7.2-16-16v-16
+						h-19V61c0,7.2-6,12.5-13,12.5v77H137.5z"/>
+				</defs>
+				<use xlink:href="#XMLID_202_"  style="overflow:visible;fill:#F5CE8C;"/>
+				<clipPath id="XMLID_2_">
+					<use xlink:href="#XMLID_202_"  style="overflow:visible;"/>
+				</clipPath>
+				<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="89.5" y1="150.5" x2="89.5" y2="25.5">
+					<stop  offset="0" style="stop-color:#FF7B63"/>
+					<stop  offset="1" style="stop-color:#FFC876"/>
+				</linearGradient>
+				<rect x="41.5" y="25.5" style="opacity:0.2;clip-path:url(#XMLID_2_);fill:url(#SVGID_1_);" width="96" height="125"/>
+				<linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="114" y1="150.5" x2="114" y2="25.5">
+					<stop  offset="0" style="stop-color:#FF7B63"/>
+					<stop  offset="1" style="stop-color:#FFC876"/>
+				</linearGradient>
+				<rect x="90.5" y="25.5" style="opacity:0.6;clip-path:url(#XMLID_2_);fill:url(#SVGID_2_);" width="47" height="125"/>
+				<g style="clip-path:url(#XMLID_2_);">
+					<defs>
+						<rect id="XMLID_204_" x="42.5" y="138.5" width="95" height="12"/>
+					</defs>
+					<use xlink:href="#XMLID_204_"  style="overflow:visible;fill:#A6D7EA;"/>
+					<clipPath id="XMLID_3_">
+						<use xlink:href="#XMLID_204_"  style="overflow:visible;"/>
+					</clipPath>
+					<linearGradient id="SVGID_3_" gradientUnits="userSpaceOnUse" x1="114" y1="150.5" x2="114" y2="29.5">
+						<stop  offset="0" style="stop-color:#133A4E"/>
+						<stop  offset="1" style="stop-color:#A6D7EA"/>
+					</linearGradient>
+					<rect x="90.5" y="29.5" style="opacity:0.2;clip-path:url(#XMLID_3_);fill:url(#SVGID_3_);" width="47" height="121"/>
+				</g>
+				<g style="clip-path:url(#XMLID_2_);">
+					<defs>
+						<path id="XMLID_203_" d="M90.5,109.5c-1.1-0.7-17.3-11.9-17.3-20.6c0-4.9,4.2-8.9,9.5-8.9c3.9,0,6.1,2.2,7.8,4.6l0.1,0.1
+							l0.1-0.1c1.7-2.4,3.9-4.6,7.8-4.6c5.2,0,9.5,4,9.5,8.9C107.8,97.6,91.6,108.8,90.5,109.5z"/>
+					</defs>
+					<use xlink:href="#XMLID_203_"  style="overflow:visible;fill:#A6D7EA;"/>
+					<clipPath id="XMLID_4_">
+						<use xlink:href="#XMLID_203_"  style="overflow:visible;"/>
+					</clipPath>
+					<linearGradient id="SVGID_4_" gradientUnits="userSpaceOnUse" x1="114" y1="150.5" x2="114" y2="29.5">
+						<stop  offset="0" style="stop-color:#133A4E"/>
+						<stop  offset="1" style="stop-color:#A6D7EA"/>
+					</linearGradient>
+					<rect x="90.5" y="29.5" style="opacity:0.4;clip-path:url(#XMLID_4_);fill:url(#SVGID_4_);" width="47" height="121"/>
+					
+						<use xlink:href="#XMLID_203_"  style="overflow:visible;fill:none;stroke:#133A4E;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;"/>
+				</g>
+				
+					<line style="clip-path:url(#XMLID_2_);fill:#133A4E;stroke:#133A4E;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" x1="41.5" y1="136.5" x2="138.5" y2="136.5"/>
+			</g>
+		</g>
+		<g>
+			<g>
+				<defs>
+					<path id="XMLID_201_" d="M92,67.4c11.2-1,19.5-10.7,19.5-21.9v-16h-6v17c0,8.3-6.7,15-15,15h0c-8.8,0-16-7.2-16-16v-16h-6V46
+						C68.5,58.5,79.2,68.5,92,67.4z"/>
+				</defs>
+				<use xlink:href="#XMLID_201_"  style="overflow:visible;fill:#A6D7EA;"/>
+				<clipPath id="XMLID_5_">
+					<use xlink:href="#XMLID_201_"  style="overflow:visible;"/>
+				</clipPath>
+				<linearGradient id="SVGID_5_" gradientUnits="userSpaceOnUse" x1="114" y1="150.5" x2="114" y2="29.5">
+					<stop  offset="0" style="stop-color:#133A4E"/>
+					<stop  offset="1" style="stop-color:#A6D7EA"/>
+				</linearGradient>
+				<rect x="90.5" y="29.5" style="opacity:0.4;clip-path:url(#XMLID_5_);fill:url(#SVGID_5_);" width="47" height="121"/>
+			</g>
+			<path style="fill:#A6D7EA;" d="M55.5,29.5v30c0,7.4-5.7,13.4-13,13.9v6c10.6-0.5,19-9.3,19-19.9v-30H55.5z"/>
+			<g>
+				<defs>
+					<path id="XMLID_200_" d="M124.5,29.5v30c0,7.4,5.7,13.4,13,13.9v6c-10.6-0.5-19-9.3-19-19.9v-30H124.5z"/>
+				</defs>
+				<use xlink:href="#XMLID_200_"  style="overflow:visible;fill:#A6D7EA;"/>
+				<clipPath id="XMLID_6_">
+					<use xlink:href="#XMLID_200_"  style="overflow:visible;"/>
+				</clipPath>
+				<linearGradient id="SVGID_6_" gradientUnits="userSpaceOnUse" x1="114" y1="150.5" x2="114" y2="29.5">
+					<stop  offset="0" style="stop-color:#133A4E"/>
+					<stop  offset="1" style="stop-color:#A6D7EA"/>
+				</linearGradient>
+				<rect x="90.5" y="29.5" style="opacity:0.4;clip-path:url(#XMLID_6_);fill:url(#SVGID_6_);" width="47" height="121"/>
+			</g>
+		</g>
+		<g>
+			<path style="fill:none;stroke:#133A4E;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" d="
+				M68.5,29.5v16c0,11.2,8.4,20.9,19.5,21.9c12.8,1.1,23.5-8.9,23.5-21.4V29.5"/>
+			<path style="fill:none;stroke:#133A4E;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" d="
+				M42.5,79.4c10.6-0.5,19-9.3,19-19.9v-30"/>
+			<path style="fill:none;stroke:#133A4E;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" d="
+				M137.5,79.4c-10.6-0.5-19-9.3-19-19.9v-30"/>
+		</g>
+		<path style="fill:none;stroke:#133A4E;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" d="
+			M40.5,152.5v-81h2c6.2,0,11-4.6,11-10.5V27.5h23v18c0,7.6,6.2,14,13.6,14h0.1c7.3,0,13.2-6.3,13.2-14v-18h23V61
+			c0,5.9,4.8,10.5,11,10.5h2v81H40.5z"/>
+	</g>
+</g>
+<rect style="fill:none;" width="180" height="180"/>
+</svg>

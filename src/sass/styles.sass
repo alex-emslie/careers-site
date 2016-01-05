@@ -36,6 +36,15 @@ body
 		nav
 			padding-right: 15px
 
+.flex
+  height: 100%
+  @include display(flex)
+  @include justify-content(center)
+  @include align-items(center)
+  img
+    position: inherit !important
+    bottom: inherit !important
+
 .off-canvas
 	overflow: hidden
 	position: fixed
@@ -187,28 +196,6 @@ nav
 		.one-half
 			@include span-columns(7)
 			@include shift(1)
-
-.three-video
-	.one-third
-		&:not(:last-child)
-			border-right: 1px solid $light-gray
-	.video-image
-		position: relative
-		img
-			width: 100%
-		button
-			position: absolute
-			bottom: 40px
-			left: 50%
-			margin-left: -79px
-	.video-quote
-		padding: 65px
-		background-color: $black
-		color: $white
-	&.icon
-		background-color: $cool-white
-		.icon-image
-			padding: 20%
 .columns
 	.one-quarter
 		position: relative
@@ -253,6 +240,48 @@ nav
 			height: 650px
 		.one-half
 			background-color: #fff
+.three-video
+  background-color: $black
+  .video-image
+    position: relative
+    background-size: cover
+    height: 500px
+    @include span-columns(12)
+    @include media(min-width $mobile)
+      @include span-columns(6)
+      flex: 1
+      height: auto
+    @include media(min-width 1200px)
+      @include span-columns(12)
+      height: 500px
+    button
+      position: absolute
+      bottom: 40px
+      left: 50%
+      margin-left: -79px
+  .video-quote
+    padding: 65px
+    color: $white
+    @include span-columns(12)
+    @include media(min-width $mobile)
+      @include span-columns(6)
+      flex: 1
+    @include media(min-width 1200px)
+      @include span-columns(12)
+  &.icon
+    background-color: $cool-white
+    .icon-image
+      padding: 30%
+    .one-third
+    &:not(:last-child)
+      border-right: 1px solid $light-gray
+  .one-third
+    @include span-columns(12)
+    @include media(min-width $mobile)
+      display: flex
+    @include media(min-width 1200px)
+      @include span-columns(4)
+
 
 .values-module
 	.text
@@ -333,7 +362,8 @@ nav
 
 .half-icon
 	img
-		width: 100%
+		width: 90%
+    padding: 50px
 	.copy
 		padding-top: 60px
 		@include span-columns(4 of 6)

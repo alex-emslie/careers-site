@@ -1,11 +1,11 @@
 <section class="columns three-video" id="{{ matrixBlock.scrollID }}">
 	{% for video in matrixBlock.videos %}
 		<div class="one-third">
-			<div class="video-image">
-				{% set image = video.image.first() %}
-					{% if image %}
-						<img src="{{ image.url }}" />
-					{% endif %}
+			{% set image = video.image.first() %}
+			{% if image %}
+			<div class="video-image" style="background-image:url('{{ image.url }}')">
+			{% endif %}
+
 				<button class="light video-launch" title="{{ video.wistiaId }}">{{ video.buttonText }}</button>
 			</div>
 			<div class="video-quote">

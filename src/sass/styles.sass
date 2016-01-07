@@ -282,30 +282,49 @@ nav
     @include media(min-width 1200px)
       @include span-columns(4)
 
-
 .values-module
-	.text
-		padding: 4% 50px
-		h1
-			text-align: center
-		p
-			@include span-columns(8)
-			margin: 0 auto
-			position: relative
-			@include shift(2)
-			text-align: center
-	.value-block
-		position: relative
-		display: block
-		float: left
-		width: 20%
-		padding: 3% 3% 2%
-		h4
-			color: $blue
-			font-size: 24px
-			text-transform: uppercase
-			text-align: center
-
+  position: relative
+  .text
+    padding: 4% 50px
+    h1
+      text-align: center
+    p
+      @include span-columns(8)
+      margin: 0 auto
+      position: relative
+      @include shift(2)
+      text-align: center
+      padding: 0 0 50px
+  .value-block
+    overflow: hidden
+    width: 20%
+    position: relative
+    float: left
+    display: block
+    cursor: pointer
+    border-top: 1px solid $light-gray
+    border-left: 1px solid $light-gray
+    &:first-child
+      border-left: 1px solid transparent
+    h4
+      color: $blue
+      font-size: 24px
+      text-transform: uppercase
+      text-align: center
+    .info
+      position: absolute
+      height: 100%
+      width: 100%
+      top: 0
+      bottom: 0
+      left: 0
+      right: 0
+      background-color: $white
+      padding: 15%
+      margin-top: 100%
+      p
+        padding: 10%
+        text-align: center
 
 .jobs-table
 	padding: 60px 40px 60px 40px

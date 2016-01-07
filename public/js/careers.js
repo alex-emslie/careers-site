@@ -85,8 +85,15 @@
     emptyIframe = function() {
       return $('.iframe-container').empty();
     };
-    return $('.close').click(function() {
+    $('.close').click(function() {
       return emptyIframe();
+    });
+    return $('.value-block').mouseleave(function() {
+      return $(this).find('.info').stop().css('marginTop', '100%');
+    }).mouseenter(function() {
+      return $(this).find('.info').animate({
+        marginTop: '0'
+      }, 200);
     });
   });
 

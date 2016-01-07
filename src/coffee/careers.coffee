@@ -84,3 +84,10 @@ $ ->
 
   $('.close').click ->
     emptyIframe()
+
+	$('.value-block').mouseleave(->
+	  $(this).find('.info').stop().css 'marginTop', '100%'
+	).mouseenter ->
+	  $(this).find('.info').animate {
+	    marginTop: '0'
+	  }, 200

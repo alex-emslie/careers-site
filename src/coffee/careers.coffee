@@ -85,9 +85,13 @@ $ ->
   $('.close').click ->
     emptyIframe()
 
-	$('.value-block').mouseleave(->
-	  $(this).find('.info').stop().css 'marginTop', '100%'
-	).mouseenter ->
-	  $(this).find('.info').animate {
-	    marginTop: '0'
-	  }, 200
+	$(window).resize ->
+		if window.matchMedia('(min-width: 800px)').matches
+			$('.value-block').mouseleave(->
+			  $(this).find('.info').stop().css 'marginTop', '100%'
+			).mouseenter ->
+			  $(this).find('.info').animate {
+			    marginTop: '30px'
+			  }, 200
+		else
+			return false

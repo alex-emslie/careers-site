@@ -88,12 +88,18 @@
     $('.close').click(function() {
       return emptyIframe();
     });
-    return $('.value-block').mouseleave(function() {
-      return $(this).find('.info').stop().css('marginTop', '100%');
-    }).mouseenter(function() {
-      return $(this).find('.info').animate({
-        marginTop: '0'
-      }, 200);
+    return $(window).resize(function() {
+      if (window.matchMedia('(min-width: 800px)').matches) {
+        return $('.value-block').mouseleave(function() {
+          return $(this).find('.info').stop().css('marginTop', '100%');
+        }).mouseenter(function() {
+          return $(this).find('.info').animate({
+            marginTop: '30px'
+          }, 200);
+        });
+      } else {
+        return false;
+      }
     });
   });
 

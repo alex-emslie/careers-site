@@ -202,8 +202,8 @@ nav
 	h3
 		text-align: center
 		color: $white
-		top: 20px
 		position: relative
+		margin-top: 20px
 	&.large-icon
 		.one-half
 			svg
@@ -275,6 +275,13 @@ nav
       display: block
     .icon-image
       padding: 20%
+      text-align: center
+      h3
+      	text-transform: uppercase
+      	color: $black
+      h4
+      	text-transform: uppercase
+      	color: $light-gray
     .one-third
     &:not(:last-child)
       border-right: 1px solid $light-gray
@@ -340,6 +347,7 @@ nav
       padding-left: 5%
       top: 37px
       height: 100%
+      margin-top: 0
       @include justify-content(center)
       @include align-items(center)
       @include media(min-width 800px)
@@ -350,7 +358,8 @@ nav
         bottom: 0
         left: 0
         right: 0
-        margin-top: 100%
+        margin-top: 82%
+        padding-left: 0
       p
         padding: 0
         text-align: center
@@ -426,18 +435,21 @@ nav
 .full-video
 	background: url(../imgs/careers-hero.jpg)
 	background-size: cover
-	height: 650px
+	height: auto
 	position: relative
+	@include media(min-width $tablet)
+		height: 650px
 	h1
 		color: $white
 	.copy
-		bottom: 80px
-		padding: 0 50px
-		position: absolute
+		position: relative
+		bottom: inherit
+		padding: 50px
 		@include span-columns(12)
-    @include media(min-width $mobile)
-      @include span-columns(6)
-      position: absolute
+		@include media(min-width $tablet)
+			position: absolute
+			bottom: 80px
+			padding: 0 50px
 	p
 		color: $white
 	&.left
@@ -485,11 +497,16 @@ nav
     min-height: 650px
     @include span-columns(12)
 	.copy
-		padding-top: 60px
-
+		padding: 50px
+		@include media(min-width $tablet)
+			padding: 60px 0 0 0
 	&.dark
 		background: $black
 		color: $white
+	.seven-five-text
+		position: relative
+		display: block
+		float: left
 
 footer
   position: relative

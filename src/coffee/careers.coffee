@@ -38,9 +38,6 @@ $ ->
       $('.photo-description').css "height", "auto"
   adjustPhotoHeight()
 
-  $(window).resize ->
-    adjustPhotoHeight()
-
   $('#photo-carousel, .arrow svg').on "mouseover", ->
     $('.arrow svg').css('opacity' , '0.5')
   $('#photo-carousel, .arrow svg').on "mouseleave", ->
@@ -85,13 +82,43 @@ $ ->
   $('.close').click ->
     emptyIframe()
 
-	$(window).resize ->
-		if window.matchMedia('(min-width: 800px)').matches
+  # Cache selectors
+  lastId = undefined
+  topMenu = $(".main-nav")
+
+  # All list items
+  menuItems = topMenu.find("a")
+
+  # Anchors corresponding to menu items
+  scrollItems = menuItems.map(->
+    item = $($(this).attr("href"))
+    item  if item.length
+  )
+
+  menuItems.click (e) ->
+  # menuItems.click (e) ->
+    # href = $(this).attr("href")
+    # offsetTop = (if href is "#" then 0 else $(href).offset().top - topMenu.outerHeight() + 1)
+
+	triggerHover = ->
+		if window.matchMedia('(max-width: 768px)').matches
+			$('.value-block .info').css 'margin-top' , '0'
 			$('.value-block').mouseleave(->
-			  $(this).find('.info').stop().css 'marginTop', '100%'
+			  $(this).find('.info').stop().css 'marginTop', '0'
+			).mouseenter ->
+			  $(this).find('.info').animate {
+			    marginTop: '0'
+			  }
+		else
+			$('.value-block .info').css 'margin-top' , '82%'
+			$('.value-block').mouseleave(->
+			  $(this).find('.info').stop().css 'marginTop', '82%'
 			).mouseenter ->
 			  $(this).find('.info').animate {
 			    marginTop: '30px'
 			  }, 200
-		else
-			return false
+
+	$(window).resize ->
+		triggerHover()
+
+	triggerHover()

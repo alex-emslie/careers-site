@@ -1,6 +1,6 @@
 (function() {
   $(function() {
-    var emptyIframe, loadWistia, matchHeight, options, rowCount;
+    var emptyIframe, lastId, loadWistia, matchHeight, menuItems, options, rowCount, scrollItems, topMenu, triggerHover;
     $.get("/svgs/svgs.svg", function(data) {
       var adjustPhotoHeight, customPhotoPagination, div, photoSlide;
       div = document.createElement("div");
@@ -44,9 +44,6 @@
         }
       };
       adjustPhotoHeight();
-      $(window).resize(function() {
-        return adjustPhotoHeight();
-      });
       $('#photo-carousel, .arrow svg').on("mouseover", function() {
         return $('.arrow svg').css('opacity', '0.5');
       });
@@ -88,19 +85,41 @@
     $('.close').click(function() {
       return emptyIframe();
     });
-    return $(window).resize(function() {
-      if (window.matchMedia('(min-width: 800px)').matches) {
+    lastId = void 0;
+    topMenu = $("#nav");
+    menuItems = topMenu.find("a");
+    scrollItems = menuItems.map(function() {
+      var item;
+      item = $($(this).attr("href"));
+      if (item.length) {
+        return item;
+      }
+    });
+    triggerHover = function() {
+      if (window.matchMedia('(max-width: 768px)').matches) {
+        $('.value-block .info').css('margin-top', '0');
         return $('.value-block').mouseleave(function() {
-          return $(this).find('.info').stop().css('marginTop', '100%');
+          return $(this).find('.info').stop().css('marginTop', '0');
+        }).mouseenter(function() {
+          return $(this).find('.info').animate({
+            marginTop: '0'
+          });
+        });
+      } else {
+        $('.value-block .info').css('margin-top', '82%');
+        return $('.value-block').mouseleave(function() {
+          return $(this).find('.info').stop().css('marginTop', '82%');
         }).mouseenter(function() {
           return $(this).find('.info').animate({
             marginTop: '30px'
           }, 200);
         });
-      } else {
-        return false;
       }
+    };
+    $(window).resize(function() {
+      return triggerHover();
     });
+    return triggerHover();
   });
 
 }).call(this);

@@ -119,7 +119,7 @@ $ ->
 
 
 	triggerHover = ->
-		if window.matchMedia('(max-width: 768px)').matches
+		if window.matchMedia('(max-width: 800px)').matches
 			$('.value-block .info').css 'margin-top' , '0'
 			$('.value-block').mouseleave(->
 				$(this).find('.info').stop().css 'marginTop', '0'

@@ -245,10 +245,12 @@ nav
   .video-image
     position: relative
     background-size: cover
-    height: 500px
+    height: 400px
+    background-position: center
     @include span-columns(12)
     @include media(min-width $mobile)
       @include span-columns(6)
+      background-position: top
       flex: 1
       height: auto
     @include media(min-width 1200px)
@@ -260,7 +262,7 @@ nav
       left: 50%
       margin-left: -79px
   .video-quote
-    padding: 65px
+    padding: 50px
     color: $white
     @include span-columns(12)
     @include media(min-width $mobile)
@@ -295,7 +297,7 @@ nav
 .values-module
   position: relative
   .text
-    padding: 4% 50px
+    padding: 50px
     h1
       text-align: center
     p
@@ -304,14 +306,16 @@ nav
       position: relative
       @include shift(2)
       text-align: center
-      padding: 0 0 50px
+      padding: 0
+      @include media(min-width $tablet)
+      	padding: 0 0 50px
   .value-block
     width: 100%
     padding: 15px 30px
     @include clearfix()
     display: flex
     img
-      width: 10%
+      width: 20%
       margin: 0
       position: relative
       float: left
@@ -494,8 +498,10 @@ nav
 				@include span-columns(5)
 	.seven-five-picture
     background-size: cover
-    min-height: 650px
+    min-height: 400px
     @include span-columns(12)
+    @include media(min-width $tablet)
+    	min-height: 650px
 	.copy
 		padding: 50px
 		@include media(min-width $tablet)

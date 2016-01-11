@@ -121,7 +121,7 @@
       return $('span.current-val').text($('.nav-menu').find('.active').text());
     });
     triggerHover = function() {
-      if (window.matchMedia('(max-width: 768px)').matches) {
+      if (window.matchMedia('(max-width: 800px)').matches) {
         $('.value-block .info').css('margin-top', '0');
         return $('.value-block').mouseleave(function() {
           return $(this).find('.info').stop().css('marginTop', '0');

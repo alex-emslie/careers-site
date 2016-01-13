@@ -174,7 +174,7 @@ nav
 
 .hero
 	background-size: cover
-	height: 550px
+	height: 100vh
 	position: relative
 	@include media(min-width $mobile)
 		height: 800px
@@ -187,15 +187,18 @@ nav
 			padding: 30px
 			@include media(min-width $mobile)
 				bottom: 80px
-				padding: 0
 	&.six
 		.one-half
-			@include span-columns(6)
-			@include shift(1)
+			@include span-columns(12)
+			@include media(min-width $tablet)
+				@include span-columns(6)
+				@include shift(1)
 	&.seven
 		.one-half
-			@include span-columns(7)
-			@include shift(1)
+			@include span-columns(12)
+			@include media(min-width $tablet)
+				@include span-columns(7)
+				@include shift(1)
 .columns
 	.one-quarter
 		position: relative
@@ -262,7 +265,7 @@ nav
       left: 50%
       margin-left: -79px
   .video-quote
-    padding: 50px
+    padding: 20px
     color: $white
     @include span-columns(12)
     @include media(min-width $mobile)
@@ -285,6 +288,7 @@ nav
       	text-transform: uppercase
       	color: $light-gray
     .one-third
+    	@include span-columns(4)
     &:not(:last-child)
       border-right: 1px solid $light-gray
   .one-third
@@ -297,7 +301,7 @@ nav
 .values-module
   position: relative
   .text
-    padding: 50px
+    padding: 20px
     h1
       text-align: center
     p
@@ -419,6 +423,59 @@ nav
 						height: 60px
 						padding: 15px 15px 10px
 						font-size: inherit
+	@include media(max-width $mobile)
+		padding: 20px
+		table.responsive
+		  margin-bottom: 0
+
+		.pinned
+		  position: absolute
+		  left: 0
+		  top: 0
+		  background: #fff
+		  width: 35%
+		  overflow: hidden
+		  overflow-x: scroll
+		  border-right: 1px solid #ccc
+		  border-left: 1px solid #ccc
+
+		.pinned 
+			table
+			  border-right: none
+			  border-left: none
+			  width: 100%
+
+		.pinned 
+			table 
+				th, td
+		  		white-space: nowrap
+
+		.pinned 
+			td:last-child
+		  	border-bottom: 0
+
+		.table-wrapper
+		  position: relative
+		  margin-bottom: 20px
+		  overflow: hidden
+		  border-right: 1px solid #ccc
+
+		.table-wrapper 
+			.scrollable
+		  	margin-left: 35%
+
+		.table-wrapper 
+			.scrollable
+		  	overflow: scroll
+		  	overflow-y: hidden
+
+		.responsive 
+			td, th 
+			  position: relative
+			  white-space: nowrap
+			  overflow: hidden
+
+
 .half-quad-icon
 	.one-half
 		background-color: $white
@@ -428,9 +485,9 @@ nav
 .half-icon
 	img
 		width: 90%
-    padding: 50px
+    padding: 20px
 	.copy
-		padding: 50px
+		padding: 20px
 		@include span-columns(12)
     @include media(min-width $tablet)
   		@include span-columns(4 of 6)
@@ -448,12 +505,12 @@ nav
 	.copy
 		position: relative
 		bottom: inherit
-		padding: 50px
+		padding: 20px
 		@include span-columns(12)
 		@include media(min-width $tablet)
 			position: absolute
 			bottom: 80px
-			padding: 0 50px
+			padding: 0 20px
 	p
 		color: $white
 	&.left
@@ -503,7 +560,7 @@ nav
     @include media(min-width $tablet)
     	min-height: 650px
 	.copy
-		padding: 50px
+		padding: 20px
 		@include media(min-width $tablet)
 			padding: 60px 0 0 0
 	&.dark

@@ -6,43 +6,6 @@ $ ->
 		document.body.insertBefore(div, document.body.childNodes[0])
 		$('body').removeClass('no-svgs').addClass('svgs-loaded')
 
-
-
-	$('#photo-carousel').owlCarousel
-		navigation: false
-		slideSpeed: 300
-		lazyLoad: true
-		singleItem: true
-		pagination: true
-		afterInit : (elem) ->
-			that = this
-			that.owlControls.appendTo('.photo-carousel .photo-description')
-
-	photoSlide = $('#photo-carousel').data('owlCarousel')
-
-	$('.photo-prev').click ->
-		photoSlide.prev()
-	$('.photo-next').click ->
-		photoSlide.next()
-
-	customPhotoPagination = ->
-		target = $(e.target)
-		index = $('.custom-slide span').index(target)
-		photoSlide.goTo index
-
-	adjustPhotoHeight = ->
-		if $(window).width() >= 1024
-			photoHeight = $('#photo-carousel').height()
-			$('.photo-description').css "height", photoHeight + "px"
-		if $(window).width() < 1024
-			$('.photo-description').css "height", "auto"
-	adjustPhotoHeight()
-
-	$('#photo-carousel, .arrow svg').on "mouseover", ->
-		$('.arrow svg').css('opacity' , '0.5')
-	$('#photo-carousel, .arrow svg').on "mouseleave", ->
-		$('.arrow svg').css('opacity' , '0')
-
 	options =
 		minOptions: 1
 
@@ -52,6 +15,67 @@ $ ->
 
 	rowCount = $('#jobs tr').length - 1
 	$('span#count').text(rowCount)
+
+	switched = false
+
+	updateTables = ->
+	  if $(window).width() < 767 and !switched
+	    switched = true
+	    $('table.responsive').each (i, element) ->
+	      splitTable $(element)
+	      return
+	    return true
+	  else if switched and $(window).width() > 767
+	    switched = false
+	    $('table.responsive').each (i, element) ->
+	      unsplitTable $(element)
+	      return
+	  return
+
+	splitTable = (original) ->
+	  original.wrap '<div class=\'table-wrapper\' />'
+	  copy = original.clone()
+	  copy.find('td:not(:first-child), th:not(:first-child)').css 'display', 'none'
+	  copy.removeClass 'responsive'
+	  original.closest('.table-wrapper').append copy
+	  copy.wrap '<div class=\'pinned\' />'
+	  original.wrap '<div class=\'scrollable\' />'
+	  setCellHeights original, copy
+	  return
+
+	unsplitTable = (original) ->
+	  original.closest('.table-wrapper').find('.pinned').remove()
+	  original.unwrap()
+	  original.unwrap()
+	  return
+
+	setCellHeights = (original, copy) ->
+	  tr = original.find('tr')
+	  tr_copy = copy.find('tr')
+	  heights = []
+	  tr.each (index) ->
+	    self = $(this)
+	    tx = self.find('th, td')
+	    tx.each ->
+	      height = $(this).outerHeight(true)
+	      heights[index] = heights[index] or 0
+	      if height > heights[index]
+	        heights[index] = height
+	      return
+	    return
+	  tr_copy.each (index) ->
+	    $(this).height heights[index]
+	    return
+	  return
+
+	$(window).load updateTables
+	$(window).on 'redraw', ->
+	  switched = false
+	  updateTables()
+	  return
+	# An event to listen for
+	$(window).on 'resize', updateTables
+
 
 
 	$('.burger, .sidebar-close').click ->

@@ -1,6 +1,6 @@
 (function() {
   $(function() {
-    var adjustPhotoHeight, customPhotoPagination, emptyIframe, lastId, loadWistia, matchHeight, menuItems, options, photoSlide, rowCount, scrollItems, topMenu, triggerHover;
+    var emptyIframe, lastId, loadWistia, matchHeight, menuItems, options, rowCount, scrollItems, setCellHeights, splitTable, switched, topMenu, triggerHover, unsplitTable, updateTables;
     $.get("/svgs/svgs.svg", function(data) {
       var div;
       div = document.createElement("div");
@@ -9,48 +9,6 @@
       document.body.insertBefore(div, document.body.childNodes[0]);
       return $('body').removeClass('no-svgs').addClass('svgs-loaded');
     });
-    $('#photo-carousel').owlCarousel({
-      navigation: false,
-      slideSpeed: 300,
-      lazyLoad: true,
-      singleItem: true,
-      pagination: true,
-      afterInit: function(elem) {
-        var that;
-        that = this;
-        return that.owlControls.appendTo('.photo-carousel .photo-description');
-      }
-    });
-    photoSlide = $('#photo-carousel').data('owlCarousel');
-    $('.photo-prev').click(function() {
-      return photoSlide.prev();
-    });
-    $('.photo-next').click(function() {
-      return photoSlide.next();
-    });
-    customPhotoPagination = function() {
-      var index, target;
-      target = $(e.target);
-      index = $('.custom-slide span').index(target);
-      return photoSlide.goTo(index);
-    };
-    adjustPhotoHeight = function() {
-      var photoHeight;
-      if ($(window).width() >= 1024) {
-        photoHeight = $('#photo-carousel').height();
-        $('.photo-description').css("height", photoHeight + "px");
-      }
-      if ($(window).width() < 1024) {
-        return $('.photo-description').css("height", "auto");
-      }
-    };
-    adjustPhotoHeight();
-    $('#photo-carousel, .arrow svg').on("mouseover", function() {
-      return $('.arrow svg').css('opacity', '0.5');
-    });
-    $('#photo-carousel, .arrow svg').on("mouseleave", function() {
-      return $('.arrow svg').css('opacity', '0');
-    });
     options = {
       minOptions: 1
     };
@@ -58,6 +16,65 @@
     $("#jobs th select").wrap("<div class='styled-select'</div>");
     rowCount = $('#jobs tr').length - 1;
     $('span#count').text(rowCount);
+    switched = false;
+    updateTables = function() {
+      if ($(window).width() < 767 && !switched) {
+        switched = true;
+        $('table.responsive').each(function(i, element) {
+          splitTable($(element));
+        });
+        return true;
+      } else if (switched && $(window).width() > 767) {
+        switched = false;
+        $('table.responsive').each(function(i, element) {
+          unsplitTable($(element));
+        });
+      }
+    };
+    splitTable = function(original) {
+      var copy;
+      original.wrap('<div class=\'table-wrapper\' />');
+      copy = original.clone();
+      copy.find('td:not(:first-child), th:not(:first-child)').css('display', 'none');
+      copy.removeClass('responsive');
+      original.closest('.table-wrapper').append(copy);
+      copy.wrap('<div class=\'pinned\' />');
+      original.wrap('<div class=\'scrollable\' />');
+      setCellHeights(original, copy);
+    };
+    unsplitTable = function(original) {
+      original.closest('.table-wrapper').find('.pinned').remove();
+      original.unwrap();
+      original.unwrap();
+    };
+    setCellHeights = function(original, copy) {
+      var heights, tr, tr_copy;
+      tr = original.find('tr');
+      tr_copy = copy.find('tr');
+      heights = [];
+      tr.each(function(index) {
+        var self, tx;
+        self = $(this);
+        tx = self.find('th, td');
+        tx.each(function() {
+          var height;
+          height = $(this).outerHeight(true);
+          heights[index] = heights[index] || 0;
+          if (height > heights[index]) {
+            heights[index] = height;
+          }
+        });
+      });
+      tr_copy.each(function(index) {
+        $(this).height(heights[index]);
+      });
+    };
+    $(window).load(updateTables);
+    $(window).on('redraw', function() {
+      switched = false;
+      updateTables();
+    });
+    $(window).on('resize', updateTables);
     $('.burger, .sidebar-close').click(function() {
       return $('.off-canvas, #container, .overlay, body').toggleClass('nav-active');
     });

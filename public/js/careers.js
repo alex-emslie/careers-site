@@ -138,16 +138,7 @@
       return $('span.current-val').text($('.nav-menu').find('.active').text());
     });
     triggerHover = function() {
-      if (window.matchMedia('(max-width: 800px)').matches) {
-        $('.value-block .info').css('margin-top', '0');
-        return $('.value-block').mouseleave(function() {
-          return $(this).find('.info').stop().css('marginTop', '0');
-        }).mouseenter(function() {
-          return $(this).find('.info').animate({
-            marginTop: '0'
-          });
-        });
-      } else {
+      if (matchMedia('only screen and (min-width: 800px)').matches) {
         $('.value-block .info').css('margin-top', '82%');
         return $('.value-block').mouseleave(function() {
           return $(this).find('.info').stop().css('marginTop', '82%');
@@ -156,6 +147,8 @@
             marginTop: '30px'
           }, 200);
         });
+      } else {
+        return $('.value-block .info').css('margin-top', '0');
       }
     };
     $(window).resize(function() {

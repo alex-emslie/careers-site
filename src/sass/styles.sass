@@ -265,7 +265,7 @@ nav
       left: 50%
       margin-left: -79px
   .video-quote
-    padding: 20px
+    padding: $mobile-padding
     color: $white
     @include span-columns(12)
     @include media(min-width $mobile)
@@ -301,18 +301,21 @@ nav
 .values-module
   position: relative
   .text
-    padding: 20px
+    padding: $mobile-padding
     h1
-      text-align: center
+      text-align: left
+      @include media(min-width $tablet)
+      	text-align: center
     p
-      @include span-columns(8)
-      margin: 0 auto
+      @include span-columns(12)
       position: relative
-      @include shift(2)
-      text-align: center
+      text-align: left
       padding: 0
       @include media(min-width $tablet)
+      	@include span-columns(8)
       	padding: 0 0 50px
+      	text-align: center
+      	@include shift(2)
   .value-block
     width: 100%
     padding: 15px 30px
@@ -339,8 +342,8 @@ nav
       &:first-child
         border-left: 1px solid transparent
       img
-        width: 80%
-        margin: 10%
+        width: 70%
+        margin: 15%
     h4
       color: $blue
       font-size: 24px
@@ -424,7 +427,7 @@ nav
 						padding: 15px 15px 10px
 						font-size: inherit
 	@include media(max-width $mobile)
-		padding: 20px
+		padding: $mobile-padding
 		table.responsive
 		  margin-bottom: 0
 
@@ -485,13 +488,14 @@ nav
 .half-icon
 	img
 		width: 90%
-    padding: 20px
+		padding: $mobile-padding
 	.copy
-		padding: 20px
 		@include span-columns(12)
-    @include media(min-width $tablet)
-  		@include span-columns(4 of 6)
-  		@include shift(1)
+		padding: $mobile-padding
+		@include media(min-width $tablet)
+			@include span-columns(4 of 6)
+			@include shift(1)
+			padding: 60px 0 0 0
 
 .full-video
 	background: url(../imgs/careers-hero.jpg)
@@ -505,7 +509,7 @@ nav
 	.copy
 		position: relative
 		bottom: inherit
-		padding: 20px
+		padding: $mobile-padding
 		@include span-columns(12)
 		@include media(min-width $tablet)
 			position: absolute
@@ -560,7 +564,7 @@ nav
     @include media(min-width $tablet)
     	min-height: 650px
 	.copy
-		padding: 20px
+		padding: $mobile-padding
 		@include media(min-width $tablet)
 			padding: 60px 0 0 0
 	&.dark

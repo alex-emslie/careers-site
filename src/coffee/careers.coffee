@@ -76,12 +76,8 @@ $ ->
 	# An event to listen for
 	$(window).on 'resize', updateTables
 
-
-
 	$('.burger, .sidebar-close').click ->
 		$('.off-canvas, #container, .overlay, body').toggleClass('nav-active')
-
-
 
 	matchHeight = ->
 		teamIcon = $('.columns.quarter-icon .one-quarter')
@@ -140,18 +136,8 @@ $ ->
 	    menuItems.removeClass('active').filter('[href=#' + id + ']').addClass 'active'
 	  $('span.current-val').text $('.nav-menu').find('.active').text()
 
-
-
 	triggerHover = ->
-		if window.matchMedia('(max-width: 800px)').matches
-			$('.value-block .info').css 'margin-top' , '0'
-			$('.value-block').mouseleave(->
-				$(this).find('.info').stop().css 'marginTop', '0'
-			).mouseenter ->
-				$(this).find('.info').animate {
-					marginTop: '0'
-				}
-		else
+		if matchMedia('only screen and (min-width: 800px)').matches
 			$('.value-block .info').css 'margin-top' , '82%'
 			$('.value-block').mouseleave(->
 				$(this).find('.info').stop().css 'marginTop', '82%'
@@ -159,6 +145,8 @@ $ ->
 				$(this).find('.info').animate {
 					marginTop: '30px'
 				}, 200
+		else
+			$('.value-block .info').css 'margin-top' , '0'
 
 	$(window).resize ->
 		triggerHover()

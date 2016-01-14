@@ -138,18 +138,21 @@
       return $('span.current-val').text($('.nav-menu').find('.active').text());
     });
     triggerHover = function() {
-      if (matchMedia('only screen and (min-width: 800px)').matches) {
-        $('.value-block .info').css('margin-top', '82%');
-        return $('.value-block').mouseleave(function() {
+      return $('.value-block').mouseleave(function() {
+        if (matchMedia('only screen and (min-width: 800px)').matches) {
           return $(this).find('.info').stop().css('marginTop', '82%');
-        }).mouseenter(function() {
+        } else {
+          return false;
+        }
+      }).mouseenter(function() {
+        if (matchMedia('only screen and (min-width: 800px)').matches) {
           return $(this).find('.info').animate({
             marginTop: '30px'
           }, 200);
-        });
-      } else {
-        return $('.value-block .info').css('margin-top', '0');
-      }
+        } else {
+          return false;
+        }
+      });
     };
     $(window).resize(function() {
       return triggerHover();

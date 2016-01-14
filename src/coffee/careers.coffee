@@ -137,16 +137,18 @@ $ ->
 	  $('span.current-val').text $('.nav-menu').find('.active').text()
 
 	triggerHover = ->
-		if matchMedia('only screen and (min-width: 800px)').matches
-			$('.value-block .info').css 'margin-top' , '82%'
-			$('.value-block').mouseleave(->
+		$('.value-block').mouseleave(->
+			if matchMedia('only screen and (min-width: 800px)').matches
 				$(this).find('.info').stop().css 'marginTop', '82%'
-			).mouseenter ->
+			else
+				return false
+		).mouseenter ->
+			if matchMedia('only screen and (min-width: 800px)').matches
 				$(this).find('.info').animate {
 					marginTop: '30px'
 				}, 200
-		else
-			$('.value-block .info').css 'margin-top' , '0'
+			else
+				return false
 
 	$(window).resize ->
 		triggerHover()

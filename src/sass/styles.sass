@@ -350,6 +350,8 @@ nav
       	background-color: $white
       	.info
       		background-color: $white
+      		p
+      			display: block
     h4
       color: $blue
       font-size: 18px
@@ -364,7 +366,7 @@ nav
       display: block
       float: left
       padding-left: 5%
-      top: 37px
+      top: 63px
       height: 100%
       margin-top: 0
       @include justify-content(center)
@@ -382,8 +384,10 @@ nav
       p
         padding: 0
         text-align: center
+        display: block
         @include media(min-width 800px)
           padding: 5% 10% 10%
+          display: none
   .row
     @include clearfix()
 
@@ -397,11 +401,15 @@ nav
 	#jobs
 		width: 100%
 		@extend %thin-headline
-		tr
+		.row
 			border-bottom: 1px solid #dfe0e0
-		td
+			@include clearfix()
+		.entry
 			font-size: 16px
 			padding: 10px 0 2px
+			float: left
+			display: block
+			position: relative
 			@include media(min-width $tablet)
 				font-size: 30px
 				padding: 12px 0 3px
@@ -411,7 +419,7 @@ nav
 				width: 20%
 			&:nth-child(3)
 				width: 20%
-		th
+		.row
 			position: relative
 			.styled-select
 				overflow: hidden

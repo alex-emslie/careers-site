@@ -139,13 +139,13 @@ $ ->
 	triggerHover = ->
 		$('.value-block').mouseleave(->
 			if matchMedia('only screen and (min-width: 800px)').matches
-				$(this).find('.info').stop().css 'marginTop', '82%'
+				$(this).find('.info').stop().css 'marginTop', '78%'
 			else
 				return false
 		).mouseenter ->
 			if matchMedia('only screen and (min-width: 800px)').matches
 				$(this).find('.info').animate {
-					marginTop: '30px'
+					marginTop: '20px'
 				}, 200
 			else
 				return false

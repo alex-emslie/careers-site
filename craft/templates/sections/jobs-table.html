@@ -2,6 +2,16 @@
 	<div class="container">
 		<h4 class="block-label">Open Positions</h4>
 		<h2>{{ matrixBlock.jobsHeadline }}</h2>
+		
+		<div class="filter-wrapper">
+			<select>
+				{% for category in craft.entries.section('jobs') %}
+					<option value="{{ category.title }}">{{ category.title }}</option>
+				{% endfor %}
+			</select>
+		</div>
+		
+
 		<div id="jobs" class="responsive">
 				{% for entry in craft.entries.section('jobs') %}
 					<div class="row">

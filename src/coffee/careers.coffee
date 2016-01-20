@@ -6,15 +6,39 @@ $ ->
     document.body.insertBefore(div, document.body.childNodes[0])
     $('body').removeClass('no-svgs').addClass('svgs-loaded')
 
-  options =
-    minOptions: 1
+  itemfilter = {}
+  filterItems = (itemfilter) ->
+    # filter through .filter-elements
+    $.each(itemfilter, (key, value) ->
+      $(".filter-element").not("[data-#{key}~='#{value}']").hide()
+    )
+    # hide unused sections
+    $('.job-entry').each ->
+      if $(this).find('.filter-element:visible').length == 0
+        $(this).hide()
+        
+    # add no results message
+    if $('.filter-element:visible').length == 0
+      #console.log "nothing to show"
+      $('.filter-group').after($("<h1 class='no-results' style='color: white;'>We're sorry, but there are no results for your selections. Please <a href='/customers' class='js-filter-reset'>reset</a> or change your filter settings.</h1>"))
 
-  $('#jobs').ddTableFilter(options)
+  $('.filter-select').on 'change', (e) ->
+    e.preventDefault()
+    $('.no-results').remove()
+    filter = $(this).attr('data-filter')
+    value = $(this).val()
+    if $(this).find(":selected").hasClass('default') then delete itemfilter[filter] else itemfilter[filter] = value
+    #console.log itemfilter
+    $("[data-#{filter}], .job-entry").show()
+    $('.is-featured:visible').removeAttr("style")
+    filterItems(itemfilter)
 
-  $("#jobs th select").wrap("<div class='styled-select'</div>")
-
-  rowCount = $('#jobs tr').length - 1
-  $('span#count').text(rowCount)
+  $(document).on 'click', '.js-filter-reset', (e) ->
+    e.preventDefault()
+    itemfilter = {}
+    $('.no-results').remove()
+    $('.filter-element, .job-entry').show()
+    $('.js-replace-select').find('option.default').prop('selected', true).end().trigger('chosen:updated')
 
   loadWistia = (wistiaEmbed) ->
     $('.video-launch, button.video-launch').click (e) ->

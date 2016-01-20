@@ -3,22 +3,50 @@
 		<h4 class="block-label">Open Positions</h4>
 		<h2>{{ matrixBlock.jobsHeadline }}</h2>
 		
-		<div class="filter-wrapper">
+<!-- 		<div class="filter-wrapper">
 			<select>
-				{% for category in craft.entries.section('jobs') %}
-					<option value="{{ category.title }}">{{ category.title }}</option>
-				{% endfor %}
+			{% for teamEntry in craft.entries.section('teams') %}
+				<option value="{{ teamEntry.title }}">{{ teamEntry.title }}</option>
+			{% endfor %}
 			</select>
-		</div>
+		</div> -->
+
+
+    <section class="text-inline-filter customers-filter on-black">
+        <div class="container-small collapsed">
+            
+            <h2 class="filter-group">
+               
+                You are viewing
+                <div class="filter-wrapper">
+									<select class="js-team-filter js-replace-select filter-select" data-filter="team">
+										<option value="All Teams" class="default"><a href="#">all teams</a></option>
+									{% for teamEntry in craft.entries.section('teams') %}
+										<option value="{{ teamEntry.title }}"><a href="#">{{ teamEntry.title }}</a></option>
+									{% endfor %}
+									</select>
+                </div>
+                and
+                <div class="filter-wrapper">
+									<select class="js-location-filter js-replace-select filter-select" data-filter="location">
+										<option value="All Locations" class="default"><a href="#">all locations</a></option>
+									{% for locationEntry in craft.entries.section('locations') %}
+										<option value="{{ locationEntry.title }}">{{ locationEntry.title }}</option>
+									{% endfor %}
+									</select>
+                </div>
+            </h2>
+        </div>
+    </section>
 		
 
 		<div id="jobs" class="responsive">
 				{% for entry in craft.entries.section('jobs') %}
-					<div class="row">
+					{% set team = entry.team.first() %}
+					{% set location = entry.location.first() %}
+					<div class="job-entry filter-element row" data-team="{{ team.title }}" data-location="{{ location.title }}">
 				        <div class="entry title"><a href="{{ entry.jobviteUrl }}">{{ entry.title }}</a></div>
-				        {% set location = entry.location.first() %}
 				        <div class="entry location">{{ location.title }}</div>
-				        {% set team = entry.team.first() %}
 				        <div class="entry team">{{ team.title }}</div>
 				    </div>
 				{% endfor %}

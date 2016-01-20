@@ -1,6 +1,6 @@
 (function() {
   $(function() {
-    var emptyIframe, lastId, loadWistia, menuItems, options, rowCount, scrollItems, topMenu, triggerHover;
+    var emptyIframe, filterItems, itemfilter, lastId, loadWistia, menuItems, scrollItems, topMenu, triggerHover;
     $.get("/svgs/svgs.svg", function(data) {
       var div;
       div = document.createElement("div");
@@ -9,13 +9,42 @@
       document.body.insertBefore(div, document.body.childNodes[0]);
       return $('body').removeClass('no-svgs').addClass('svgs-loaded');
     });
-    options = {
-      minOptions: 1
+    itemfilter = {};
+    filterItems = function(itemfilter) {
+      $.each(itemfilter, function(key, value) {
+        return $(".filter-element").not("[data-" + key + "~='" + value + "']").hide();
+      });
+      $('.job-entry').each(function() {
+        if ($(this).find('.filter-element:visible').length === 0) {
+          return $(this).hide();
+        }
+      });
+      if ($('.filter-element:visible').length === 0) {
+        return $('.filter-group').after($("<h1 class='no-results' style='color: white;'>We're sorry, but there are no results for your selections. Please <a href='/customers' class='js-filter-reset'>reset</a> or change your filter settings.</h1>"));
+      }
     };
-    $('#jobs').ddTableFilter(options);
-    $("#jobs th select").wrap("<div class='styled-select'</div>");
-    rowCount = $('#jobs tr').length - 1;
-    $('span#count').text(rowCount);
+    $('.filter-select').on('change', function(e) {
+      var filter, value;
+      e.preventDefault();
+      $('.no-results').remove();
+      filter = $(this).attr('data-filter');
+      value = $(this).val();
+      if ($(this).find(":selected").hasClass('default')) {
+        delete itemfilter[filter];
+      } else {
+        itemfilter[filter] = value;
+      }
+      $("[data-" + filter + "], .job-entry").show();
+      $('.is-featured:visible').removeAttr("style");
+      return filterItems(itemfilter);
+    });
+    $(document).on('click', '.js-filter-reset', function(e) {
+      e.preventDefault();
+      itemfilter = {};
+      $('.no-results').remove();
+      $('.filter-element, .job-entry').show();
+      return $('.js-replace-select').find('option.default').prop('selected', true).end().trigger('chosen:updated');
+    });
     loadWistia = function(wistiaEmbed) {
       return $('.video-launch, button.video-launch').click(function(e) {
         var loadedIframe;

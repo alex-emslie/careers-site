@@ -9,6 +9,9 @@
       document.body.insertBefore(div, document.body.childNodes[0]);
       return $('body').removeClass('no-svgs').addClass('svgs-loaded');
     });
+    $('.js-replace-select').chosen({
+      width: 'auto'
+    });
     itemfilter = {};
     filterItems = function(itemfilter) {
       $.each(itemfilter, function(key, value) {
@@ -20,7 +23,7 @@
         }
       });
       if ($('.filter-element:visible').length === 0) {
-        return $('.filter-group').after($("<h1 class='no-results' style='color: white;'>We're sorry, but there are no results for your selections. Please <a href='/customers' class='js-filter-reset'>reset</a> or change your filter settings.</h1>"));
+        return $('.filter-group').after($("<h1 class='no-results' style='color: #000;'>We're sorry, but there are no results for your selections. Please <a href='/customers' class='js-filter-reset'>reset</a> or change your filter settings.</h1>"));
       }
     };
     $('.filter-select').on('change', function(e) {

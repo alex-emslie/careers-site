@@ -12,23 +12,23 @@
 		</div> -->
 
 
-    <section class="text-inline-filter customers-filter on-black">
-        <div class="container-small collapsed">
+    <section class="text-inline-filter customers-filter on-white">
+        <div class="collapsed">
             
             <h2 class="filter-group">
                
                 You are viewing
                 <div class="filter-wrapper">
-									<select class="js-team-filter js-replace-select filter-select" data-filter="team">
+									<select class="js-replace-select filter-select" data-filter="team">
 										<option value="All Teams" class="default"><a href="#">all teams</a></option>
-									{% for teamEntry in craft.entries.section('teams') %}
-										<option value="{{ teamEntry.title }}"><a href="#">{{ teamEntry.title }}</a></option>
-									{% endfor %}
+										{% for teamEntry in craft.entries.section('teams') %}
+											<option value="{{ teamEntry.title }}"><a href="#">{{ teamEntry.title }}</a></option>
+										{% endfor %}
 									</select>
                 </div>
                 and
                 <div class="filter-wrapper">
-									<select class="js-location-filter js-replace-select filter-select" data-filter="location">
+									<select class="js-replace-select filter-select" data-filter="location">
 										<option value="All Locations" class="default"><a href="#">all locations</a></option>
 									{% for locationEntry in craft.entries.section('locations') %}
 										<option value="{{ locationEntry.title }}">{{ locationEntry.title }}</option>

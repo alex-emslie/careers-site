@@ -18,6 +18,8 @@
 @import "modules/photo-carousel/photo-carousel"
 @import "modules/customer_card/customer_card"
 @import "modules/inline-select/inline-select"
+@import "modules/vertical-nav/vertical-nav"
+@import "modules/chosen/chosen"
 @import "extends"
 @import "mixins"
 
@@ -404,6 +406,16 @@ nav
 		&.positions
 			position: absolute
 			margin-top: 18px
+	.text-inline-filter
+		padding: 20px 0
+		&.on-white
+			h2
+				color: $black
+				padding: 0 0 20px
+
+	.chosen-drop
+		li
+			font-size: 0.6em
 	#jobs
 		width: 100%
 		@extend %thin-headline

@@ -6,6 +6,10 @@ $ ->
     document.body.insertBefore(div, document.body.childNodes[0])
     $('body').removeClass('no-svgs').addClass('svgs-loaded')
 
+  $('.js-replace-select').chosen(
+    width: 'auto'
+  )
+
   itemfilter = {}
   filterItems = (itemfilter) ->
     # filter through .filter-elements
@@ -16,11 +20,10 @@ $ ->
     $('.job-entry').each ->
       if $(this).find('.filter-element:visible').length == 0
         $(this).hide()
-        
     # add no results message
     if $('.filter-element:visible').length == 0
       #console.log "nothing to show"
-      $('.filter-group').after($("<h1 class='no-results' style='color: white;'>We're sorry, but there are no results for your selections. Please <a href='/customers' class='js-filter-reset'>reset</a> or change your filter settings.</h1>"))
+      $('.filter-group').after($("<h1 class='no-results' style='color: #000;'>We're sorry, but there are no results for your selections. Please <a href='/customers' class='js-filter-reset'>reset</a> or change your filter settings.</h1>"))
 
   $('.filter-select').on 'change', (e) ->
     e.preventDefault()

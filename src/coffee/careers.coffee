@@ -14,6 +14,7 @@ $ ->
   filterItems = (itemfilter) ->
     # filter through .filter-elements
     $.each(itemfilter, (key, value) ->
+      #console.log $(".filter-element")
       $(".filter-element").not("[data-#{key}~='#{value}']").hide()
     )
     # hide unused sections

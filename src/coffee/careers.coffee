@@ -17,9 +17,9 @@ $ ->
       $(".filter-element").not("[data-#{key}~='#{value}']").hide()
     )
     # hide unused sections
-    $('.job-entry').each ->
-      if $(this).find('.filter-element:visible').length == 0
-        $(this).hide()
+    # $('.job-entry').each ->
+    #   if $(this).find('.filter-element:visible').length == 0
+    #     $(this).hide()
     # add no results message
     if $('.filter-element:visible').length == 0
       #console.log "nothing to show"

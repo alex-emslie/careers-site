@@ -101,7 +101,7 @@
       return $('span.current-val').text($('.nav-menu').find('.active').text());
     });
     triggerHover = function() {
-      return $('.value-block').mouseleave(function() {
+      $('.value-block').mouseleave(function() {
         if (matchMedia('only screen and (min-width: 800px)').matches) {
           return $(this).find('.info').stop().css('marginTop', '78%');
         } else {
@@ -116,6 +116,9 @@
           return false;
         }
       });
+      if (matchMedia('only screen and (max-width: 800px)')) {
+        return $(this).find('.info').stop().css('marginTop', '0');
+      }
     };
     $(window).resize(function() {
       return triggerHover();

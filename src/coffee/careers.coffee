@@ -107,6 +107,8 @@ $ ->
         }, 200
       else
         return false
+    if matchMedia('only screen and (max-width: 800px)')
+      $(this).find('.info').stop().css 'marginTop', '0'
 
   $(window).resize ->
     triggerHover()

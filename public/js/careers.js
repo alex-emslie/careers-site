@@ -17,11 +17,6 @@
       $.each(itemfilter, function(key, value) {
         return $(".filter-element").not("[data-" + key + "~='" + value + "']").hide();
       });
-      $('.job-entry').each(function() {
-        if ($(this).find('.filter-element:visible').length === 0) {
-          return $(this).hide();
-        }
-      });
       if ($('.filter-element:visible').length === 0) {
         return $('.filter-group').after($("<h1 class='no-results' style='color: #000;'>We're sorry, but there are no results for your selections. Please <a href='/customers' class='js-filter-reset'>reset</a> or change your filter settings.</h1>"));
       }

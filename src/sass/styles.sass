@@ -316,6 +316,9 @@ nav
       text-align: left
       @include media(min-width $tablet)
       	text-align: center
+    h3
+    	color: $black
+    	line-height: inherit
     p
       @include span-columns(12)
       position: relative
@@ -546,6 +549,7 @@ nav
 		padding: $mobile-padding
 		@include span-columns(12)
 		@include media(min-width $tablet)
+			@include span-columns(7)
 			position: absolute
 			bottom: 80px
 			padding: 0 20px
@@ -556,7 +560,7 @@ nav
 			@include shift(6)
 	&.right
 		.copy
-			@include shift(0)
+			@include shift(1)
 .photo-carousel
 	overflow: auto
 	@include media(min-width $tablet)

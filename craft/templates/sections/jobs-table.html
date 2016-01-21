@@ -41,7 +41,7 @@
 		
 
 		<div id="jobs" class="responsive">
-				{% for entry in craft.entries.section('jobs') %}
+				{% for entry in craft.entries.section('jobs').order('title') %}
 					{% set team = entry.team.first() %}
 					{% set location = entry.location.first() %}
 					<div class="job-entry filter-element row" data-team="{{ team.title }}" data-location="{{ location.title }}">

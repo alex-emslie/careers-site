@@ -12,6 +12,15 @@
     $('.js-replace-select').chosen({
       width: 'auto'
     });
+    $('.menu-burger, .menu-items').on('click', function() {
+      $('.menu-bg, .menu-items, .menu-burger, .mobile-nav .logo').toggleClass('fs');
+      $('body').toggleClass('overflow');
+      if ($('.menu-burger').text() === '☰') {
+        return $('.menu-burger').text('✕');
+      } else {
+        return $('.menu-burger').text('☰');
+      }
+    });
     itemfilter = {};
     filterItems = function(itemfilter) {
       $.each(itemfilter, function(key, value) {

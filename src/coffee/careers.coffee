@@ -10,6 +10,12 @@ $ ->
     width: 'auto'
   )
 
+
+  $('.menu-burger, .menu-items').on 'click', ->
+    $('.menu-bg, .menu-items, .menu-burger, .mobile-nav .logo').toggleClass 'fs'
+    $('body').toggleClass('overflow')
+    if $('.menu-burger').text() == '☰' then $('.menu-burger').text('✕') else $('.menu-burger').text('☰')
+
   itemfilter = {}
   filterItems = (itemfilter) ->
     # filter through .filter-elements

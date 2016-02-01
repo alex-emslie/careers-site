@@ -21,60 +21,128 @@
 </head>
 
 <body>
-	<div class="off-canvas">
-		<li class="sidebar-close">
-			<span class="first-child"></span>
-			<span class="last-child"></span>
-		</li>
-		<ul class="top-level">
-			<li>appdirect.com</li>
-			<li>Benefts</li>
-			<li>Developers</li>
-			<li>Resources</li>
-			<li>Video Center</li>
-			<li>Blog</li>
-			<li>About Us</li>
-			<li>Careers
-				<ul class="sub-list"><span class="bold">Teams</span>
-					<li>Customer Ops</li>
-					<li>Corporate</li>
-					<li>Dev Ops</li>
-					<li>Design</li>
-					<li><a href="/teams/engineering">Engineering</a></li>
-				</ul>
-				<ul class="sub-list"><span class="bold">Locations</span>
-					<li><a href="/locations/san-francisco">San Francisco</a></li>
-					<li><a href="/locations/boulder">Boulder</a></li>
-					<li><a href="/locations/montreal">Montreal</a></li>
-					<li><a href="/locations/munich">Munich</a></li>
-				</ul>
-			</li>
-		</ul>
-	</div>
-	<div class="overlay"></div>
-		<nav>
-			<ul class="anchor">
-				 <li class="logo">
-          <a href="http://www.appdirect.com">
+	<div id="newnav">
+<header class="nav main-nav">
+  <div class="container-small">
+    <nav>
+      <ul>
+        <li class="logo">
+          <a href="/">
             <svg class="shape">
-              <use xlink:href="#ad-logomark"></use>
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#ad-logo"></use>
             </svg>
           </a>
         </li>
-				<li class="title"><a href="http://www.appdirect.com">Careers at AppDirect</a></li>
-			</ul>
-<!-- 			<ul class="nav-toggle">
-				<li class="burger">☰</li>
-			</ul> -->
-			<ul class="main-nav">
-				<li><a href="#whatWeDo">What We Do</a></li>
-				<li><a href="#coreValues">Core Values</a></li>
-				<li><a href="#teams">Teams</a></li>
-				<li><a href="#perks">Perks</a></li>
-				<li><a href="#locations">Locations</a></li>
-				<li><a href="#jobOpenings">Job Openings</a></li>
-			</ul>
-		</nav>
+        <li class="dropdown">
+          <a href="http://info.appdirect.com/products" class="">Product</a>
+            <ul class="sub-menu">
+              <div class="arrow"></div>
+              <li class="nested-nav"><a href="http://info.appdirect.com/products/appdirect-monetization-suite">Monetization Suite</a>
+                <ul>
+                  <li><a href="http://info.appdirect.com/products/appdirect-monetization-suite/marketplace-management-service">Marketplace &amp; Management Service</a></li>
+                  <li><a href="http://info.appdirect.com/products/appdirect-monetization-suite/billing-distribution-service">Billing &amp; Distribution Service</a></li>
+                  <li><a href="http://info.appdirect.com/products/appdirect-monetization-suite/reseller-management-service">Reseller Management Service</a></li>
+                </ul>
+              </li>
+              <li class="nested-nav"><a href="http://info.appdirect.com/products/appdirect-management-suite">Management Suite</a>
+                <ul>
+                  <li><a href="http://info.appdirect.com/products/appdirect-management-suite/data-management">Data Management</a></li>
+                  <li><a href="http://info.appdirect.com/products/appdirect-management-suite/identity-and-access-management">Identity &amp; Access Management</a></li>
+                  <li><a href="http://info.appdirect.com/products/appdirect-management-suite/infrastructure-management">Infrastructure Management</a></li>
+                </ul>
+              </li>
+              <li><a href="http://info.appdirect.com/products/telco-subscription-billing">Telcom Subscription Billing</a></li>
+              <li><a href="http://info.appdirect.com/products/private-app-management">Private App Management</a></li>
+            </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="http://info.appdirect.com/solutions" class="">Solutions</a>
+            <ul class="sub-menu">
+              <div class="arrow"></div>
+              <li><a href="http://info.appdirect.com/solutions/iaas">IaaS</a></li>
+              <li><a href="http://info.appdirect.com/solutions/paas">PaaS</a></li>
+              <li><a href="http://info.appdirect.com/solutions/saas">SaaS</a></li>
+              <li><a href="http://info.appdirect.com/solutions/telco">Telco</a></li>
+              <li><a href="http://info.appdirect.com/solutions/hardware">Hardware</a></li>
+              <li><a href="http://info.appdirect.com/solutions/retail">Retail</a></li>
+            </ul>
+        </li>
+
+        <li>
+          <a href="http://info.appdirect.com/services" class="">Services</a>
+        </li>
+
+        <li>
+          <a href="http://info.appdirect.com/customers" class="">Customers</a>
+        </li>
+        <li>
+          <a href="http://info.appdirect.com/plans" class="">Plans</a>
+        </li>
+      </ul>
+    </nav>
+    <menu class="utility-nav">
+      <ul>
+        <li class="dropdown">
+          <a href="http://info.appdirect.com/about" class="">About Us</a>
+            <ul class="sub-menu">
+              <div class="arrow"></div>
+              <li><a href="http://info.appdirect.com/about/careers">Careers</a></li>
+              <li><a href="http://info.appdirect.com/about/leadership">Leadership</a></li>
+              <li><a href="http://info.appdirect.com/about/press">Press Center</a></li>
+              <li><a href="http://info.appdirect.com/about/investors">Investors</a></li>
+              <li><a href="http://info.appdirect.com/resources">Resources</a></li>
+              <li><a href="http://info.appdirect.com/video">Video Center</a></li>
+              <li><a href="http://info.appdirect.com/blog">Blog</a></li>
+              <li><a href="http://info.appdirect.com/about/contact">Contact Us</a></li>
+            </ul>
+        </li>
+        <li>
+          <a href="http://info.appdirect.com/developers" class="">Developers</a>
+        </li>
+
+        <li class="login">
+          <a href="https://www.appdirect.com/login">
+            <span>Log In</span>
+            <svg class="shape">
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#login_icon"></use>
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </menu>
+  </div>
+</header>
+
+<nav class="mobile-nav">
+  <div class="logo">
+    <a href="/">
+      <svg class="shape">
+        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#shape-ad-logo"></use>
+      </svg>
+    </a>
+  </div>
+  <div class="menu-bg"></div>
+  <div class="menu-burger">☰</div>
+  <ul class="menu-items">
+    <li><a href="http://info.appdirect.com/products">Products</a></li>
+    <li><a href="http://info.appdirect.com/solutions">Solutions</a></li>
+    <li><a href="http://info.appdirect.com/services">Services</a></li>
+    <li><a href="http://info.appdirect.com/customers">Customers</a></li>
+    <li><a href="http://info.appdirect.com/plans">Plans</a></li>
+  </ul>
+  <ul class="menu-items sub">
+    <li><a href="http://info.appdirect.com/about">About Us</a></li>
+    <li><a href="http://info.appdirect.com/about">Developers</a></li>
+    <li><a href="http://info.appdirect.com/about">Careers</a></li>
+    <li>
+      <a href="https://appdirect.com/login" class="login">
+        <span>Login</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+</div>
 
 		<main role="main">
 				{% block content %}

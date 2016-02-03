@@ -1,6 +1,6 @@
 (function() {
   $(function() {
-    var emptyIframe, filterItems, itemfilter, loadWistia, triggerHover;
+    var emptyIframe, filterItems, itemfilter, loadWistia;
     $.get("/svgs/svgs.svg", function(data) {
       var div;
       div = document.createElement("div");
@@ -66,33 +66,9 @@
     emptyIframe = function() {
       return $('.iframe-container').empty();
     };
-    $('.close').click(function() {
+    return $('.close').click(function() {
       return emptyIframe();
     });
-    triggerHover = function() {
-      $('.value-block').mouseleave(function() {
-        if (matchMedia('only screen and (min-width: 800px)').matches) {
-          return $(this).find('.info').stop().css('marginTop', '78%');
-        } else {
-          return false;
-        }
-      }).mouseenter(function() {
-        if (matchMedia('only screen and (min-width: 800px)').matches) {
-          return $(this).find('.info').animate({
-            marginTop: '20px'
-          }, 200);
-        } else {
-          return false;
-        }
-      });
-      if (matchMedia('only screen and (max-width: 800px)')) {
-        return $(this).find('.info').stop().css('marginTop', '0');
-      }
-    };
-    $(window).resize(function() {
-      return triggerHover();
-    });
-    return triggerHover();
   });
 
 }).call(this);

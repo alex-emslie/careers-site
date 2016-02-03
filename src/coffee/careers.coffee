@@ -101,23 +101,23 @@ $ ->
   #     menuItems.removeClass('active').filter('[href=#' + id + ']').addClass 'active'
   #   $('span.current-val').text $('.nav-menu').find('.active').text()
 
-  triggerHover = ->
-    $('.value-block').mouseleave(->
-      if matchMedia('only screen and (min-width: 800px)').matches
-        $(this).find('.info').stop().css 'marginTop', '78%'
-      else
-        return false
-    ).mouseenter ->
-      if matchMedia('only screen and (min-width: 800px)').matches
-        $(this).find('.info').animate {
-          marginTop: '20px'
-        }, 200
-      else
-        return false
-    if matchMedia('only screen and (max-width: 800px)')
-      $(this).find('.info').stop().css 'marginTop', '0'
+  # triggerHover = ->
+  #   $('.value-block').mouseleave(->
+  #     if matchMedia('only screen and (min-width: 800px)').matches
+  #       $(this).find('.info').stop().css 'marginTop', '78%'
+  #     else
+  #       return false
+  #   ).mouseenter ->
+  #     if matchMedia('only screen and (min-width: 800px)').matches
+  #       $(this).find('.info').animate {
+  #         marginTop: '20px'
+  #       }, 200
+  #     else
+  #       return false
+  #   if matchMedia('only screen and (max-width: 800px)')
+  #     $(this).find('.info').stop().css 'marginTop', '0'
 
-  $(window).resize ->
-    triggerHover()
-  triggerHover()
+  # $(window).resize ->
+  #   triggerHover()
+  # triggerHover()
 

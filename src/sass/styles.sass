@@ -326,19 +326,21 @@ main
 		.entry
 			font-size: 16px
 			padding: 10px 0 2px
-			float: left
 			display: block
 			position: relative
 			font-family: $regular-font
+			width: 100%
+			@include media(min-width $mobile)
+				float: left
+				&:first-child
+					width: 55%
+				&:nth-child(2)
+					width: 15%
+				&:nth-child(3)
+					width: 30%
 			@include media(min-width $tablet)
 				font-size: 22px
 				padding: 12px 0 3px
-			&:first-child
-				width: 55%
-			&:nth-child(2)
-				width: 15%
-			&:nth-child(3)
-				width: 30%
 		.row
 			position: relative
 			.styled-select

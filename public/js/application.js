@@ -100,14 +100,18 @@
   })();
 
   $(function() {
-    var ad, filterItems, itemfilter, scrollConfig, svgs_url;
+    var ad, filterItems, itemfilter, scrollConfig, subdomain, svgs_url;
     ad = ad || {};
-    if (window.location.href.indexOf('github') >= 0) {
-      svgs_url = './assets_new/svg/svgs.svg';
-    } else if (window.location.href.indexOf('local') === -1) {
-      svgs_url = 'http://info.appdirect.com/assets_new/svg/svgs.svg';
-    } else {
-      svgs_url = '/assets_new/svg/svgs.svg';
+    subdomain = window.location.host.split('.')[0];
+    switch (subdomain) {
+      case 'www':
+        svgs_url = 'http://info.appdirect.com/assets_new/svg/svgs.svg';
+        break;
+      case 'ad-dc':
+        svgs_url = './assets_new/svg/svgs.svg';
+        break;
+      default:
+        svgs_url = '/assets_new/svg/svgs.svg';
     }
     $.get(svgs_url, function(data) {
       var div;

@@ -193,8 +193,10 @@ body
     h3
     	color: $black
     	line-height: inherit
-    	width: 80%
+    	width: 100%
     	margin: 0 auto
+    	@include media(min-width $tablet)
+    		width: 80%
     p
       @include span-columns(12)
       position: relative
@@ -207,9 +209,12 @@ body
       	@include shift(2)
   .value-block
     width: 100%
-    padding: 0 30px
+    padding: 10px 30px
     @include clearfix()
-    display: flex
+    display: block
+    @include media(min-width 800px)
+    	display: flex
+    	padding: 0 30px
     img
       width: 20%
       margin: 0
@@ -228,15 +233,20 @@ body
       border-top: 1px solid $light-gray
       border-left: 1px solid $light-gray
       padding: 0
+      @include transition(all 0.2s ease-in-out)
       &:first-child
         border-left: 1px solid transparent
       img
         width: 70%
         margin: 12% 15% 18%
+      .info
+      	margin-top: 78%
+      	@include transition(all 0.2s ease-in-out)
       &:hover
       	background-color: $white
       	.info
       		background-color: $white
+      		margin-top: 20px
       		p
       			display: block
     h4
@@ -249,11 +259,11 @@ body
     .info
       background-color: $cool-white
       position: relative
-      width: 85%
+      width: 80%
       display: block
       float: left
       padding-left: 5%
-      top: 63px
+      top: 0
       height: 100%
       margin-top: 0
       @include justify-content(center)
@@ -444,7 +454,8 @@ body
 			@include shift(6)
 	&.right
 		.copy
-			@include shift(1)
+			@include media(min-width $tablet)
+				@include shift(1)
 .photo-carousel
 	overflow: auto
 	@include media(min-width $tablet)

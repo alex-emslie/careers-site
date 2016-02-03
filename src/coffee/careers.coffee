@@ -67,39 +67,39 @@ $ ->
   $('.close').click ->
     emptyIframe()
 
-  # Cache selectors
-  lastId = undefined
-  topMenu = $('.main-nav')
-  menuItems = topMenu.find('a')
-  scrollItems = menuItems.map(->
-    item = $($(this).attr('href'))
-    if item.length
-      return item
-  )
-  # Bind click handler to menu items
-  # so we can get a fancy scroll animation
-  menuItems.click (e) ->
-    href = $(this).attr('href')
-    offsetTop = if href == '#' then 0 else $(href).offset().top - topMenu.outerHeight() + 1
-    $('html, body').stop().animate { scrollTop: offsetTop }, 650
-    e.preventDefault()
-  # Bind to scroll
-  $(window).scroll ->
-    # Get container scroll position
-    fromTop = $(this).scrollTop() + topMenu.outerHeight()
-    # Get id of current scroll item
-    cur = scrollItems.map(->
-      if $(this).offset().top < fromTop
-        return this
-    )
-    # Get the id of the current element
-    cur = cur[cur.length - 1]
-    id = if cur and cur.length then cur[0].id else ''
-    if lastId != id
-      lastId = id
-      # Set/remove active class
-      menuItems.removeClass('active').filter('[href=#' + id + ']').addClass 'active'
-    $('span.current-val').text $('.nav-menu').find('.active').text()
+  # # Cache selectors
+  # lastId = undefined
+  # topMenu = $('.main-nav')
+  # menuItems = topMenu.find('a')
+  # scrollItems = menuItems.map(->
+  #   item = $($(this).attr('href'))
+  #   if item.length
+  #     return item
+  # )
+  # # Bind click handler to menu items
+  # # so we can get a fancy scroll animation
+  # menuItems.click (e) ->
+  #   href = $(this).attr('href')
+  #   offsetTop = if href == '#' then 0 else $(href).offset().top - topMenu.outerHeight() + 1
+  #   $('html, body').stop().animate { scrollTop: offsetTop }, 650
+  #   e.preventDefault()
+  # # Bind to scroll
+  # $(window).scroll ->
+  #   # Get container scroll position
+  #   fromTop = $(this).scrollTop() + topMenu.outerHeight()
+  #   # Get id of current scroll item
+  #   cur = scrollItems.map(->
+  #     if $(this).offset().top < fromTop
+  #       return this
+  #   )
+  #   # Get the id of the current element
+  #   cur = cur[cur.length - 1]
+  #   id = if cur and cur.length then cur[0].id else ''
+  #   if lastId != id
+  #     lastId = id
+  #     # Set/remove active class
+  #     menuItems.removeClass('active').filter('[href=#' + id + ']').addClass 'active'
+  #   $('span.current-val').text $('.nav-menu').find('.active').text()
 
   triggerHover = ->
     $('.value-block').mouseleave(->

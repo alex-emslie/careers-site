@@ -1,6 +1,6 @@
 (function() {
   $(function() {
-    var emptyIframe, filterItems, itemfilter, lastId, loadWistia, menuItems, scrollItems, topMenu, triggerHover;
+    var emptyIframe, filterItems, itemfilter, loadWistia, triggerHover;
     $.get("/svgs/svgs.svg", function(data) {
       var div;
       div = document.createElement("div");
@@ -68,41 +68,6 @@
     };
     $('.close').click(function() {
       return emptyIframe();
-    });
-    lastId = void 0;
-    topMenu = $('.main-nav');
-    menuItems = topMenu.find('a');
-    scrollItems = menuItems.map(function() {
-      var item;
-      item = $($(this).attr('href'));
-      if (item.length) {
-        return item;
-      }
-    });
-    menuItems.click(function(e) {
-      var href, offsetTop;
-      href = $(this).attr('href');
-      offsetTop = href === '#' ? 0 : $(href).offset().top - topMenu.outerHeight() + 1;
-      $('html, body').stop().animate({
-        scrollTop: offsetTop
-      }, 650);
-      return e.preventDefault();
-    });
-    $(window).scroll(function() {
-      var cur, fromTop, id;
-      fromTop = $(this).scrollTop() + topMenu.outerHeight();
-      cur = scrollItems.map(function() {
-        if ($(this).offset().top < fromTop) {
-          return this;
-        }
-      });
-      cur = cur[cur.length - 1];
-      id = cur && cur.length ? cur[0].id : '';
-      if (lastId !== id) {
-        lastId = id;
-        menuItems.removeClass('active').filter('[href=#' + id + ']').addClass('active');
-      }
-      return $('span.current-val').text($('.nav-menu').find('.active').text());
     });
     triggerHover = function() {
       $('.value-block').mouseleave(function() {

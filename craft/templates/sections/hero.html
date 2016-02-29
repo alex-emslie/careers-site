@@ -7,6 +7,7 @@
 			<h1>{{ matrixBlock.tagline }}</h1>
 			<h2>{{ matrixBlock.introText }}</h2>
 			{% if matrixBlock.primaryButton|length %}
+				<a class="light button video-launch"  href="https://appdirect.wistia.com/medias/yeutv91p59" title="yeutv91p59">Watch Video</a>
 				{% set link = matrixBlock.primaryButton %}
 				<a href="{{ link.url }}" class="button light" >{{ link.linkText }}</a>
 			{% endif %}

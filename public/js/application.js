@@ -100,7 +100,7 @@
   })();
 
   $(function() {
-    var ad, filterItems, itemfilter, scrollConfig, svgs_url;
+    var _hsq, ad, filterItems, itemfilter, scrollConfig, svgs_url;
     ad = ad || {};
     if (window.location.href.indexOf('github') >= 0) {
       svgs_url = './assets_new/svg/svgs.svg';
@@ -159,6 +159,16 @@
       var text;
       text = $(this).attr("data-eventname");
       return _gaq.push(['_trackEvent', text]);
+    });
+    _hsq = window._hsq = window._hsq || [];
+    $('*[data-hubsp-eventname]').on("click", function(e) {
+      var eventname;
+      eventname = $(this).attr("data-hubsp-eventname");
+      return _hsq.push([
+        "trackEvent", {
+          id: eventname
+        }
+      ]);
     });
     ad.replaceGifs = function() {
       if (matchMedia('only screen and (min-width: 750px)').matches) {

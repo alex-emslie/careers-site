@@ -4,7 +4,7 @@ removeVideo = ->
 
 replaceVideo = ->
   if $('#headerVid').length == 0 && $('.videoContainer').length > 0
-    $('.videoContainer').append($('<video class="video" id="headerVid" loop="true" muted="true" poster="/imgs/hero-placeholder.jpg" autoplay="true" ><!--autobuffer="true"-->
+    $('.videoContainer').append($('<video class="video" id="headerVid" loop="true" muted="true" poster="/imgs/video/hero-poster.jpg" autoplay="true" ><!--autobuffer="true"-->
       <source src="https://embedwistia-a.akamaihd.net/deliveries/31b454f384b84f0e5254f7f86f207e1a66e54038/file.mp4" type="video/mp4" media="all and (min-width: 600px)">
     </video>'))
     $('.video').animate { opacity: 1}, 'slow'
@@ -12,7 +12,6 @@ replaceVideo = ->
 runBreakpoints = ->
   if matchMedia('only screen and (min-width: 750px)').matches
     replaceVideo()
-    replaceGifs()
   if matchMedia('only screen and (max-width: 750px)').matches
     removeVideo()
 

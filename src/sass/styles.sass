@@ -31,17 +31,17 @@ html:not(.mobile-true) #bottom-bar img
 
 
 body
-	overflow-x: hidden
-	background-color: $white
-	margin: 0
-	padding: 0
-	&.nav-active
-		overflow: hidden
-		margin-right: 15px
-		nav
-			padding-right: 15px
+  overflow-x: hidden
+  background-color: $white
+  margin: 0
+  padding: 0
+  &.nav-active
+    overflow: hidden
+    margin-right: 15px
+    nav
+      padding-right: 15px
 main
-	z-index: 3
+  z-index: 3
 .flex
   height: 100%
   @include display(flex)
@@ -52,78 +52,78 @@ main
     bottom: inherit !important
 
 .hero
-	background-size: cover
-	height: 100vh
-	position: relative
-	@include media(min-width $mobile)
-		height: 800px
-	.one-half
-		height: 100%
-		.copy
-			position: absolute
-			bottom: 30px
-			color: $white
-			padding: 30px
-			@include media(min-width $mobile)
-				bottom: 80px
-			.button
-				margin-right: 15px
-	&.six
-		.one-half
-			@include span-columns(12)
-			@include media(min-width $tablet)
-				@include span-columns(6)
-				@include shift(1)
-	&.seven
-		.one-half
-			@include span-columns(12)
-			@include media(min-width $tablet)
-				@include span-columns(7)
-				@include shift(1)
+  background-size: cover
+  height: 100vh
+  position: relative
+  @include media(min-width $mobile)
+    height: 800px
+  .one-half
+    height: 100%
+    .copy
+      position: absolute
+      bottom: 30px
+      color: $white
+      padding: 30px
+      @include media(min-width $mobile)
+        bottom: 80px
+      .button
+        margin-right: 15px
+  &.six
+    .one-half
+      @include span-columns(12)
+      @include media(min-width $tablet)
+        @include span-columns(6)
+        @include shift(1)
+  &.seven
+    .one-half
+      @include span-columns(12)
+      @include media(min-width $tablet)
+        @include span-columns(7)
+        @include shift(1)
 .columns
-	.one-quarter
-		position: relative
-	h3
-		text-align: center
-		color: $white
-		position: relative
-		margin-top: 20px
-	&.large-icon
-		.one-half
-			svg
-			 height: 50%
-			&.large
-				height: 325px
-				@include media(min-width $mobile)
-					height: 650px
-	.tile
-		@include display(flex)
-		@include justify-content(center)
-		@include align-items(center)
-		@include background-theme("dark", true, $angle: 45deg)
-		height: 100%
-		width: 100%
-	.title
-		position: absolute
-		bottom: 30px
-		width: 100%
-		@include media(min-width $mobile)
-			bottom: 50px
-	&.half-video
-		.button
-			position: absolute
-			bottom: 30px
-			left: 30px
-			padding: 1em 3.75em 1em
-			@include media(min-width $tablet)
-				bottom: 70px
-				left: 70px
-		.cover
-			background: url(../imgs/video-callout.jpg)
-			background-size: cover
-			height: 650px
-		.one-half
-			background-color: #fff
+  .one-quarter
+    position: relative
+  h3
+    text-align: center
+    color: $white
+    position: relative
+    margin-top: 20px
+  &.large-icon
+    .one-half
+      svg
+       height: 50%
+      &.large
+        height: 325px
+        @include media(min-width $mobile)
+          height: 650px
+  .tile
+    @include display(flex)
+    @include justify-content(center)
+    @include align-items(center)
+    @include background-theme("dark", true, $angle: 45deg)
+    height: 100%
+    width: 100%
+  .title
+    position: absolute
+    bottom: 30px
+    width: 100%
+    @include media(min-width $mobile)
+      bottom: 50px
+  &.half-video
+    .button
+      position: absolute
+      bottom: 30px
+      left: 30px
+      padding: 1em 3.75em 1em
+      @include media(min-width $tablet)
+        bottom: 70px
+        left: 70px
+    .cover
+      background: url(../imgs/video-callout.jpg)
+      background-size: cover
+      height: 650px
+    .one-half
+      background-color: #fff
 .three-video
   background-color: $black
   .video-image
@@ -145,6 +145,17 @@ main
       bottom: 40px
       left: 50%
       margin-left: -79px
+      padding-left: 39px
+      background: rgba(0,0,0,0.6)
+      .play
+        position: absolute
+        width: 0
+        height: 0
+        border-style: solid
+        border-width: 7px 0 7px 10px
+        border-color: transparent transparent transparent #fff
+        left: 20px
+        top: 17px 
   .video-quote
     padding: $mobile-padding
     color: $white
@@ -155,7 +166,7 @@ main
     @include media(min-width 1200px)
       @include span-columns(12)
     strong
-    	color: $blue
+      color: $blue
   &.icon
     background-color: $cool-white
     display: none
@@ -165,15 +176,15 @@ main
       text-align: center
       padding-bottom: 5%
       img
-      	margin: 20% 20% 0
+        margin: 20% 20% 0
       h3
-      	text-transform: uppercase
-      	color: $black
+        text-transform: uppercase
+        color: $black
       h4
-      	text-transform: uppercase
-      	color: $light-gray
+        text-transform: uppercase
+        color: $light-gray
     .one-third
-    	@include span-columns(4)
+      @include span-columns(4)
     &:not(:last-child)
       border-right: 1px solid $light-gray
   .one-third
@@ -186,38 +197,38 @@ main
 .values-module
   position: relative
   .row
-  	background-color: $cool-white
+    background-color: $cool-white
   .text
     padding: $mobile-padding
     h1
       text-align: left
       @include media(min-width $tablet)
-      	text-align: center
+        text-align: center
     h3
-    	color: $black
-    	line-height: inherit
-    	width: 100%
-    	margin: 0 auto
-    	@include media(min-width $tablet)
-    		width: 80%
+      color: $black
+      line-height: inherit
+      width: 100%
+      margin: 0 auto
+      @include media(min-width $tablet)
+        width: 80%
     p
       @include span-columns(12)
       position: relative
       text-align: left
       padding: 0
       @include media(min-width $tablet)
-      	@include span-columns(8)
-      	padding: 0 0 50px
-      	text-align: center
-      	@include shift(2)
+        @include span-columns(8)
+        padding: 0 0 50px
+        text-align: center
+        @include shift(2)
   .value-block
     width: 100%
     padding: 10px 30px
     @include clearfix()
     display: block
     @include media(min-width 800px)
-    	display: flex
-    	padding: 0 30px
+      display: flex
+      padding: 0 30px
     img
       width: 20%
       margin: 0
@@ -243,22 +254,22 @@ main
         width: 70%
         margin: 12% 15% 18%
       .info
-      	margin-top: 78%
-      	@include transition(all 0.2s ease-in-out)
+        margin-top: 78%
+        @include transition(all 0.2s ease-in-out)
       &:hover
-      	background-color: $white
-      	.info
-      		background-color: $white
-      		margin-top: 20px
-      		p
-      			display: block
+        background-color: $white
+        .info
+          background-color: $white
+          margin-top: 20px
+          p
+            display: block
     h4
       color: $blue
       font-size: 18px
       text-transform: uppercase
       text-align: center
       @include media(min-width $tablet)
-      	font-size: 24px
+        font-size: 24px
     .info
       background-color: $cool-white
       position: relative
@@ -292,231 +303,231 @@ main
     @include clearfix()
 
 .jobs-table
-	padding: 60px 40px 60px 40px
-	position: relative
-	width: 100%
-	margin-left: 0
-	@include media(min-width $tablet)
-		width: 83.33%
-		margin-left: 8.33%
-		padding: 60px 0
-	h4
-		&.positions
-			position: absolute
-			margin-top: 18px
-	.text-inline-filter
-		display: none
-		@include media(min-width $mobile)
-			display: block
-			padding: 20px 0
-			&.on-white
-				h2
-					color: $black
-					padding: 0 0 20px
+  padding: 60px 40px 60px 40px
+  position: relative
+  width: 100%
+  margin-left: 0
+  @include media(min-width $tablet)
+    width: 83.33%
+    margin-left: 8.33%
+    padding: 60px 0
+  h4
+    &.positions
+      position: absolute
+      margin-top: 18px
+  .text-inline-filter
+    display: none
+    @include media(min-width $mobile)
+      display: block
+      padding: 20px 0
+      &.on-white
+        h2
+          color: $black
+          padding: 0 0 20px
 
-	.chosen-drop
-		li
-			font-size: 0.6em
-	.chosen-results
-		border-radius: 1px
-	#jobs
-		width: 100%
-		@extend %thin-headline
-		.row
-			border-bottom: 1px solid #dfe0e0
-			@include clearfix()
-		.entry
-			font-size: 16px
-			padding: 10px 0 2px
-			display: block
-			position: relative
-			font-family: $regular-font
-			width: 100%
-			&:nth-child(3)
-				padding: 10px 0 10px
-			@include media(min-width $mobile)
-				float: left
-				&:first-child
-					width: 55%
-				&:nth-child(2)
-					width: 15%
-				&:nth-child(3)
-					width: 30%
-			@include media(min-width $tablet)
-				font-size: 22px
-				padding: 12px 0 3px
-		.row
-			position: relative
-			.styled-select
-				overflow: hidden
-				position: relative
-				margin-bottom: 20px
-				select
-					display: block
-					height: 30px
-					left: 0
-					width: 130px
-					background-color: transparent
-					border-radius: 0
-					padding: 7px 7px 5px
-					font-size: 12px
-					color: #3f4041
-					font-weight: bold
-					text-transform: uppercase
-					@include media(min-width $tablet)
-						width: 230px
-						height: 60px
-						padding: 15px 15px 10px
-						font-size: inherit
-	@include media(max-width $mobile)
-		padding: $mobile-padding
-		table.responsive
-		  margin-bottom: 0
+  .chosen-drop
+    li
+      font-size: 0.6em
+  .chosen-results
+    border-radius: 1px
+  #jobs
+    width: 100%
+    @extend %thin-headline
+    .row
+      border-bottom: 1px solid #dfe0e0
+      @include clearfix()
+    .entry
+      font-size: 16px
+      padding: 10px 0 2px
+      display: block
+      position: relative
+      font-family: $regular-font
+      width: 100%
+      &:nth-child(3)
+        padding: 10px 0 10px
+      @include media(min-width $mobile)
+        float: left
+        &:first-child
+          width: 55%
+        &:nth-child(2)
+          width: 15%
+        &:nth-child(3)
+          width: 30%
+      @include media(min-width $tablet)
+        font-size: 22px
+        padding: 12px 0 3px
+    .row
+      position: relative
+      .styled-select
+        overflow: hidden
+        position: relative
+        margin-bottom: 20px
+        select
+          display: block
+          height: 30px
+          left: 0
+          width: 130px
+          background-color: transparent
+          border-radius: 0
+          padding: 7px 7px 5px
+          font-size: 12px
+          color: #3f4041
+          font-weight: bold
+          text-transform: uppercase
+          @include media(min-width $tablet)
+            width: 230px
+            height: 60px
+            padding: 15px 15px 10px
+            font-size: inherit
+  @include media(max-width $mobile)
+    padding: $mobile-padding
+    table.responsive
+      margin-bottom: 0
 
-		.pinned
-		  position: absolute
-		  left: 0
-		  top: 0
-		  background: #fff
-		  width: 35%
-		  overflow: hidden
-		  overflow-x: scroll
-		  border-right: 1px solid #ccc
-		  border-left: 1px solid #ccc
+    .pinned
+      position: absolute
+      left: 0
+      top: 0
+      background: #fff
+      width: 35%
+      overflow: hidden
+      overflow-x: scroll
+      border-right: 1px solid #ccc
+      border-left: 1px solid #ccc
 
-		.pinned 
-			table
-			  border-right: none
-			  border-left: none
-			  width: 100%
+    .pinned 
+      table
+        border-right: none
+        border-left: none
+        width: 100%
 
-		.pinned 
-			table 
-				th, td
-		  		white-space: nowrap
+    .pinned 
+      table 
+        th, td
+          white-space: nowrap
 
-		.pinned 
-			td:last-child
-		  	border-bottom: 0
+    .pinned 
+      td:last-child
+        border-bottom: 0
 
-		.table-wrapper
-		  position: relative
-		  margin-bottom: 20px
-		  overflow: hidden
-		  border-right: 1px solid #ccc
+    .table-wrapper
+      position: relative
+      margin-bottom: 20px
+      overflow: hidden
+      border-right: 1px solid #ccc
 
-		.table-wrapper 
-			.scrollable
-		  	margin-left: 35%
+    .table-wrapper 
+      .scrollable
+        margin-left: 35%
 
-		.table-wrapper 
-			.scrollable
-		  	overflow: scroll
-		  	overflow-y: hidden
+    .table-wrapper 
+      .scrollable
+        overflow: scroll
+        overflow-y: hidden
 
-		.responsive 
-			td, th 
-			  position: relative
-			  white-space: nowrap
-			  overflow: hidden
+    .responsive 
+      td, th 
+        position: relative
+        white-space: nowrap
+        overflow: hidden
 
 
 .half-quad-icon
-	.one-half
-		background-color: $white
+  .one-half
+    background-color: $white
 .block-label
-	margin: 0 0 30px 0
+  margin: 0 0 30px 0
 
 .half-icon
-	img
-		width: 100%
-	.copy
-		@include span-columns(12)
-		padding: $mobile-padding
-		@include media(min-width $tablet)
-			@include span-columns(4 of 6)
-			@include shift(1)
-			padding: 60px 0 0 0
+  img
+    width: 100%
+  .copy
+    @include span-columns(12)
+    padding: $mobile-padding
+    @include media(min-width $tablet)
+      @include span-columns(4 of 6)
+      @include shift(1)
+      padding: 60px 0 0 0
 
 .full-video
-	background: url(../imgs/careers-hero.jpg)
-	background-size: cover
-	height: auto
-	position: relative
-	@include media(min-width $tablet)
-		height: 650px
-	h1
-		color: $white
-	.copy
-		position: relative
-		bottom: inherit
-		padding: $mobile-padding
-		@include span-columns(12)
-		@include media(min-width $tablet)
-			@include span-columns(7)
-			position: absolute
-			bottom: 80px
-			padding: 0 20px
-	p
-		color: $white
-	&.left
-		.copy
-			@include shift(6)
-	&.right
-		.copy
-			@include media(min-width $tablet)
-				@include shift(1)
+  background: url(../imgs/careers-hero.jpg)
+  background-size: cover
+  height: auto
+  position: relative
+  @include media(min-width $tablet)
+    height: 650px
+  h1
+    color: $white
+  .copy
+    position: relative
+    bottom: inherit
+    padding: $mobile-padding
+    @include span-columns(12)
+    @include media(min-width $tablet)
+      @include span-columns(7)
+      position: absolute
+      bottom: 80px
+      padding: 0 20px
+  p
+    color: $white
+  &.left
+    .copy
+      @include shift(6)
+  &.right
+    .copy
+      @include media(min-width $tablet)
+        @include shift(1)
 .photo-carousel
-	overflow: auto
-	@include media(min-width $tablet)
-		.photo-description
-			@include span-columns(6)
-			background-color: $white
-		.arrow.right
-			right: 54.2%
-	.arrow
-		display: none
-		@include media(min-width $tablet)
-			display: block
+  overflow: auto
+  @include media(min-width $tablet)
+    .photo-description
+      @include span-columns(6)
+      background-color: $white
+    .arrow.right
+      right: 54.2%
+  .arrow
+    display: none
+    @include media(min-width $tablet)
+      display: block
 #photo-carousel
-	@include media(min-width $tablet)
-		@include span-columns(6)
+  @include media(min-width $tablet)
+    @include span-columns(6)
 
 .seven-five
-	@include media(min-width $tablet)
-		&.picture-is-bigger
-			.seven-five-text
-				@include span-columns(6)
-				.copy
-					@include span-columns(4 of 6)
-					@include shift(1)
-			.seven-five-picture
-				@include span-columns(6)
-		&.text-is-bigger
-			.seven-five-text
-				@include span-columns(7)
-				.copy
-					@include span-columns(5 of 7)
-					@include shift(1)
-			.seven-five-picture
-				@include span-columns(5)
-	.seven-five-picture
+  @include media(min-width $tablet)
+    &.picture-is-bigger
+      .seven-five-text
+        @include span-columns(6)
+        .copy
+          @include span-columns(4 of 6)
+          @include shift(1)
+      .seven-five-picture
+        @include span-columns(6)
+    &.text-is-bigger
+      .seven-five-text
+        @include span-columns(7)
+        .copy
+          @include span-columns(5 of 7)
+          @include shift(1)
+      .seven-five-picture
+        @include span-columns(5)
+  .seven-five-picture
     background-size: cover
     min-height: 400px
     @include span-columns(12)
     @include media(min-width $tablet)
-    	min-height: 650px
-	.copy
-		padding: $mobile-padding
-		@include media(min-width $tablet)
-			padding: 60px 0 0 0
-	&.dark
-		background: $black
-		color: $white
-	.seven-five-text
-		position: relative
-		display: block
-		float: left
+      min-height: 650px
+  .copy
+    padding: $mobile-padding
+    @include media(min-width $tablet)
+      padding: 60px 0 0 0
+  &.dark
+    background: $black
+    color: $white
+  .seven-five-text
+    position: relative
+    display: block
+    float: left
 
 footer
   position: relative
@@ -526,7 +537,7 @@ footer
   z-index: 0 !important
   display: block
 .modal-backdrop.in
-	display: none
+  display: none
 .modal-open
-	nav
-		position: static
+  nav
+    position: static

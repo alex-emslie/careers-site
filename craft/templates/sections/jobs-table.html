@@ -21,17 +21,21 @@
                 <div class="filter-wrapper">
 									<select class="js-replace-select filter-select" data-filter="team">
 										<option value="All Teams" class="default"><a href="#">all teams</a></option>
-										{% for teamEntry in craft.entries.section('teams') %}
-											<option value="{{ teamEntry.title }}"><a href="#">{{ teamEntry.title }}</a></option>
-										{% endfor %}
+											{% set teamEntryIds = craft.entries.section('jobs').ids() %}
+											{% set teams = craft.entries.order('title').section('teams').relatedTo({ sourceElement: teamEntryIds }).groupId(1).find()  %}
+											{% for team in teams %}
+												<option value="{{ team.title }}">{{ team.title }}</option>
+											{% endfor %}
 									</select>
                 </div>
                 and
                 <div class="filter-wrapper">
 									<select class="js-replace-select filter-select" data-filter="location">
 										<option value="All Locations" class="default"><a href="#">all locations</a></option>
-									{% for locationEntry in craft.entries.section('locations') %}
-										<option value="{{ locationEntry.title }}">{{ locationEntry.title }}</option>
+									{% set locationEntryIds = craft.entries.section('jobs').ids() %}
+									{% set locations = craft.entries.order('title').section('locations').relatedTo({ sourceElement: locationEntryIds }).groupId(1).find() %}
+									{% for location in locations %}
+										<option value="{{ location.title }}">{{ location.title }}</option>
 									{% endfor %}
 									</select>
                 </div>

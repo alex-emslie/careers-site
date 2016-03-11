@@ -184,7 +184,7 @@
     };
     ad.replaceVideo = function() {
       if ($('#headerVid').length === 0 && $('.videoContainer').length > 0) {
-        $('.videoContainer').append($('<video class="video" id="headerVid" loop="true" muted="true" poster="http://info.appdirect.com/assets_new/imgs/video_placeholder.jpg" autoplay="true" ><!--autobuffer="true"--> <source src="https://embed-ssl.wistia.com/deliveries/47d64fae619ed832386cbd85f40504fb23a3141a/file.mp4" type="video/mp4" media="all and (min-width: 600px)"> </video>'));
+        $('.videoContainer').append($('<video class="video" id="headerVid" loop="true" muted="true" poster="http://www.appdirect.com/assets_new/imgs/video_placeholder.jpg" autoplay="true" ><!--autobuffer="true"--> <source src="https://embed-ssl.wistia.com/deliveries/47d64fae619ed832386cbd85f40504fb23a3141a/file.mp4" type="video/mp4" media="all and (min-width: 600px)"> </video>'));
         return $('.video').animate({
           opacity: 1
         }, 'slow');

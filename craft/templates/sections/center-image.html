@@ -1,0 +1,6 @@
+<section class="center-image" style="background-color: {{ matrixBlock.backgroundColor }};">
+    <div class="image">
+        {% if matrixBlock.illustration.first()|length %}
+        <img src="{{ matrixBlock.illustration.first().url }}" /> {% endif %}
+    </div>
+</section>

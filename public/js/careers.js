@@ -1,4 +1,30 @@
 (function() {
+  var removeVideo, replaceVideo, runBreakpoints;
+
+  removeVideo = function() {
+    if ($('#headerVid').length > 0) {
+      return $('#headerVid').remove();
+    }
+  };
+
+  replaceVideo = function() {
+    if ($('#headerVid').length === 0 && $('.videoContainer').length > 0) {
+      $('.videoContainer').append($('<video class="video" id="headerVid" loop="true" muted="true" poster="/imgs/video/hero-poster.jpg" autoplay="true" ><!--autobuffer="true"--> <source src="https://embedwistia-a.akamaihd.net/deliveries/31b454f384b84f0e5254f7f86f207e1a66e54038/file.mp4" type="video/mp4" media="all and (min-width: 600px)"> </video>'));
+      return $('.video').animate({
+        opacity: 1
+      }, 'slow');
+    }
+  };
+
+  runBreakpoints = function() {
+    if (matchMedia('only screen and (min-width: 750px)').matches) {
+      replaceVideo();
+    }
+    if (matchMedia('only screen and (max-width: 750px)').matches) {
+      return removeVideo();
+    }
+  };
+
   $(function() {
     var emptyIframe, filterItems, itemfilter, loadWistia;
     $.get("/svgs/svgs.svg", function(data) {
@@ -11,6 +37,10 @@
     });
     $('.js-replace-select').chosen({
       width: 'auto'
+    });
+    runBreakpoints();
+    $(window).resize(function() {
+      return runBreakpoints();
     });
     $('.menu-burger, .menu-items').on('click', function() {
       $('.menu-bg, .menu-items, .menu-burger, .mobile-nav .logo').toggleClass('fs');

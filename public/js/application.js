@@ -100,7 +100,7 @@
   })();
 
   $(function() {
-    var _hsq, ad, filterItems, itemfilter, scrollConfig, svgs_url;
+    var ad, filterItems, itemfilter, scrollConfig, svgs_url;
     ad = ad || {};
     if (window.location.href.indexOf('github') >= 0) {
       svgs_url = './assets_new/svg/svgs.svg';
@@ -160,16 +160,6 @@
       text = $(this).attr("data-eventname");
       return _gaq.push(['_trackEvent', text]);
     });
-    _hsq = window._hsq = window._hsq || [];
-    $('*[data-hubsp-eventname]').on("click", function(e) {
-      var eventname;
-      eventname = $(this).attr("data-hubsp-eventname");
-      return _hsq.push([
-        "trackEvent", {
-          id: eventname
-        }
-      ]);
-    });
     ad.replaceGifs = function() {
       if (matchMedia('only screen and (min-width: 750px)').matches) {
         return $('img.js-delay-gif').each(function(index) {
@@ -184,7 +174,7 @@
     };
     ad.replaceVideo = function() {
       if ($('#headerVid').length === 0 && $('.videoContainer').length > 0) {
-        $('.videoContainer').append($('<video class="video" id="headerVid" loop="true" muted="true" poster="http://www.appdirect.com/assets_new/imgs/video_placeholder.jpg" autoplay="true" ><!--autobuffer="true"--> <source src="https://embed-ssl.wistia.com/deliveries/47d64fae619ed832386cbd85f40504fb23a3141a/file.mp4" type="video/mp4" media="all and (min-width: 600px)"> </video>'));
+        $('.videoContainer').append($('<video class="video" id="headerVid" loop="true" muted="true" poster="http://info.appdirect.com/assets_new/imgs/video_placeholder.jpg" autoplay="true" ><!--autobuffer="true"--> <source src="https://embed-ssl.wistia.com/deliveries/47d64fae619ed832386cbd85f40504fb23a3141a/file.mp4" type="video/mp4" media="all and (min-width: 600px)"> </video>'));
         return $('.video').animate({
           opacity: 1
         }, 'slow');

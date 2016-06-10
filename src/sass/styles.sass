@@ -353,6 +353,9 @@ $videooffset: 0px
     @include clearfix()
 
 .center-image
+  display: none
+  @include media(min-width $mobile)
+    display: block
   .image-container
     background-color: #F5F8F7
     border-bottom: 4px solid $black
